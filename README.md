@@ -2,6 +2,8 @@
 A Short Chinese Introduction to Zotero
 我自己在用Zotero的方式，简单分享一下。
 
+上传tex文件
+
 Ezotero_intro为更新版本，在zotero_intro基础上修改，用ElegantBook模板制作。
 
 更新了常见问题。
