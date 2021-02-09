@@ -11,4 +11,4 @@ Ezotero_intro为更新版本，在zotero_intro基础上修改，用ElegantBook�
 详情可参见我的知乎主页：https://zhuanlan.zhihu.com/c_1071081428967743488
 
 
-有问题请留言，或发Email：redleafnew#163.com
+有问题请留言，发Email：redleafnew#163.com或加入QQ群讨论：913637964。
