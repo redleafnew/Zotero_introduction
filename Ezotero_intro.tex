@@ -5,8 +5,8 @@
 	
 	\author{韩敏义}
 	\institute{南京农业大学\\\kaishu\hspace{1.1cm}温氏食品集团股份有限公司}
-	\date{January 15, 2021}
-	\version{1.13}
+	\date{February 18, 2021}
+	\version{1.20}
 	%\bioinfo{自定义}{信息}
 	%\extrainfo{Victory won\rq t come to us unless we go to it. --- M. Moore}
 	
@@ -76,7 +76,10 @@
 		 captionpos=b
 	  }
 	  
-	  \usepackage[parfill]{parskip}
+	\usepackage[os=win]{menukeys} %使用目录、菜单、按键
+		\renewmenumacro{\menu}[-]{menus} %将默认的>改为-
+		\newmenumacro{\winpath}[bslash]{pathswithfolder} %修改为winpath
+	\usepackage{indentfirst}
 \begin{document}
 
  
@@ -107,7 +110,10 @@
 		本文档在\href{http://tug.org/texlive/}{\TeX{} Live 2020} 环境下用\href{https://code.visualstudio.com/}{Visual Studio Code}
 		中编辑，使用了\href{https://elegantlatex.org/}{ElegantBook的书籍模板}在此致谢；
 		如发现问题请反馈至\href{mailto:redleafnew@163.com}{redleafnew@163.com}，
-		或关注我的知乎专栏\href{https://zhuanlan.zhihu.com/c_1071081428967743488}{软件随心}，谢谢。
+		或关注我的知乎专栏\href{https://zhuanlan.zhihu.com/c_1071081428967743488}{软件随心}，
+		访问\href{https://github.com/redleafnew/Chinese-std-GB-T-7714-related-csl}
+		{https://github.com/redleafnew/Chinese-std-GB-T-7714-related-csl}
+		找到更多的GB/T 7714相关的csl以及Zotero使用技巧及教程，谢谢。
 
 \tableofcontents
 %\listofchanges
@@ -117,278 +123,285 @@
 \chapter[Zotero下载安装及题录导入]{Zotero下载安装及题录导入\footnote{以下介绍的Zotero都是基于英文界面操作，
   		大家可以方便地根据截图找到相应的中文界面位置。}}\label{ch:install}
 	\section{Zotero的安装} 
-	Zotero原来是基于Firefox浏览器的一个插件，现在有基于桌面的独立安装版。Zotero支持现在常见的操作系统，
-	如Windows、Linux及MacOS。
-	可以到\url{https://www.zotero.org/download/}去下载相应操作系统及位数的安装包。
-	这里以Windowns 10 64位版本的安装文件为例进行说明。
-	\begin{enumerate}
-		\item 双击下载的安装文件，如Zotero-x.x.x\_setup.exe(x为具体的版本号，\autoref{fig:package})，
-		首先会显示正在解压的界面，如\autoref{fig:extracting}所示，
-		如果出现用户帐户控制，点击“是”，如\autoref{fig:userControl}：
-		\begin{figure}[htbp]
-			\centering
-			\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
+		Zotero原来是基于Firefox浏览器的一个插件，现在有基于桌面的独立安装版。Zotero支持现在常见的操作系统，
+		如Windows、Linux及MacOS。
+		可以到\url{https://www.zotero.org/download/}去下载相应操作系统及位数的安装包。
+		这里以Windowns 10 64位版本的安装文件为例进行说明。
+		\begin{enumerate}
+			\item 双击下载的安装文件，如Zotero-x.x.x\_setup.exe(x为具体的版本号，\autoref{fig:package})，
+			首先会显示正在解压的界面，如\autoref{fig:extracting}所示，
+			如果出现用户帐户控制，点击\menu{是}，如\autoref{fig:userControl}：
+			\begin{figure}[htbp]
 				\centering
-				\includegraphics[width=0.3\linewidth]{package}
-				\caption{下载的安装包}
-				\label{fig:package}
-			\end{minipage}
-			\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
-				\centering
-				\includegraphics[scale=1.4]{extracting}
-				\caption{安装文件解压界面}
-				\label{fig:extracting}
-			\end{minipage}
-		\end{figure}
-		
-			\item 然后出现安装向导，如\autoref{fig:installwiz1}所示，点击下一步。
-				%fig user control
-				\begin{figure}[htbp]
+				\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
 					\centering
-					\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
+					\includegraphics[width=0.3\linewidth]{package}
+					\caption{下载的安装包}
+					\label{fig:package}
+				\end{minipage}
+				\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
+					\centering
+					\includegraphics[scale=1.4]{extracting}
+					\caption{安装文件解压界面}
+					\label{fig:extracting}
+				\end{minipage}
+			\end{figure}
+			
+				\item 然后出现安装向导，如\autoref{fig:installwiz1}所示，\menu{下一步}。
+					%fig user control
+					\begin{figure}[htbp]
 						\centering
-						\includegraphics[scale = 1.3]{ch1userControl}
-						\caption{用户帐户控制}
-						\label{fig:userControl}
-					\end{minipage}
-					\hspace{1em}		
-					\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
-						\centering
-						\includegraphics[scale = 0.8]{installwiz1}
-						\caption{安装向导第一步}
-						\label{fig:installwiz1}
-					\end{minipage}
-				\end{figure}
-			\item 接下来选择安装类型，如\autoref{fig:installType},
-			一般选择Standard(标准)就可以，如果有兴趣也可以选择Custom(定制)，
-			选择Custom在点下一步会提示可以修改安装目录
-			(默认安装目录为\path{C:\Program Files (x86)\Zotero} )以及是否在桌面上及
-			开始菜单的程序组中放置图标。
-			\item 选择Standard后点击下一步提示安装目录为\path{C:\Program Files (x86)\Zotero}，
-			此处无法修改安装目录，
-			如\autoref{fig:ch1StartInstall}。如果要修改需要在上一步选择Custom选项。
-			\item 此时信息已经收集完毕，点击Install(安装)就开始安装了，如\autoref{fig:ch1Installing}。
-			\item 最后安装完成，点击Finish(完成)就可以打开Zotero，如\autoref{fig:ch1InstallComplete}所示。
-			\item 如果觉得安装麻烦，也可以点击
-			\href{https://www.zotero.org/download/client/dl?channel=release&platform=win32-zip}{下载Zip格式}，
-			解压后直接使用。另外，也可以从\href{https://github.com/pedrom34/ZoteroPortable}
-			{https://github.com/pedrom34/ZoteroPortable}下载便携格式，下载的方法是在页面上点击绿色的“Code”按钮，
-			再点击Download ZIP，下载完毕后解压，运行ZoteroPortable.exe即可打开Zotero，使用也十分方便，甚至可以解压到U盘，
-			做到真正的便携。
+						\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
+							\centering
+							\includegraphics[scale = 1.3]{ch1userControl}
+							\caption{用户帐户控制}
+							\label{fig:userControl}
+						\end{minipage}
+						\hspace{1em}		
+						\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
+							\centering
+							\includegraphics[scale = 0.8]{installwiz1}
+							\caption{安装向导第一步}
+							\label{fig:installwiz1}
+						\end{minipage}
+					\end{figure}
+				\item 接下来选择安装类型，如\autoref{fig:installType},
+				一般选择Standard(标准)就可以，如果有兴趣也可以选择Custom(定制)，
+				选择Custom在点下一步会提示可以修改安装目录
+				(默认安装目录为\winpath{C:\Program Files (x86)\Zotero} )以及是否在桌面上及
+				开始菜单的程序组中放置图标。
+				\item 选择Standard后\menu{下一步}提示安装目录为\winpath{C:\Program Files (x86)\Zotero}，
+				此处无法修改安装目录，
+				如\autoref{fig:ch1StartInstall}。如果要修改需要在上一步选择Custom选项。
+				\item 此时信息已经收集完毕，点击\menu{Install(安装)}就开始安装了，如\autoref{fig:ch1Installing}。
+				\item 最后安装完成，点击\menu{Finish(完成)}就可以打开Zotero，如\autoref{fig:ch1InstallComplete}所示。
+				\item 如果觉得安装麻烦，也可以点击
+				\href{https://www.zotero.org/download/client/dl?channel=release&platform=win32-zip}{下载Zip格式}，
+				解压后直接使用。另外，也可以从\href{https://github.com/pedrom34/ZoteroPortable}
+				{https://github.com/pedrom34/ZoteroPortable}下载便携格式，
+				下载的方法是在页面上点击绿色的\menu{Code}按钮，
+				再点击\menu{Download ZIP}，下载完毕后解压，运行ZoteroPortable.exe即可打开Zotero，使用也十分方便，甚至可以解压到U盘，
+				做到真正的便携。使用便携版的另一外好处是Zotero的配置文件和数据文件都在这个文件夹中，如果不放在系统盘，
+				重装系统时不用再重装Zotero，直接双击ZoteroPortable.exe即可继续使用，便携版的安装及使用详见
+				\href{https://zhuanlan.zhihu.com/p/350797263}{Zotero便携版的安装与使用
+				\url{https://zhuanlan.zhihu.com/p/350797263}}。
 
-	\end{enumerate}
-		
-			\begin{figure}[htbp]
-				
-				\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
-					\centering
-					\includegraphics[scale=0.43]{ch1InstallType}
-					\caption{选择安装类型}
-					\label{fig:installType}
-				\end{minipage}
-				\hspace{1cm}	
-				\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
-						%fig install start
-					\centering
-					\includegraphics[scale=0.43]{ch1StartInstall}
-					\caption{点击Install开始安装}
-					\label{fig:ch1StartInstall}
-				\end{minipage}
-				
-			\end{figure}	
-		
+
+		\end{enumerate}
 			
-			%fig installing
-			\begin{figure}[htbp]
-				\noindent
-				\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
-					\centering
-					\includegraphics[scale=0.43]{ch1Installing}
-					\caption{Zotero正在安装}
-					\label{fig:ch1Installing}
-				\end{minipage}
-				\hspace{1cm}	
-				\noindent
-				\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
-					%fig install complete
-					\centering
-					\includegraphics[scale=0.43]{ch1InstallComplete}
-					\caption{Zotero安装完成}
-					\label{fig:ch1InstallComplete}	
-				\end{minipage}
-			\end{figure}	
+				\begin{figure}[htbp]
+					
+					\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
+						\centering
+						\includegraphics[scale=0.43]{ch1InstallType}
+						\caption{选择安装类型}
+						\label{fig:installType}
+					\end{minipage}
+					\hspace{1cm}	
+					\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
+							%fig install start
+						\centering
+						\includegraphics[scale=0.43]{ch1StartInstall}
+						\caption{\menu{Install}开始安装}
+						\label{fig:ch1StartInstall}
+					\end{minipage}
+					
+				\end{figure}	
 			
-		
+				
+				%fig installing
+				\begin{figure}[htbp]
+					\noindent
+					\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
+						\centering
+						\includegraphics[scale=0.43]{ch1Installing}
+						\caption{Zotero正在安装}
+						\label{fig:ch1Installing}
+					\end{minipage}
+					\hspace{1cm}	
+					\noindent
+					\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
+						%fig install complete
+						\centering
+						\includegraphics[scale=0.43]{ch1InstallComplete}
+						\caption{Zotero安装完成}
+						\label{fig:ch1InstallComplete}	
+					\end{minipage}
+				\end{figure}	
+				
+			
 	\section{浏览器插件的安装} 
-	要想快速的导入文献，最好装上Zotero的浏览器插件。
-	Zotero针对不同的浏览器(Chrome、Firefox、Safari和最新的Chromium内核的Edge,不支持IE浏览器)
-	有不同的插件。	在这里推荐比较好用的Chrome内核浏览器：
-	CentBrowser(百分浏览器)，可以到\url{http://www.centbrowser.cn/history.html}
-	根据自己的操作系统位数，下载安装版或便携版。
-	
-	在访问\href{https://www.zotero.org/download/}
-	{Zotero浏览器插件安装网站https://www.zotero.org/download/}时，
-	网站会自动检测当前所用浏览器内核，提示安装相应的插件，
-	如\autoref{fig:ch1PluginWeb}所示。可以直接点击Install Chrome Connector，
-	然后出现是否需要安装的提示，如\autoref{fig:ch1PluginInstall},
-	点击“添加扩展程序”进行插件安装。插件的安装过程有可能需要翻墙，
-	成功安装后会在合适的位置根据当前网页的类型显示不同图标，
-	一般网页的图标如\autoref{fig:ch1ZoteroIcon}显示,如果没有打开网站，
-	则会显示一个灰色的“Z”。
-	  
-	  如果无法安装，可以到\href{https://pan.baidu.com/s/1SRsAKk6XV8z8ImGueocPNQ}
-	{https://pan.baidu.com/s/1SRsAKk6XV8z8ImGueocPNQ}下载针对Chrome内核的插件进行离线安装。
-	% browser type
-	\begin{figure}[htbp]
-		\centering
-		\includegraphics[width=0.6\linewidth]{ch1PluginWeb}
-		\caption{Zotero浏览器插件安装网站会自动检测当前浏览器类型}
-		\label{fig:ch1PluginWeb}
-	\end{figure}
-	% install connector
-	\begin{figure}[htbp]
-		\centering
-		\includegraphics[width=0.6\linewidth]{ch1PluginInstall}
-		\caption{浏览器提示是否安装插件(扩展程序)}
-		\label{fig:ch1PluginInstall}
-	\end{figure}
-	%zotero icon
-	\begin{figure}[htbp]
-		\centering
-		\includegraphics[width=0.8\linewidth]{ch1ZoteroIcon}
-		\caption{Zotero浏览器中显示的图标}
-		\label{fig:ch1ZoteroIcon}
-	\end{figure}
-	
-	下载后离线安装的方法是，以百分浏览器为例，
-	将下载的zotero\_connector\_x.crx(x为版本号)拖入百分浏览器，
-	而后浏览器的提示与\autoref{fig:ch1PluginInstall}类似，
-	如\autoref{fig:ch1PluginInstall2}。
-	%zotero icon
-	\begin{figure}[htbp]
-		\centering
-		\includegraphics[width=0.7\linewidth]{ch1PluginInstall2}
-		\caption{将下载的插件插入到百分浏览器后的提示}
-		\label{fig:ch1PluginInstall2}
-	\end{figure}
-	
-	Google 的 Chrome 浏览器宣布从最新Chrome版本开始默认只允许从 Chrome Web Store 
-	下载安装扩展程序，网上有一些解决办法，但我没有试成功。
-	所以只能翻墙在Chrome的应用商店上下载或是使用修改版的Chrome。
-	\section{建立自己的Zotero文献库}\label{sec:newLibrary}
-	\subsection{设置文献库在硬盘上的位置} 
-	\begin{enumerate}
-		\item 
-		建立自己的Zotero文献库首先需要选择自己的将要建立文献库在硬盘上的位置，
-		方法是在Zotero中依次点击Edit-Preferences，
-		如\autoref{fig:ch1ZoteroPre1}所示。
-		%data folder
+		要想快速的导入文献，最好装上Zotero的浏览器插件。
+		Zotero针对不同的浏览器(Chrome、Firefox、Safari和最新的Chromium内核的Edge,不支持IE浏览器)
+		有不同的插件。	在这里推荐比较好用的Chrome内核浏览器：
+		CentBrowser(百分浏览器)，可以到\url{http://www.centbrowser.cn/history.html}
+		根据自己的操作系统位数，下载安装版或便携版。
+		
+		在访问\href{https://www.zotero.org/download/}
+		{Zotero浏览器插件安装网站https://www.zotero.org/download/}时，
+		网站会自动检测当前所用浏览器内核，提示安装相应的插件，
+		如\autoref{fig:ch1PluginWeb}所示。可以直接点击\menu{Install Chrome Connector}，
+		然后出现是否需要安装的提示，如\autoref{fig:ch1PluginInstall},
+		点击\menu{添加扩展程序}进行插件安装。插件的安装过程有可能需要翻墙，
+		成功安装后会在合适的位置根据当前网页的类型显示不同图标，
+		一般网页的图标如\autoref{fig:ch1ZoteroIcon}显示,如果没有打开网站，
+		则会显示一个灰色的“Z”。
+		
+		如果无法安装，可以到\href{https://pan.baidu.com/s/1SRsAKk6XV8z8ImGueocPNQ}
+		{https://pan.baidu.com/s/1SRsAKk6XV8z8ImGueocPNQ}下载针对Chrome内核的插件进行离线安装。
+		% browser type
 		\begin{figure}[htbp]
 			\centering
-			\includegraphics[width=0.5\linewidth]{ch3ZoteroPre1}
-			\caption{打开Zotero设置}
-			\label{fig:ch1ZoteroPre1}
+			\includegraphics[width=0.6\linewidth]{ch1PluginWeb}
+			\caption{Zotero浏览器插件安装网站会自动检测当前浏览器类型}
+			\label{fig:ch1PluginWeb}
+		\end{figure}
+		% install connector
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.6\linewidth]{ch1PluginInstall}
+			\caption{浏览器提示是否安装插件(扩展程序)}
+			\label{fig:ch1PluginInstall}
+		\end{figure}
+		%zotero icon
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.8\linewidth]{ch1ZoteroIcon}
+			\caption{Zotero浏览器中显示的图标}
+			\label{fig:ch1ZoteroIcon}
 		\end{figure}
 		
-		\item 
-		在弹出的Zotero Preferences对话框中，依次点击Advanced-Files and Folders，
-		设置Base directory为我们存放全文文件夹。
-		文献库在Zotero中默认的存贮位置为\path{C:\Users\<Your Name>\Zotero},
-		最好我们不要将这些数据不要存放在系统盘，防止系统崩溃造成无法挽回的损失。
-		我们可以将这个目录改为自己的文件夹，如\autoref{fig:ch3BaseDir}所示
-		%data folder
+		下载后离线安装的方法是，以百分浏览器为例，
+		将下载的zotero\_connector\_x.crx(x为版本号)拖入百分浏览器，
+		而后浏览器的提示与\autoref{fig:ch1PluginInstall}类似，
+		如\autoref{fig:ch1PluginInstall2}。
+		%zotero icon
 		\begin{figure}[htbp]
 			\centering
-			\includegraphics[width=0.8\linewidth]{ch3BaseDir}
-			\caption{Zotero文件夹设置}
-			\label{fig:ch3BaseDir}
+			\includegraphics[width=0.7\linewidth]{ch1PluginInstall2}
+			\caption{将下载的插件插入到百分浏览器后的提示}
+			\label{fig:ch1PluginInstall2}
 		\end{figure}
-		\item \label{sec:creat_folder}
-		设置完文献存贮位置后，最好还要在Zotero中根据自己的课题方向或文献的类型等建立不同的分类(文件夹)，
-		方便对文献进行分类管理。
-		建立分类(文件夹)的方法是在Zotero中依次点击File-New Collection...，
-		如\autoref{fig:ch1ZoteroNewColl1}所示，或是在Zotero左侧的My library上右击，选择New Collection...，
-		在弹出的对话框中输入自己的分类名称，如\autoref{fig:ch1ZoteroNewColl2}所示。
-		%New Collection
+		
+		Google 的 Chrome 浏览器宣布从最新Chrome版本开始默认只允许从 Chrome Web Store 
+		下载安装扩展程序，网上有一些解决办法，但我没有试成功。
+		所以只能翻墙在Chrome的应用商店上下载或是使用修改版的Chrome。
+
+	\section{建立自己的Zotero文献库}\label{sec:newLibrary}
+		\subsection{设置文献库在硬盘上的位置} 
+		\begin{enumerate}
+			\item 
+			建立自己的Zotero文献库首先需要选择自己的将要建立文献库在硬盘上的位置，
+			方法是在Zotero中依次点击\menu{Edit-Preferences}，
+			如\autoref{fig:ch1ZoteroPre1}所示。
+			%data folder
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.5\linewidth]{ch3ZoteroPre1}
+				\caption{打开Zotero设置}
+				\label{fig:ch1ZoteroPre1}
+			\end{figure}
+			
+			\item 
+			在弹出的Zotero Preferences对话框中，依次点击\menu{Advanced-Files and Folders}，
+			设置Base directory为我们存放全文文件夹。
+			文献库在Zotero中默认的存贮位置为\winpath{C:\Users\<Your Name>\Zotero},
+			最好我们不要将这些数据不要存放在系统盘，防止系统崩溃造成无法挽回的损失。
+			我们可以将这个目录改为自己的文件夹，如\autoref{fig:ch3BaseDir}所示
+			%data folder
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{ch3BaseDir}
+				\caption{Zotero文件夹设置}
+				\label{fig:ch3BaseDir}
+			\end{figure}
+			\item \label{sec:creat_folder}
+			设置完文献存贮位置后，最好还要在Zotero中根据自己的课题方向或文献的类型等建立不同的分类(文件夹)，
+			方便对文献进行分类管理。
+			建立分类(文件夹)的方法是在Zotero中依次点击\menu{File-New Collection...}，
+			如\autoref{fig:ch1ZoteroNewColl1}所示，或是在Zotero左侧的\menu{My library}上右击，
+			选择\menu{New Collection...}，
+			在弹出的对话框中输入自己的分类名称，如\autoref{fig:ch1ZoteroNewColl2}所示。
+			%New Collection
+			\begin{figure}
+				\centering
+				\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
+					\centering
+					\includegraphics[scale=0.3]{ch1ZoteroNewColl1}
+					\caption{在Zotero中新建分类步骤1}
+					\label{fig:ch1ZoteroNewColl1}
+				\end{minipage}
+			\hspace{1.5cm}
+				\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
+					\centering
+					\includegraphics[scale=0.4]{ch1ZoteroNewColl2}
+					\caption{在Zotero中新建分类步骤2}
+					\label{fig:ch1ZoteroNewColl2}
+				\end{minipage}
+			\end{figure}
+			\item 
+			然后就会看到Zotero左侧面板中出现了刚才新建的分类，
+			如\autoref{fig:ch1ZoteroNewColl3}所示，可以通过此方法建立多个分类，
+			而且可以通过在分类上右击，选择在分类下面再建立子分类，
+			如\autoref{fig:ch1ZoteroNewColl4}所示\footnote{除了分类(文件夹之外)，还可以通过
+			标签和关联对文献进行管理，见\cref{sec:tag}和
+			\href{https://zhuanlan.zhihu.com/p/275707703}{Zotero分类、标签和关联的使用。}}。
+			
+			%New Collection2
+			\begin{figure}[htbp]
+				\begin{minipage}[t]{0.4\linewidth}
+					\centering
+					\includegraphics[scale=0.7]{ch1ZoteroNewColl3}
+					\caption{在Zotero中新建分类结果}
+					\label{fig:ch1ZoteroNewColl3}
+				\end{minipage}
+				\begin{minipage}[t]{0.7\linewidth}
+					\centering
+					\includegraphics[scale=0.45]{ch1ZoteroNewColl4}
+					\caption{可以在Zotero分类中新建子分类}
+					\label{fig:ch1ZoteroNewColl4}
+				\end{minipage}
+			\end{figure}
+		\end{enumerate}
+	\subsection{从网站导入题录及全文} \label{sec:ImportFromWeb}
+		有很多方式可以在Zotero库中添加文献条目，最方便的还是直接在网上数据库进行导入，
+		安装浏览器插件(扩展)的目的也正是为此。
+		浏览器上Zotero的图标会根据当前打开网页的文献类型而显示不同的图标，
+		默认如\autoref{fig:ch1ZoteroIcon}显示,
+		当前网页含有多条文献时显示为文件夹图标，如果是学位论文则显示学位帽图标。
+		Zotero的这种自动感知功能十分强大，
+		期刊的网页我目前还没有碰到过不能感知的。实际上自动感知所支持的网页还有Amazon，Nytimes等，
+		而且Zotero支持的网页数目还在持续增长。
+		Zotero支持现在常见的网络数据库，如Sciencedirect、Springer及PubMed文献数据库等。我们仅以SD数据库、
+		中国知网CNKI和Google Scholar为例看一下。
+		\subsubsection{Science Direct文献导入}
+		我们完全打开具体的某篇文章的网页时，当鼠标指标Zotero在浏览器中的图标时，
+		会提示：\menu{Save to Zotero (ScienceDirect)}, 如\autoref{fig:ch1SDImport}。
+		一般括号中会显示当前文献所属的数据库或期刊名称。
+		此时，点击这个图标，这篇文献就会导入到Zotero库中，如\autoref{fig:ch1SDRef}。
+		比较吸引人的是，如果有这个数据库(期刊)的权限，
+		这个篇对应的PDF会同时下载下来，而且链接到这篇文献，在Zotero文献库中双击这个条目，
+		则系统会自动调用PDF阅读器打开这篇文献，
+		是不是很方便？如果打开文献网页时鼠标指向Zotero在浏览器中的图标时提示
+		\menu{Save to Zotero (Web Page with snapshot)}，
+		原因是网页还没有完全打开，稍等一会儿或是刷新网页等显示正常了再导入。
+		%SD import
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\linewidth]{ch1SDImport}
+			\caption{导入ScienceDirect数据库时的提示}
+			\label{fig:ch1SDImport}
+		\end{figure}
+		%SD ref
 		\begin{figure}
 			\centering
-			\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
-				\centering
-				\includegraphics[scale=0.3]{ch1ZoteroNewColl1}
-				\caption{在Zotero中新建分类步骤1}
-				\label{fig:ch1ZoteroNewColl1}
-			\end{minipage}
-		   \hspace{1.5cm}
-			\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
-				\centering
-				\includegraphics[scale=0.4]{ch1ZoteroNewColl2}
-				\caption{在Zotero中新建分类步骤2}
-				\label{fig:ch1ZoteroNewColl2}
-			\end{minipage}
+			\includegraphics[width=0.7\linewidth]{ch1SDRef}
+			\caption{导入的ScienceDirect文献在Zotero库中的显示结果}
+			\label{fig:ch1SDRef}
 		\end{figure}
-		\item 
-		然后就会看到Zotero左侧面板中出现了刚才新建的分类，
-		如\autoref{fig:ch1ZoteroNewColl3}所示，可以通过此方法建立多个分类，
-		而且可以通过在分类上右击，选择在分类下面再建立子分类，
-		如\autoref{fig:ch1ZoteroNewColl4}所示\footnote{除了分类(文件夹之外)，还可以通过
-		标签和关联对文献进行管理，见\cref{sec:tag}和
-		\href{https://zhuanlan.zhihu.com/p/275707703}{Zotero分类、标签和关联的使用。}}。
-		
-		%New Collection2
-		\begin{figure}[htbp]
-			\begin{minipage}[t]{0.4\linewidth}
-				\centering
-				\includegraphics[scale=0.7]{ch1ZoteroNewColl3}
-				\caption{在Zotero中新建分类结果}
-				\label{fig:ch1ZoteroNewColl3}
-			\end{minipage}
-			\begin{minipage}[t]{0.7\linewidth}
-				\centering
-				\includegraphics[scale=0.45]{ch1ZoteroNewColl4}
-				\caption{可以在Zotero分类中新建子分类}
-				\label{fig:ch1ZoteroNewColl4}
-			\end{minipage}
-		\end{figure}
-	\end{enumerate}
-	\subsection{从网站导入题录及全文} \label{sec:ImportFromWeb}
-	有很多方式可以在Zotero库中添加文献条目，最方便的还是直接在网上数据库进行导入，
-	安装浏览器插件(扩展)的目的也正是为此。
-	浏览器上Zotero的图标会根据当前打开网页的文献类型而显示不同的图标，
-	默认如\autoref{fig:ch1ZoteroIcon}显示,
-	当前网页含有多条文献时显示为文件夹图标，如果是学位论文则显示学位帽图标。
-	Zotero的这种自动感知功能十分强大，
-	期刊的网页我目前还没有碰到过不能感知的。实际上自动感知所支持的网页还有Amazon，Nytimes等，
-	而且Zotero支持的网页数目还在持续增长。
-	Zotero支持现在常见的网络数据库，如Sciencedirect、Springer及PubMed文献数据库等。我们仅以SD数据库、
-	中国知网CNKI和Google Scholar为例看一下。
-	\subsubsection{Science Direct文献导入}
-	我们完全打开具体的某篇文章的网页时，当鼠标指标Zotero在浏览器中的图标时，
-	会提示：Save to Zotero (ScienceDirect), 如\autoref{fig:ch1SDImport}。
-	一般括号中会显示当前文献所属的数据库或期刊名称。
-	此时，点击这个图标，这篇文献就会导入到Zotero库中，如\autoref{fig:ch1SDRef}。
-	比较吸引人的是，如果有这个数据库(期刊)的权限，
-	这个篇对应的PDF会同时下载下来，而且链接到这篇文献，在Zotero文献库中双击这个条目，
-	则系统会自动调用PDF阅读器打开这篇文献，
-	是不是很方便？如果打开文献网页时鼠标指向Zotero在浏览器中的图标时提示
-	Save to Zotero (Web Page with snapshot)，
-	原因是网页还没有完全打开，稍等一会儿或是刷新网页等显示正常了再导入。
-	%SD import
-	\begin{figure}[htbp]
-		\centering
-		\includegraphics[width=0.7\linewidth]{ch1SDImport}
-		\caption{导入ScienceDirect数据库时的提示}
-		\label{fig:ch1SDImport}
-	\end{figure}
-	%SD ref
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.7\linewidth]{ch1SDRef}
-		\caption{导入的ScienceDirect文献在Zotero库中的显示结果}
-		\label{fig:ch1SDRef}
-	\end{figure}
 	\subsubsection{中国知网文献导入} \label{sec:cnki}
 	在中国知网主页\url{http://www.cnki.net/}搜索结果中点击具体的文献，
-	打开文献的页面，此时鼠标移向Zotero在浏览器中的图标时，提示Save to Zotero (CNKI),
+	打开文献的页面，此时鼠标移向Zotero在浏览器中的图标时，提示\menu{Save to Zotero (CNKI)},
 	如\autoref{fig:ch1CNKIImport},点击这个图标，对应的文献就会导入到Zotero库中，但遗憾的是即使有权限，
 	对应的全文CAJ或PDF都不会一起导入\footnote{更新：
 	20200304 使用新的\href{https://github.com/Zotero-CN/translators_CN}{cnki.js}
@@ -404,14 +417,14 @@
 	\end{figure}
 	\subsubsection{通过Google Scholar导入文献}
 	在Google Scholar搜索结果页面中，Zotero在浏览器中图标会变成一个文件夹图标，
-	点击这个小图标，在显示的页面中我们可以选择需要的条目，然后点击ok，
+	点击这个小图标，在显示的页面中我们可以选择需要的条目，然后点击\menu{OK}，
 	我们选择的条目就会自动导入的Zotero库中。
 	但是Zotero的浏览器插件不支持Google Scholar的一些镜像网站(如\url{https://scholar.glgoo.org/})。
 	\subsection{通过文献标识符导入题录}
 	如果已知文献的ISBN、DOI、PMID或arXiv ID，
 	可以通过文献标识符导入到Zotero库中，在Zotero中，点击魔术棒，
 	输入这些ID，如DOI：10.1016/j.meatsci.2016.03.026，
-	如\autoref{fig:DOI}所示，然后按回车键，则对应的文献就会被导入到库中，
+	如\autoref{fig:DOI}所示，然后按\keys{回车键}，则对应的文献就会被导入到库中，
 	注意如用这种方式导入文献也需要保持互联网畅通。
 	%DOI import
 	\begin{figure}[htbp]
@@ -446,7 +459,7 @@
 	\subsection{从其他文献管理软件导入}\label{OtherRefSoft}
 	如果以前用其他文献管理软件或是从其他人的Zotero库中导入，
 	Zotero可以方便地导入。首先，从其他文献管理软件导出BibTex、RIS或Zotero RDF格式。
-	然后，在Zotero中点击File-Import，
+	然后，在Zotero中点击\menu{File-Import}，
 	如\autoref{fig:ch1ImportFromOther}所示
 	，根据提示找到导出的文件即可将那些文献导入到Zotero中。
 	%imort from other software
@@ -471,7 +484,7 @@
 	\subsection{手动录入题录}\label{sec:ManualImport}
 	对于那些不能从网上找到的文献，如一些老的文献、国家标准、
 	会议论文等，只能手动录入文献的信息。手动新建文献的方法是：
-	在Zotero界面中点击“+”图标右边的小箭头，
+	在Zotero界面中点击\menu{+}图标右边的小箭头，
 	选择正确的文献类型，如\autoref{fig:ch1ManualNew}所示，
 	然后在Zotero右侧填入文献对应的信息，如：题目、作者、年代等信息，
 	如\autoref{fig:ch1ManualNewBook}所示。
@@ -504,11 +517,13 @@
 				对于我们从其他网站下载的全文或其他附件信息，
 				我们可以手动链接到参考文献条目中，方法是先选中对应的参考文献条目
 				，在Zotero点击回形针图标，
-				选择Attach Stored Copy of File ...，
+				选择\menu{Attach Stored Copy of File ...}，
 				如\autoref{fig:ch1LinkFile1}所示，找到相应的附件。
-				或在条目上右击，选择Add Attachment，如\autoref{fig:ch1LinkFile2}所示，
+				或在条目上右击，选择\menu{Add Attachment}，如\autoref{fig:ch1LinkFile2}所示，
 				后续步骤与前述相同。链接上附件后，原来存的文件可以删除。
-  \chapter{在Word中写作时用Zotero插入参考文献}\label{ch:insert}
+
+
+\chapter{在Word中写作时用Zotero插入参考文献}\label{ch:insert}
 		建立了自己的Zotero文献库后，
 		在写文章尤其是综述类的文章时就可以方便地利用Zotero插入文献了。
 		现在Zotero对于Libre Office中的Writer和MS Office中的Word支持比较好。
@@ -530,9 +545,9 @@
 		在Word中插入Zotero管理的参考文献的方法比较简单，步骤如下：
 		\begin{enumerate}
 			\item
-			点击Zotero在Word工具条中的第一个按钮Add/Edit Citation，
+			点击Zotero在Word工具条中的第一个按钮\menu{Add/Edit Citation}，
 			在弹出的对话框中选择需要的Style(一般是期刊或数据库的名称)，
-			点击OK，如\autoref{fig:ch2WordInsert}所示。
+			点击\menu{OK}，如\autoref{fig:ch2WordInsert}所示。
 			%select style
 			\begin{figure}[htbp]
 				\centering
@@ -542,7 +557,8 @@
 			\end{figure}
 			\item
 			如果列表中没有我们需要的文章格式\label{tag:notyle}，
-			点击\autoref{fig:ch2WordInsert}中的Manage Styles...，则会弹出Zotero Preferences对话框，
+			点击\autoref{fig:ch2WordInsert}中的\menu{Manage Styles...}，
+			则会弹出\menu{Zotero Preferences}对话框，
 			如\autoref{fig:ch2ZoteroPre}所示。
 			%Zotero Preferences
 			\begin{figure}[htbp]
@@ -552,14 +568,14 @@
 				\label{fig:ch2ZoteroPre}
 			\end{figure}
 			\item
-			点击\autoref{fig:ch2ZoteroPre}中“+”，
+			点击\autoref{fig:ch2ZoteroPre}中\menu{+}，
 			找到从网站上或从其他人那得到的csl文件。
-			或是点击Get additional styles...，则会打开Zotero的Style仓库，
+			或是点击\menu{Get additional styles...}，则会打开Zotero的Style仓库，
 			从中搜索我们需要的期刊，如meat science，
 			在得到的结果点击需要的期刊格式，
 			这个Style文件就会加入到Zotero Style管理器中，以后可以直接调用，
 			如\autoref{fig:ch2ZoteroStyle}所示,
-			返回到\autoref{fig:ch2WordInsert}，点击OK。
+			返回到\autoref{fig:ch2WordInsert}，点击\menu{OK}。
 			%lZotero仓库
 			\begin{figure}[htbp]
 				\centering
@@ -572,7 +588,7 @@
 			如文章的作者，年代，题目等，以个人经验，
 			输入文章的题目搜索的结果最为准确，点击搜索结果我们希望插入的文献，
 			如\autoref{fig:ch2ZoteroSearch}所示，
-			然后再按回车键，则选择的文献就会插入到Word中。
+			然后再按\keys{回车键}，则选择的文献就会插入到Word中。
 			%搜索Zotero库
 			\begin{figure}[htbp]
 				\centering
@@ -583,11 +599,11 @@
 			\item
 			但参考文献现在只是插入到正文中，还没有出现文末的参考文献列表，
 			要想显示它，首先将鼠标点击该Word文档的末尾，
-			然后点击Zotero在Word中工具条中的第二个按钮Add/Edit Bibliography，
+			然后点击Zotero在Word中工具条中的第二个按钮\menu{Add/Edit Bibliography}，
 			刚插入的文献最会显示在文档的末尾，
 			显示的格式就是我们在\autoref{fig:ch2WordInsert}选择的Style规定的格式，
 			如\autoref{fig:ch2Bibliography}所示,
-			仅需第一次点击这个Add/Edit Bibliography按钮，
+			仅需第一次点击这个\menu{Add/Edit Bibliography}按钮，
 			后面在添加、删除其他文献时，正文的引用及文末的参考文献列表最自动更新，
 			是不是很方便？可以按相同的方法插入其他文献。
 			
@@ -604,13 +620,13 @@
 		此时文献的背景会变为灰色，选择不需要文献，剪切或删除就可以了，
 		文末的参考文献列表会自动更新。
 		如果需要删除的文献的地方引用了多条文献，
-		则用鼠标点击引用多条文献的地方，然后点击Zotero在Word工具条中的第一个按钮Add/Edit Citation,
+		则用鼠标点击引用多条文献的地方，然后点击Zotero在Word工具条中的第一个按钮\menu{Add/Edit Citation},
 		在弹出的对话框中删除不需要的文献即可，
 		如\autoref{fig:ch2MultiRef}所示,当然单条参考文献的删除也可以用这个方法。
 		
 		调整参考文献顺序的方法是，
 		将正文中的包括文献引用的部分剪切到合适的部分即可，文末的参考文献列表会自动更新，
-		如果没有自动更新点击Zotero在Word工具条中Refresh按钮。
+		如果没有自动更新点击Zotero在Word工具条中\menu{Refresh}按钮。
 		
 		%删除文献
 		\begin{figure}[htbp]
@@ -624,7 +640,7 @@
 			这时就需要修改后重新投稿，不同期刊往往正文中的引用和文末的参考文献列表格式要求不一样，
 			文献重投时就需要换另外一个期刊的Style。
 			换style的方法也比较简单，
-			只需要点击Zotero在Word工具条中的Document Preferences按钮，
+			只需要点击Zotero在Word工具条中的\keys{Document Preferences}按钮，
 			在列表中选择合适的期刊就可以，
 			如\autoref{fig:ch2ChangeStyle}所示，如果列表没有我们需要的期刊格式，
 			参见\cpageref{tag:notyle}\cref{sec:insertRef}。
@@ -648,7 +664,8 @@
 				可以先选择格式比较接近的期刊格式，再进行编辑。但总体上相对 Endnote的编辑格式文件而言，编辑csl文件比较复杂，如果需要可以自行百度或Google方法，或在论坛及QQ群求助。
 			
 				从在线编辑网站或从其他人那得到csl文件后，需要添加到本地Style目录，在格式化参考文献时才可以使用。
-				添加的方法是依次点击Edit-Preferences-Cite-Styles,点击Style Mangager中右下角的“+”，如\autoref{fig:ch2addStyle}所示，找到自己的csl文件，再点击打开即可。
+				添加的方法是依次点击\menu{Edit-Preferences-Cite-Styles},点击Style Mangager中右下角的\menu{+}，
+				如\autoref{fig:ch2addStyle}所示，找到自己的csl文件，再点击\menu{打开}即可。
 				%remove field codes
 				\begin{figure}[htbp]
 					\centering
@@ -659,7 +676,8 @@
 		
 		\section{去除域代码}
 			插入到正文的中的参考文献引用及文末的参考文献列表是以域代码的形式存在于Word文档中的，在投稿之前可以去除这些域代码，
-			去除后这些参考文献与其他正文显示就没有区别了，去除的方法是，首先将文件另存一个其它文件作为备份，然后点击Zotero在Word工具条中的Unlink Citations，再点击确定,
+			去除后这些参考文献与其他正文显示就没有区别了，去除的方法是，首先将文件另存一个其它文件作为备份，
+			然后点击Zotero在Word工具条中的\menu{Unlink Citations}，再点击确定,
 			如\autoref{fig:ch2Unlink}所示。需要注意的是去除域代码后，再插入或删除参考文献列表就不会再自动更新了，而且再用Zotero插入的文献会自动重新编号，要想在原来基础上更新，
 			只能在还保留域代码的文件中进行操作。
 			
@@ -667,8 +685,10 @@
 		需要在不同电脑上阅读文献及写作的人有同步的需要。另外，如果出于对题录信息和全文备份的需要，也可以使用同步。在本章我们使用Zotero来同步题录信息，使用坚果云来同步全文信息。
 			\section{注册Zotero用户}\label{sec:zotReg}
 		使用Zotero来同步题录信息需要注册Zotero用户，注册的网址是\url{https://www.zotero.org/user/register}，注册的流程与一般网站注册用户差别不大，
-		填入用户名，Email，密码等，然后点击进行人机身份验证前的方框，根据提示完成后续步骤，最后点击 Register完成注册，
-		如\autoref{fig:ch3Register}所示。注册完成后网站提示：Thanks for registering. We’ve sent an email to activate your account.
+		填入用户名，Email，密码等，然后点击进行人机身份验证前的方框，
+		根据提示完成后续步骤，最后点击 \menu{Register}完成注册，
+		如\autoref{fig:ch3Register}所示。注册完成后网站提示：
+		Thanks for registering. We’ve sent an email to activate your account.
 		而后查收邮箱，会收到如下内容的邮件：Thanks for signing up for a zotero.org account! Please confirm your email address 
 		by clicking on the following link or pasting it into your browser: 
 		\url{https://www.zotero.org/user/validate/1ab18fc52bb2b7ba6ddb},validate后面的内容会有差异，
@@ -686,22 +706,30 @@
 		\end{figure}
 		
 		\section{坚果云注册及设置}\label{sec:jianguoReg}
-		注册坚果云的目的主要是为了同步全文，Zotero也提供了同步全文的空间，免费的空间只有300M，2G空间的年使用费为20\$，
-		如果是土豪可以选择使用Zotero来同步全文，也算是为开源社区做点贡献，支持Zotero的发展。
+		注册坚果云的目的主要是为了同步全文，Zotero也提供了同步全文的空间，
+		免费的空间只有300M，2G空间的年使用费为20\$，
+		如果是土豪可以选择使用Zotero来同步全文，
+		也算是为开源社区做点贡献，支持Zotero的发展。
 		另外一个可供选择的方法是使用Zotero来同步题录(Zotero提供的同步题录的空间貌似是无限的)，
-		而使用同步盘来同步全文，可以使用国外的\href{https://office.live.com/start/OneDrive.aspx}{OneDrive}、
+		而使用同步盘来同步全文，
+		可以使用国外的\href{https://office.live.com/start/OneDrive.aspx}{OneDrive}、
 		\href{https://www.dropbox.com/}{Dropbox}、
 		\href{https://www.google.com/drive/}{Google Drive}、\href{https://mega.nz/}{MEGASync}等同步盘来完成，
 		但这些同步盘(网盘)要么在国内无法访问，要么速度比较慢，所以我们只能选择国内的同步盘来完成。 
 		这里推荐使用坚果云同步盘，这个同步盘也支持多个操作系统，它可以还提供WebDAV的方式进行访问，对于普通用户，
 		它提供每个月1G的上传流量，3G的下载流量，超过以后停止上传或下载，到下个月后自动恢复，这些流量对于一般的用户也足够了。
 		\begin{enumerate}
-			\item 根据自己的操作系统到\url{https://www.jianguoyun.com/s/downloads}下载相应的客户端，并进行安装，
+			\item 根据自己的操作系统到\url{https://www.jianguoyun.com/s/downloads}下载相应的客户端，
+			并进行安装，
 			安装过程与其他程序大同小异，在此不再赘述。安装完成以后，在系统托盘中会出现一个坚果的图标。
-			如果没有图标，可以到坚果云的安装目录中双击Nutstore.exe运行坚果云同步盘，运行后需要注册一个坚果云的用户，
-			如\autoref{fig:ch3JianguoRe}所示，填入需要Email、密码及昵称等信息，如\autoref{fig:ch3JianguoReg2}所示，
-			点击下一步，设置需要同步的文献贮存的地址，如\autoref{fig:ch3JianguoReg3}所示，然后关闭此窗口或点击“我已知道如何使用”。
-			当然也可以在坚果云的网站\url{https://www.jianguoyun.com/d/signup}上注册用户,然后在\autoref{fig:ch3JianguoRe}点击登录即可。
+			如果没有图标，可以到坚果云的安装目录中双击Nutstore.exe运行坚果云同步盘，
+			运行后需要注册一个坚果云的用户，
+			如\autoref{fig:ch3JianguoRe}所示，填入需要Email、
+			密码及昵称等信息，如\autoref{fig:ch3JianguoReg2}所示，
+			点击下一步，设置需要同步的文献贮存的地址，如\autoref{fig:ch3JianguoReg3}所示，
+			然后关闭此窗口或点击\menu{我已知道如何使用}。
+			当然也可以在坚果云的网站\url{https://www.jianguoyun.com/d/signup}上注册用户,
+			然后在\autoref{fig:ch3JianguoRe}点击\menu{登录}即可。
 			
 			%Jianguo reg
 			\begin{figure}[htbp]
@@ -725,8 +753,10 @@
 			
 
 			
-			\item 此时，将文件或文件夹复制到\autoref{fig:ch3JianguoReg3}的所设置的文件内，坚果云就会将文件同步到坚果云的服务器上，
-			如果在其他电脑上登录坚果云的同一用户客户端后，坚果云会自动将这些文件或文件夹同步到本地。
+			\item 此时，将文件或文件夹复制到\autoref{fig:ch3JianguoReg3}的所设置的文件内，
+			坚果云就会将文件同步到坚果云的服务器上，
+			如果在其他电脑上登录坚果云的同一用户客户端后，
+			坚果云会自动将这些文件或文件夹同步到本地。
 				%Jianguo reg3
 				\begin{figure}
 					\centering
@@ -744,12 +774,17 @@
 						\label{fig:ch3SynFolder}
 					\end{minipage}
 				\end{figure}
-			\item  因为同步文献全文的需要，我们需要将同步的文件夹设置我们在\autoref{fig:ch3BaseDir}中设置的附件存放的位置，
-			即图中Base directory的路径，在系统托盘中的坚果云图标上右击，然后选择同步文件夹-管理，对同步的文件夹进行重新设置，
+			\item  因为同步文献全文的需要，
+			我们需要将同步的文件夹设置我们在\autoref{fig:ch3BaseDir}中设置的附件存放的位置，
+			即图中Base directory的路径，在系统托盘中的坚果云图标上右击，
+			然后选择\menu{同步文件夹-管理}，对同步的文件夹进行重新设置，
 			如\autoref{fig:ch3SynFolder}所示。
 			
-			\item 在弹出的对话框中，点击“移动”，然后输入或点击“浏览”找到全文附件所在的目录，值得注意的是，在用“浏览”找到文件夹，
-			坚果云会自动在末尾加上“我的坚果云”，注意删除。接着坚果云会提示，文件夹已经存在，点击“合并”即可，
+			\item 在弹出的对话框中，点击
+			\menu{移动}，然后输入或点击\menu{浏览}找到全文附件所在的目录，值得注意的是，在用\menu{浏览}
+			找到文件夹，
+			坚果云会自动在末尾加上“我的坚果云”，注意删除。接着坚果云会提示，
+			文件夹已经存在，点击\menu{合并}即可，
 			如\autoref{fig:ch3JianguoMergeFolder}所示。
 			%Jianguosyn change folder
 			\begin{figure}[htbp]
@@ -785,7 +820,7 @@
 			\end{figure}
 			
 			\item
-			Zotero插件与Zotero中其他插件(扩展)的安装方法相同，方法是在Zotero菜单中点击Tools-Add-ons，
+			Zotero插件与Zotero中其他插件(扩展)的安装方法相同，方法是在Zotero菜单中点击\menu{Tools-Add-ons}，
 			如\autoref{fig:ch3ZotFileInstall1}所示。
 			%zotfile install
 			\begin{figure}[htbp]
@@ -795,7 +830,9 @@
 				\label{fig:ch3ZotFileInstall1}
 			\end{figure}
 			\item
-			在弹出的对话框中，依次点击齿轮图标-Install Add-on From File...，如\autoref{fig:ch3ZotFileInstall2}所示。
+			在弹出的对话框中，
+			依次点击\menu{齿轮图标-Install Add-on From File...}，
+			如\autoref{fig:ch3ZotFileInstall2}所示。
 			\item
 			然后找到以前下载的zotfile-v.v.v-fx.xpi(v为具体的版本号)，如\autoref{fig:ch3ZotFileInstall3}所示。
 			%zotfile install2-3
@@ -815,15 +852,18 @@
 				\end{minipage}
 			\end{figure}
 			\item
-			随后会出现一个3s倒计时，提示安装信任的扩展，倒计时结束后，点击Install Now开始安装，如\autoref{fig:ch3ZotFileInstall4}所示。
+			随后会出现一个3s倒计时，提示安装信任的扩展，倒计时结束后，
+			点击\menu{Install Now}开始安装，如\autoref{fig:ch3ZotFileInstall4}所示。
 			\item
-			安装完成后，Zotero会提示ZotFile在重启Zotero后安装，点击Restart now重启，如\autoref{fig:ch3ZotFileInstall5}所示，
-			或是再安装完其他插件后一块重启，重启后会如果发现Zotero Tools-菜单下有ZoteFile Preferences...，说明ZotFile插件安装成功，
+			安装完成后，Zotero会提示ZotFile在重启Zotero后安装，
+			点击\menu{Restart now}重启，如\autoref{fig:ch3ZotFileInstall5}所示，
+			或是再安装完其他插件后一块重启，
+			重启后会如果发现Zotero \menu{Tools}-菜单下有\menu{ZoteFile Preferences...}，说明ZotFile插件安装成功，
 			ZotFile插件的设置见\cref{sec:zotFilePre}。
 			%zotfile install4
 			\begin{figure}[htbp]
 				\centering
-				\includegraphics[scale=0.5]{ch3ZotFileInstall4}
+				\includegraphics[scale=0.4]{ch3ZotFileInstall4}
 				\caption{ZotFile插件安装步骤4}
 				\label{fig:ch3ZotFileInstall4}
 			\end{figure}
@@ -837,15 +877,17 @@
 			\end{figure}
 		\end{enumerate}
 		
-		\section{Zotero中同步设置}\label{sec:syn}
-		Zotero中的同步设置包括题录同步和全文同步，我们使用Zotero提供的帐号进行题录同步，利用坚果云进行全文同步。
+	\section{Zotero中同步设置}\label{sec:syn}
+		Zotero中的同步设置包括题录同步和全文同步，
+		我们使用Zotero提供的帐号进行题录同步，利用坚果云进行全文同步。
 		
 		\begin{enumerate}
 			\item 
-			在需要同步的电脑Zotero中依次点击Edit-Preferences，如\autoref{fig:ch3ZoteroPre1}所示。
+			在需要同步的电脑Zotero中依次点击\menu{Edit-Preferences}，如\autoref{fig:ch3ZoteroPre1}所示。
 			\item
-			在弹出的Zotero Preferences对话框中点击Sync，然后在Setting中输入\cref{sec:zotReg}中申请的Zotero的用户名和密码后，
-			再点击Set Up Syncing，如\autoref{fig:ch3ZoteroPre2}所示。
+			在弹出的Zotero Preferences对话框中点击\menu{Sync}，
+			然后在Setting中输入\cref{sec:zotReg}中申请的Zotero的用户名和密码后，
+			再\menu{Set Up Syncing}，如\autoref{fig:ch3ZoteroPre2}所示。
 			%zotfile install2-3
 				\begin{figure}[t]
 					\centering
@@ -863,8 +905,9 @@
 				\end{minipage}
 			\end{figure}
 			\item
-			如果输入的用户名、密码正确，且网络畅通，则会弹出文件同步的一些选项，注意不要选择Sync full-tex content(同步全文内容)
-			和File Syncing(文件同步)前面的选项，如\autoref{fig:ch3ZoteroPre3}所示，因为Zotero提供的全文同步空间有限，
+			如果输入的用户名、密码正确，且网络畅通，则会弹出文件同步的一些选项，
+			注意不要选择\menu{Sync full-tex content(同步全文内容)}
+			和\menu{File Syncing(文件同步)}前面的选项，如\autoref{fig:ch3ZoteroPre3}所示，因为Zotero提供的全文同步空间有限，
 			我们在\cref{sec:jianguoReg}中设置了用坚果云同步全文，但此时Zotero还不能同步全文到其他电脑，
 			还需要使用ZotFile插件将全文附件自动复制到坚果云的同步盘中。
 			\item				  	
@@ -881,12 +924,12 @@
 		
 		
 		
-		\section{ZotFile插件设置及将附件转移到坚果云同步盘}\label{sec:zotFilePre}
+	\section{ZotFile插件设置及将附件转移到坚果云同步盘}\label{sec:zotFilePre}
 		前面提到，默认情况下Zotero将文献全文等附件会转移到数据目录中的storage下的奇怪字符的文件夹下，
 		要想将文件保存到自定义的文件夹中并且用Zotero可以方便地打开，需要使用ZotFile插件来完成这项工作，
 		ZotFile插件的安装见\cref{sec:ZotFileInstall}。
 		\begin{enumerate}
-			\item 在Zotero中依次点击Tools-ZotFile Preferences，如\autoref{fig:ch3ZotFilePre1}所示。
+			\item 在Zotero中依次点击\menu{Tools-ZotFile Preferences}，如\autoref{fig:ch3ZotFilePre1}所示。
 			%zotfile install5
 			\begin{figure}[t]
 				\centering
@@ -894,7 +937,9 @@
 				\caption{打开ZotFile设置}
 				\label{fig:ch3ZotFilePre1}
 			\end{figure}
-			\item 在弹出的对话框中点击General Settings,然后点击Location of Files中Custom Location小圆圈，再点击后面的Choose，
+			\item 在弹出的对话框中点击\menu{General Settings},
+			然后点击\menu{Location of Files}中\menu{Custom Location}小圆圈，
+			再点击后面的\menu{Choose}，
 			选择坚果云同步目录(也是全文附件的存放目录)，如\autoref{fig:ch3ZotFilePre2}所示。
 			%zotfile install5
 			\begin{figure}[htbp]
@@ -904,15 +949,36 @@
 				\label{fig:ch3ZotFilePre2}
 			\end{figure}
 			\item 最后，对于文献库中存在的并且已经链接全文的题录，需要用ZotFile插件重新命名附件，不同电脑之间才会同步。
-			在Zotero主界面中，用鼠标或按Ctrl+A选中所有题录，然后右击依次点击Manage Attachment-Rename Attachments，
-			ZotFile会弹出提示：是否移动且重命名附件，点击OK，如\autoref{fig:ch3ZotFileRename1}所示；
+			在Zotero主界面中，用鼠标或按\keys{Ctrl+A}选中所有题录，然后右击依次点击
+			\menu{Manage Attachment-Rename Attachments}，
+			ZotFile会弹出提示：是否移动且重命名附件，点击\menu{OK}，如\autoref{fig:ch3ZotFileRename1}所示；
 			ZotFile插件会根据默认的规则对附件进行重命名，并且剪切到以前设置的坚果云同步盘中，
 			而且在Zotero会形成软链接，如\autoref{fig:ch3ZotFileRename2}所示，
 			完成此步骤后，坚果云就会将这些附件同步附件到服务器，在其他电脑会从服务器同步到本地。
 			重命名这个步骤只需要对于已经存在于文献库中并且已经链接了全文的题录(见\cref{sec:linkFulltex})进行此操作，
 			对于以后从网站下载题录时同时自动下载的附件和手动添加全文的题录ZotFile会自动进行重命名并且移动到坚果云同步目录
 			\footnote{在需要同步的电脑都装上坚果云、ZotFile插件并按上述设置后应该就可以在不同电脑间进行同步了。}。
-			
+	
+
+
+	\section{设置ZotFile插件使其支持更多的文件类型}\label{sec:zotFile_more_filetype}
+	    \quad \quad Zotero的ZotFile插件对附件的管理带来很大的方便，
+		但默认情况下ZotFile不支持重命名移动caj文件，
+		在进行重命名时提示：Attachments skipped because they are top-level items, 
+		snapshots or the file does not exist。
+		ZotFile默认仅支持pdf, doc, docx, txt, rtf, djvu格式的文件进行重命名移动。
+		可以通过支持更多类型的文件，如从中国知网上下载的caj文件。方法是：
+
+		\quad \quad 在Zotero中依次点击\menu{Tools-ZotFile Preferences...}，
+		然后在对话框中点\menu{Advanced Settings}，
+		在\menu{Other Advanced Settings}中的
+		\menu{Only work with the following filetypes}
+		后面的文本框中添加支持的文件类型，如添加“,caj”，
+		注意caj前面的英文逗号，而且caj后面没有标点。
+		然后在Zotero中再进行重命名或添加caj
+		附件时就会重命名且移动到自定义的目录中了。
+
+	
 			%zotfile rename
 			\begin{figure}[htbp]
 				\centering
@@ -931,15 +997,19 @@
 
 
   \chapter[Zotero群组的使用]{Zotero群组的使用\footnote{如果没有使用群组的需要，本章可以略过}}\label{ch:group}
-同事之间，同一个课题组之间共享题录信息可以通过Zotero提供的群组功能实现。
-我们可以创建群组并邀请其他人加入(\cref{sec:CreatGroup})。
-也可以作为成员申请加入其他的群组(\cref{sec:joinGroup})。
-将自己的文献复制到群组，也可以将群组文献复制到我们自己的库中(\cref{sec:copyGroupLibrary})。
+	同事之间，同一个课题组之间共享题录信息可以通过Zotero提供的群组功能实现。
+	我们可以创建群组并邀请其他人加入(\cref{sec:CreatGroup})。
+	也可以作为成员申请加入其他的群组(\cref{sec:joinGroup})。
+	将自己的文献复制到群组，也可以将群组文献复制到我们自己的库中(\cref{sec:copyGroupLibrary})。
+
+
    
 \section{创建群组并邀请其他人加入}\label{sec:CreatGroup}
 \begin{enumerate}
-	\item    将\cref{sec:zotReg}申请的用户名(或Email)和密码填写到\url{https://www.zotero.org/user/login/}中，
-	然后点击Login to Zotero，如\autoref{fig:ch4ZotLogin}所示\label{page:zoteroLogin}。
+	\item    将\cref{sec:zotReg}申请的
+	用户名(或Email)和密码填写到\url{https://www.zotero.org/user/login/}中，
+	然后\menu{Login to Zotero}，
+	如\autoref{fig:ch4ZotLogin}所示\label{page:zoteroLogin}。
 	%zotero login
 		\begin{figure}[htbp]
 			\centering\
@@ -959,13 +1029,13 @@
 			\end{minipage}
 		\end{figure}
 	
-	\item 在打开的网页中，依次点击Groups-Creat a New Group,如\autoref{fig:ch4ZotGroupCreat1}所示,
+	\item 在打开的网页中，依次\menu{Groups-Creat a New Group},如\autoref{fig:ch4ZotGroupCreat1}所示,
 	如果申请的用户名(邮箱)没有进行激活验证，则无法创建群组，激活验证的方法见\cref{sec:zotReg}。
 	
 	\item 在接下来打开的页面中，输入群组的名称，当群组名称下面提示的颜色变化绿色时，这个名称才可以使用。然
 	后选择群组的类型：公共开放成员型(任何人可以查看和即时加入)、公共关闭会员型(任何人可以查看但用户必须申请或邀请)
 	以及私秘成员型(仅成员可以查看群组，成员必须申请或被邀请)，一般我们选择第二种或第三种，
-	然后点击Creat Group，如\autoref{fig:ch4ZotGroupName}所示。
+	然后点击\menu{Creat Group}，如\autoref{fig:ch4ZotGroupName}所示。
 	%zotero group
 	\begin{figure}[htbp]
 		\centering
@@ -983,9 +1053,11 @@
 		\caption{群组信息设置}
 		\label{fig:ch4ZotGroupSetting}
 	\end{figure}
-	\item 群组设置完成后，点击页面顶部的Groups，在打开的页面中点击Manage Members链接来管理群组成员，
-	如\autoref{fig:ch4ZotGroupInvite1}所示。在这个页面中也可以点击Manage Profile
-	或Manage Library对群组的相关设置进行调整。
+	\item 群组设置完成后，点击页面顶部的\menu{Groups}，
+	在打开的页面中点击\menu{Manage Members}链接来管理群组成员，
+	如\autoref{fig:ch4ZotGroupInvite1}所示。
+	在这个页面中也可以点击\menu{Manage Profile}
+	或\menu{Manage Library}对群组的相关设置进行调整。
 	%zotero group
 	\begin{figure}[htbp]
 		\centering
@@ -1002,9 +1074,10 @@
 			\label{fig:ch4ZotGroupInvite2}	
 		\end{minipage}	 
 	\end{figure}
-	\item 在打开的页面中，点击Send More Invitations来发送邀请，如\autoref{fig:ch4ZotGroupInvite2}所示,
+	\item 在打开的页面中，\menu{Send More Invitations}来发送邀请，
+	如\autoref{fig:ch4ZotGroupInvite2}所示,
 	在打开的页面的输入框中输入被邀请人的用户名或Email地址，多个用户之间用英文逗号间隔，
-	然后再点击Invite Members，如\autoref{fig:ch4ZotGroupInvite3}所示，
+	然后再点击\menu{Invite Members}，如\autoref{fig:ch4ZotGroupInvite3}所示，
 	而后会返回邀请的结果，\autoref{fig:ch4ZotGroupInvite4}。
 	%Group Invite Member2
 	\begin{figure}[t]
@@ -1022,14 +1095,15 @@
 		\end{minipage}
 	\end{figure}
 	\item 当被邀请用户按\cpageref{page:zoteroLogin}方法登录Zotero网站，
-	并点击Group后在页面右侧会显示收到的群组邀请信息，点击Join，即可加入群组，如\autoref{fig:ch4ZotGroupInvite5}所示，
+	并点击\menu{Group}后在页面右侧会显示收到的群组邀请信息，点击\menu{Join}，
+	即可加入群组，如\autoref{fig:ch4ZotGroupInvite5}所示，
 	然后刷新网页后就会显示当前已经加入的群组，如\autoref{fig:ch4ZotGroupInvite6}所示。
 	%Group Invite Member2
 	\begin{figure}[t]
 		\begin{minipage}[b]{\dimexpr.5\textwidth-1em}
 			\centering
 			\includegraphics[scale=.8]{ch4ZotGroupInvite5}
-			\caption{点击Join加入群组}
+			\caption{\menu{Join}加入群组}
 			\label{fig:ch4ZotGroupInvite5}
 		\end{minipage}
 		\begin{minipage}[b]{\dimexpr.5\textwidth-1em}
@@ -1062,9 +1136,11 @@
 
 \section{申请加入群组}\label{sec:joinGroup}
 \begin{enumerate}
-	\item 按\cpageref{page:zoteroLogin}所示方法，用自己的用户名/Email地址和密码登录\url{https://www.zotero.org/user/login/}网站。
-	\item 登录网站后依次点击Groups-Search for Groups，如\autoref{fig:ch4ZotSearchGroup1}所示。
-	\item 在打开的网页中点击Groups，然后在框中输入群组的名称，点击Search Groups，如\autoref{fig:ch4ZotSearchGroup2}所示。
+	\item 按\cpageref{page:zoteroLogin}所示方法，
+	用自己的用户名/Email地址和密码登录\url{https://www.zotero.org/user/login/}网站。
+	\item 登录网站后依次\menu{Groups-Search for Groups}，如\autoref{fig:ch4ZotSearchGroup1}所示。
+	\item 在打开的网页中点击\menu{Groups}，
+	然后在框中输入群组的名称，点击\menu{Search Groups}，如\autoref{fig:ch4ZotSearchGroup2}所示。
 	
 	
 	%Join zotero group 
@@ -1090,7 +1166,7 @@
 	
 	\end{figure}
 	\item 在搜索结果中点击需要申请加入的群组名称，如\autoref{fig:ch4ZotSearchGroup3}所示，
-	然后在打开页面的右侧点击Join申请加入群组，如\autoref{fig:ch4ZotSearchGroup4},
+	然后在打开页面的右侧点击\menu{Join}申请加入群组，如\autoref{fig:ch4ZotSearchGroup4},
 	然后网页会提示：You have applied to join this group. A group admin must approve your application.
 	%zotero group
 		\begin{figure}[htbp]
@@ -1110,14 +1186,17 @@
 			\end{minipage}
 		\end{figure}
 
-	\item 管理员的邮箱中会收到Zotero发送的邮件，提示有人申请加入群组，此邮件也有可能被邮箱系统放入到垃圾邮件中。
-	群组管理员根据邮件提示登录到Zotero网站，点击Approve即可，如\autoref{fig:ch4ZotSearchGroup5}所示。
+	\item 管理员的邮箱中会收到Zotero发送的邮件，
+	提示有人申请加入群组，此邮件也有可能被邮箱系统放入到垃圾邮件中。
+	群组管理员根据邮件提示登录到Zotero网站，
+	\menu{Approve}即可，如\autoref{fig:ch4ZotSearchGroup5}所示。
 
 \end{enumerate}
 
 \section{群组文献添加和复制}\label{sec:copyGroupLibrary}
 \begin{enumerate}
-	\item 在群组库中，也可以像\cref{sec:newLibrary}描述的那样通过File-New Collection...或右击群组的名称选择New Collection...
+	\item 在群组库中，也可以像\cref{sec:newLibrary}描述的那样通过\menu{File-New Collection...}
+	或右击群组的名称选择\menu{New Collection...}
 	建立分类及子分类以方便题录的管理，建立分类的结果如\autoref{fig:ch4ZotGroupNewColl}所示。
 	\item 添加群组文献实现可以通过两种方法实现，一是直接将Zotero左侧面板自己文献库中的题注拖放到群组库的相应文件夹中，
 	如\autoref{fig:ch4ZotGroupDragCitation}所示。
@@ -1144,11 +1223,44 @@
 
 %第五章
   \chapter{高级应用及疑难解答}\label{ch:questions}
-	本章讲述了一些高级问题讨论和疑难解答，
-	Zotero 标签的使用 \cref{sec:tag}；在CNKI在导入题录的同时也下载全文(\cref{sec:cnki_fulltext})；
-	在撰写中文文章时，参考文献列表中中文作者后面为“等”，英文为“et al”(\cref{sec:etal})；
+	本章讲述了一些高级问题讨论和疑难解答，包括如何备份和恢复Zotero数据(\cref{sec:back});
+	Zotero 标签的使用(\cref{sec:tag})；在CNKI在导入题录的同时也下载全文(\cref{sec:cnki_fulltext})；
+	在撰写中文文章时，参考文献列表中中文作者后面为“等”，英文为“et al”(\cref{sec:etal_set})；
+	如何批量修改文献语言(\cref{sec:change_lan})；
 	文献题目中的格式(斜体、上标、下标、大小写，\cref{sec:italic}，\cref{sec:case})等问题。
 		
+	\section{如何备份和恢复Zotero数据} \label{sec:back}
+%待补充
+	Zotero的备份包括其设置（或称为配置，包括插件及其设置、文件的存贮路径）和
+	数据（主要包括其文献条目、附件、style、translator等）。不要指望通过同步
+	来备份，同时只是同步了参考文献条目和存放在storage目录中的附件，而Zotero
+	的设置、存为链接的附件、style、translator不会被同步。
+
+	不同操作系统的Zotero配置默认存放位置见\url{https://www.zotero.org/support/kb/profile_directory}，
+	Win 10中的默认位置在
+	\winpath{C:\Users\<User Name>\AppData\Roaming\Zotero\Zotero\Profiles\<randomstring>},
+	在Win 10中同时按\keys{Win+R}，输入\path{\%appdata\%}，回车。就会打开Roaming目录，
+	然后再双击Zotero等文件夹进入最终的目录，如vwadz9wo.default，
+	备份就是将这个目录复制到一个其他的目录，如\winpath{D:\Zotero_back}。
+	恢复设置的过程是按\keys{Win+R}，输入，\verb|<zotero安装路径>\zotero.exe -P|，
+	如 \verb|D:\zotero\zotero.exe -P|回车，在弹出的对话框中点击
+	\menu{Creat Profile}，再点击\menu{Next}，
+	输入profile的名称，点击\menu{Choose Folder...}，
+	找到刚才备份的目录，如\winpath{D:\Zotero_back\vwadz9wo.default}，最后点\menu{Finish}。
+	在返回的界面中点击\menu{Start Zotero}。如果你的新电脑中目录结构与旧电脑一致，
+	原来的设置（包括目录设置，插件、同步的用户）都会回来。以后启动Zotero时按原来的方式即可。
+	备份和恢复Zotero设置的图文操作见\href{https://zhuanlan.zhihu.com/p/350546813}
+	{Zotero设置的备份与恢复https://zhuanlan.zhihu.com/p/350546813}。
+
+	不同操作系统的Zotero数据默认存放位置见\url{https://www.zotero.org/support/zotero_data}，
+	Win 10中的默认位置在
+	\winpath{C:\Users\<User Name>\Zotero}，具体到自己的Zotero存放位置查看方式为：在Zotero依次点击：
+	\menu{Edit-Preferences-Advanced-Files and Folders}，在Data Directory Location下面显示的路径即是
+	当前Zotero数据存放的位置。备份Zotero数据的方法就是将这个目录复制到其他安全的地方即可。
+	恢复Zotero数据的方式为在Zotero依次点击\menu{Edit-Preferences-Advanced-Files and Folders}，
+	点击\menu{Choose}，选定自己备份的目录，根据提示重新启动Zotero即可打开以前的数据。
+	备份和恢复Zotero数据的图文操作见\href{https://zhuanlan.zhihu.com/p/350549136}
+	{Zotero数据的备份与恢复https://zhuanlan.zhihu.com/p/350549136}。
 
 	\section{Zotero 标签的使用} \label{sec:tag}
 			在默认设置情况下，Zotero界面左下角的区域显示的是Zotero的标签，
@@ -1164,9 +1276,11 @@
 			
 			Zotero在导入文献时，会将文献的关键词以及主题作为标签导入到文献库中（称为“自动标签”），
 			看起来比较杂乱，我们可以使它不显示，或是删除自动生成的这些标签。方法是点击标签管理区域的彩色块位置
-			，点击Show Automatic前的方框，使之不选中如\autoref{ch5DeleteAutoTag}所示。
-			或是点击Delete Automatic Tags in This Library...，在弹出的对话框中点击OK，
-			即会删除自动标签，如\autoref{ch5DeleteAutoTagOK}所示。也可以在标签上右击，再点击Delete Tag...，
+			，点击\menu{Show Automatic}前的方框，使之不选中如\autoref{ch5DeleteAutoTag}所示。
+			或是点击\menu{Delete Automatic Tags in This Library...}，
+			在弹出的对话框中点击\menu{OK}，
+			即会删除自动标签，如\autoref{ch5DeleteAutoTagOK}所示。
+			也可以在标签上右击，再点击\menu{Delete Tag...}，
 			删除单个标签。
 			
 				\begin{figure}[htbp]
@@ -1182,7 +1296,7 @@
 					\label{ch5DeleteAutoTagOK}
 				\end{figure}
 			
-			我们如果使用自己的标签功能最好把这个功能禁用，方法是在Zotero中依次点击Edit-Preference-General-Miscellaneous，在界面的中间位置，在
+			我们如果使用自己的标签功能最好把这个功能禁用，方法是在Zotero中依次点击\menu{Edit-Preference-General-Miscellaneous}，在界面的中间位置，在
 			Automatically tag items with keywords and subject headings前面方框内点击，使它处理不选中状态，如\autoref{ch5DisableImportTag}所示。
 				\begin{figure}[htbp]
 					\centering
@@ -1191,7 +1305,14 @@
 					\label{ch5DisableImportTag}
 				\end{figure}
 						
-			在Zotero中添加标签的方法是，首先选中需要添加标签的文献，在右侧Tags下点击Add，输入需要命名的标签，如\autoref{fig:ch5Add_tag}所示，这种方法适用于新建一个标签，一次只能为一篇文献添加标签，但可以为一篇文献添加多个标签，只需要不断点击Add即可，如果想删除一篇文献的标签，可以点击“-”号。也可以将多篇文献选中，然后拖动到左下角标签区域的某个标签上，这样可以为多篇文章添加标签，但前提是这个标签已经存在。
+			在Zotero中添加标签的方法是，首先选中需要添加标签的文献，
+			在右侧\menu{Tags}下点击\menu{Add}，
+			输入需要命名的标签，如\autoref{fig:ch5Add_tag}所示，
+			这种方法适用于新建一个标签，一次只能为一篇文献添加标签，
+			但可以为一篇文献添加多个标签，只需要不断点击\menu{Add}即可，
+			如果想删除一篇文献的标签，可以点击\menu[,]{-}号。也可以将多篇文献选中，
+			然后拖动到左下角标签区域的某个标签上，这样可以为多篇文章添加标签，
+			但前提是这个标签已经存在。
 				\begin{figure}[htbp]
 					\centering
 					\includegraphics[scale=0.8]{ch5Add_tag}
@@ -1209,7 +1330,7 @@
 			
 			在Zotero的标签区域，你会发现所有的标签是按字母排列的，中文标签排在英文之后。
 			我们可以给标签指定颜色，指定了颜色的标签会排到前面，比较美观。
-			方法是右击需要设定颜色的标签，点击“Assign Color”，
+			方法是右击需要设定颜色的标签，点击\menu{Assign Color}，
 			如\autoref{ch5Assign_color}所示，一个库中可以给9个标签指定颜色，
 			在这个界面也可以给标签重命名或删除标签。
 				\begin{figure}[htbp]
@@ -1232,7 +1353,7 @@
 				
 				
 在弹出的对话框中给标签指定喜欢的颜色和标签位置，
-点击Set Color，如\autoref{ch5SetTagColor}所示。
+\menu{Set Color}，如\autoref{ch5SetTagColor}所示。
 				
 				如果设置的标签过多，找不到需要的标签，
 				可以在标签区域的最下方输入标签的名称进行搜索，
@@ -1244,7 +1365,7 @@
 					\label{ch5SearchTag}
 				\end{figure}
 			
-		\section{更新CNKI.js，当有权限时在CNKI导入题录的同时下载全文}\label{sec:cnki_fulltext}
+	\section{更新CNKI.js，当有权限时在CNKI导入题录的同时下载全文}\label{sec:cnki_fulltext}
 				一直以来，我们只能在CNKI在导入题录，而全文CAJ或PDF文件都不能同时下载下来。
 				近期，有国内的网友对CNKI的translator\footnote{translator相当于一个翻译器，
 				将网页上的元素翻译为在Zotero导入网页信息时可以识别的Zotero条目。}进行了修改，
@@ -1255,21 +1376,26 @@
 					首先到\href{https://github.com/Zotero-CN/translators_CN}{ Zotero translators 
 					中文维护小组的GitHub\footnote{在这个GitHub上除了CNKI的translator之外，
 					还有其他几个国内经常使用的数据库，如万方数据、维普、百度学术、谷粉学术、
-					专利搜索网站SooPAT。如果Zotero不带或使用异常，可以选择使用这个网站上的。} 
+					专利搜索网站SooPAT。如果Zotero自带translator使用异常，可以选择使用这个网站上的。} 
 					\url{ https://github.com/Zotero-CN/translators_CN}}下载CNKI.js
-					，在CNKI.js处右击，选择“链接另存为(K)...”，放到自己的位置，如\autoref{fig:ch5CNKIJS}图示：
+					，下载方法是用浏览器\footnote{IE浏览器可能打不开，请使用Chromium内核
+					浏览器，如\href{https://www.microsoft.com/zh-cn/edge}{新版Microft EDGE}、
+					\href{http://www.centbrowser.cn/history.html}{百分浏览器}等打开。}打开
+					\url{https://raw.githubusercontent.com/l0o0/translators_CN/master/translators/CNKI.js},
+					在打开的网页中右击，选择\menu{另存为(A)...}，放到自己的位置，如\autoref{fig:ch5CNKIJS}图示：
 						%CNKI.js
 					\begin{figure}[htbp]
 						\centering
-						\includegraphics[scale=0.9]{ch5CNKIJS}
+						\includegraphics[scale=0.8]{ch5CNKIJS}
 						\caption{CNKI.js下载}
 						\label{fig:ch5CNKIJS}
 					\end{figure}
 				\item
-				  将上一步下载的CNKI.js复制到Zotero的translator目录中(如\path{E:\hmy\zotero\translator})。
+				  将上一步下载的CNKI.js复制到Zotero的translator目录中(如\winpath{E:\hmy\zotero\translator})。
 				  或在上一步直接将CNKI.js下载到这个目录中。覆盖原来的CNKI.js，保险起见，
 				  可以先将原来的CNKI.js复制到其他地方备份，如果有问题再复制回来。
-				  如果忘了自己的translator目录，可以在Zotero中依次点击Edit-Preferences-Advanced-Files and Folders
+				  如果忘了自己的translator目录，可以在Zotero中依次点击
+				  \menu{Edit-Preferences-Advanced-Files and Folders}
 				  中查看，如\autoref{fig:ch5translatorDir}所示：
 				  	%translator dir
 					  \begin{figure}[htbp]
@@ -1279,7 +1405,7 @@
 					  	\label{fig:ch5translatorDir}
 					  \end{figure}
 				  \item
-				  在浏览器的Zotero插件上右击，依次点击选项-Advanced-Translator下面的Update Translators,
+				  在浏览器的Zotero插件上右击，依次点击\menu{选项或扩展选项-Advanced} Translator下面的Update Translators,
 				  见\autoref{fig:ch5ZoteroOption}，\autoref{fig:ch5ZoteroUpdateTran}：
 				  %Zotero选项
 				  \begin{figure}[htbp]
@@ -1300,6 +1426,25 @@
 		  具体方法参见\cref{sec:cnki}。如果不行，试着重新启动浏览器和Zotero，或是重启一下系统。
 		   \end{enumerate}
 	   
+		除了自行到\href{https://github.com/Zotero-CN/translators_CN}{ Zotero translators 
+		中文维护小组的GitHub 
+		\url{ https://github.com/Zotero-CN/translators_CN}}下载相关js外，也可以安装
+		\href{https://github.com/l0o0/jasminum/releases}{茉莉花插件}，其下载安装方法见
+		\cref{sec:Chinese_PDF}, 这个插件除了\cref{sec:Chinese_PDF}所述的抓取中文PDF元信息
+		之外，也可以更新非官方的一些中文网站的js，具体步骤为：在Zotero中依次点击\menu{Edit-Preferences-
+		Jasminum-Unofficial Translator Repository-Refresh}，稍等一会，上面会显示
+		一些中文网站translator，绿色对勾的表示当前是最新的，
+		蓝色叹号的表示没有安装的还需要更新的，点击蓝色叹号更新或安装。
+		或点击\menu{Update All}更新所有中文translator。当然，在此处更新完毕后也需
+		要在浏览器Zotero Connector中更新translator信息。安装茉莉花插件和用其更新translator信息
+		的步骤也可见\href{https://zhuanlan.zhihu.com/p/347628976}
+		{[Zotero]插件（扩展）的安装--以茉莉花（jasminum）为例
+		\url{https://zhuanlan.zhihu.com/p/347628976}}和
+		\href{https://zhuanlan.zhihu.com/p/347642670}
+		{[Zotero]利用jasminum（茉莉花）安装或更新部分中文网站translator
+		\url{https://zhuanlan.zhihu.com/p/347642670}}。
+
+
 	   上面的操作步骤也可参见知乎专栏文章\href{https://zhuanlan.zhihu.com/p/90638718}{[Zotero]
 	   有权限时在导入CNKI题录时同时下载全文的方法\url{https://zhuanlan.zhihu.com/p/90638718}}。
 	
@@ -1312,8 +1457,8 @@
 				\item
 				用Zotero在Word中生成参考文献后(参见\cref{sec:insertRef})，
 				将光标定位到参考文献中，或选中生成的参考文献，点击样式处右下角的箭头，
-				然后向下拉找到“书目”，再点击“书目”后面的向下的箭头，
-				点击“修改”,如\autoref{fig:ch5Biblio}所示：
+				然后向下拉找到\menu{书目}，再点击\menu{书目}后面的向下的箭头，
+				点击\menu{修改},如\autoref{fig:ch5Biblio}所示：
 		    		\begin{figure}[htbp]
 			    		\centering
 			    		\includegraphics[scale=0.5]{ch5Biblio}
@@ -1322,7 +1467,7 @@
 		    	  \end{figure}
 		    	\item
 				根据期刊或毕业论文排版要求设置格式，如可以将英文字体设置为Times New Roman，
-				字号：五号，点击“格式”-“段落”在弹出的对话框中设置缩进，行间距等，如
+				字号：五号，点击\menu{格式-段落}在弹出的对话框中设置缩进，行间距等，如
 				可以设置行间距为20磅，如\autoref{fig:ch5Format}，\autoref{fig:ch5Hanging}所示。
 			    	%样式修改
 			    	\begin{figure}[t]
@@ -1339,18 +1484,20 @@
 			    		\label{fig:ch5Hanging}
 			    	\end{figure}
 		    	\item
-				 如果都确定后，发现文末参考文献格式没有变化，那么选中所有参考文献，再点击“样式”中的“书目”，
+				 如果都确定后，发现文末参考文献格式没有变化，那么选中所有参考文献，
+				 再点击\menu{样式}中的\menu{书目}，
 				 如\autoref{fig:ch5FreshFinalformat}所示。
 			    	\begin{figure}[htbp]
 			    		\centering
 			    		\includegraphics[scale=0.8]{ch5FreshFinalformat}
-			    		\caption{全选后再次点击书目}
+			    		\caption{全选后再次点击\menu{书目}}
 			    		\label{fig:ch5FreshFinalformat}
 			    	\end{figure}
 		    	\item
 		    	如果再插入文献或刷新后，会发现格式仍然是我们刚才设置的格式。
 		    	%\url{https://zhuanlan.zhihu.com/p/58969571}
 			\end{enumerate}
+			
 		\section{中文作者后为“等”，英文为“et al”的设置方法}\label{sec:etal_set}	
 			一直以来在Word中同时引用中英文文献，
 			使用默认的Chinese-gb7714-1987-numeric.csl格式化文献，
@@ -1366,7 +1513,7 @@
 			{JurisM}对csl的扩展，实现中文作者后为“等”，英文为“et al”。具体步骤为：
 			\begin{enumerate}
 				\item 到\url{https://juris-m.github.io/styles/}，
-				点击JM Chinese Std GB/T 7714-2005 (numeric, Chinese)前面的下载链接，
+				点击\menu{JM Chinese Std GB/T 7714-2005 (numeric, Chinese)}前面的下载链接，
 				如\autoref{fig:ch5jmStyle-down}所示：
 				%下载安装JM Style
 				\begin{figure}[htbp]
@@ -1375,7 +1522,7 @@
 					\caption{下载安装JM Style}
 					\label{fig:ch5jmStyle-down}
 				\end{figure}
-				浏览器中会弹出是否安装Style的提示，点击OK，则会出现正在安装的提示
+				浏览器中会弹出是否安装Style的提示，点击\menu{OK}，则会出现正在安装的提示
 				如\autoref{fig:ch5ZotoerInstallStyle}，\autoref{fig:ch5InstallingStyle-error1}
 				所示：
 				%安装style及错误提示
@@ -1397,14 +1544,14 @@
 				这个等待时间可能比较长，期刊会出现一些错误提示，
 				如
 				\autoref{fig:ch5InstallingStyle-error}所示，
-				点击OK继续\footnote{也可以在此网页上，在链接右击，
+				点击\menu{OK}继续\footnote{也可以在此网页上，在链接右击，
 				选择链接另存为，将Style下载下来，再进行安装，
 				本地安装style的方法见\cref{sec:addStyle}。}:
 				%安装style及错误提示
 				\begin{figure}[htbp]
 					\centering
 						\includegraphics[scale=0.7]{ch5InstallingStyle-error}
-						\caption{可能有错误提示，点击OK}
+						\caption{可能有错误提示，点击\menu{OK}}
 						\label{fig:ch5InstallingStyle-error}
 					\end{figure}
 			\item 在插入或格式化参考文献格式时，选择
@@ -1429,13 +1576,13 @@
 				\caption{将英文文献的“Language”字段修改为“en”}
 				\label{fig:ch5JmLanguage}
 			\end{figure}
-			\item 修改完毕后，返回Word，点击Zotero工具条中Refresh按钮，最终结果
+			\item 修改完毕后，返回Word，点击Zotero工具条中\menu{Refresh}按钮，最终结果
 			如\autoref{fig:ch5Jm-final}所示：
 			%点击Refresh后最终结果
 			\begin{figure}[htbp]
 				\centering
 				\includegraphics[scale=0.6]{ch5Jm-final}
-				\caption{点击Refresh后最终结果}
+				\caption{\menu{Refresh}后最终结果}
 				\label{fig:ch5Jm-final}
 			\end{figure}
 			\end{enumerate}
@@ -1445,7 +1592,18 @@
 		{[Zotero]使用JurisM Style实现同时生成“et al”和“等”}
 		（\url{https://zhuanlan.zhihu.com/p/317108621}）。
 
-		\section{使用宏，使中文作者后为“等”，英文为“et al”}\label{sec:etal}
+		经过测试\href{https://juris-m.github.io/release/}{JurisM}
+		的这个style也可以直接用到Zotero中，也就是说从
+		\url{https://juris-m.github.io/styles/}，下载的
+		JM Chinese Std GB/T 7714-2005 (numeric, Chinese)也可以
+		安装到Zotero中，安装的过程见\cref{sec:addStyle}。
+		更多同时显示中文作者后为“等”，英文为“et al”的style见
+		\href{https://github.com/redleafnew/Chinese-std-GB-T-7714-related-csl}
+		{GB/T 7714相关的csl以及Zotero使用技巧及教程}。
+		
+	\section{批量修改文献语言}\label{sec:change_lan}	
+	%待补充	
+	\section{使用宏，使中文作者后为“等”，英文为“et al”}\label{sec:etal}
 			由于现在的csl不支持多语言，在用Chinese-gb7714-1987-numeric.csl、
 			Chinese-gb7714-2005-numeric.csl或Chinese-gb7714-2015-numeric.csl
 			生成的参考文献英文作者超过3个后面也是“等”，如\autoref{fig:ch5etal_error}所示（正确的应该是et al）。
@@ -1463,8 +1621,8 @@
 		
 
 			\begin{enumerate}
-				\item 在word 2016中依次点击开发工具-宏（如果没有开发工具，也可在视图中找到“宏”），
-				在宏名下面的文本框中随便输入一个名称（如abc），点击“创建”,
+				\item 在word 2016中依次点击\menu{开发工具-宏}（如果没有开发工具，也可在视图中找到\menu{宏}），
+				在宏名下面的文本框中随便输入一个名称（如abc），点击\menu{创建},
 				如\autoref{fig:ch5macro1}。
 					\begin{figure}[htbp]
 						\centering
@@ -1508,8 +1666,8 @@
 				\label{fig:ch5macro3}
 			\end{figure}
 		\item 然后关闭宏编辑窗口。
-		\item 依次点击开发工具-宏（如果没有开发工具，也可在视图中找到“宏”），
-		点击deng2etal，再点击“运行”，如\autoref{fig:ch5macro4},
+		\item 依次点击\menu{开发工具-宏}（如果没有开发工具，也可在视图中找到\menu{宏}），
+		点击\menu{deng2etal}，再点击\menu{运行}，如\autoref{fig:ch5macro4},
 		最终效果如\autoref{fig:ch5macro5}所示\footnote{
 			上面的做法是将“等”用正则表达式的方法替换为“et al”，
 						也可以用另外的正则表达式，将“et al”替换为“等”，
@@ -1529,23 +1687,24 @@
 				\label{fig:ch5macro5}
 			\end{figure}
 		\item 当然也可以为这个宏分配一个按钮，点击快速访问工具栏最后的向下箭头
-		选择“其他命令(M)...”，如\autoref{fig:ch5macro6_button}所示，	
+		选择\menu{其他命令(M)...}，如\autoref{fig:ch5macro6_button}所示，	
 				\begin{figure}[htbp]
 					\centering
 					\includegraphics[scale=0.5]{ch5macro6_button}
 					\caption{为宏分配按钮步骤1}
 					\label{fig:ch5macro6_button}
 				\end{figure}
-		\item 然后在“从下列位置选择命令(C)”处点击 “宏”，找到刚才创建的宏，点击“添加”，
-		再点“确定”返回，如\autoref{fig:ch5macro6_button2}所示。		
+		\item 然后在\menu{从下列位置选择命令(C)}处点击\menu{宏}，找到刚才创建的宏，点击
+		\menu{添加}，
+		再点\menu{确定}返回，如\autoref{fig:ch5macro6_button2}所示。		
 				\begin{figure}[htbp]
 					\centering
 					\includegraphics[scale=0.5]{ch5macro6_button2}
 					\caption{为宏分配按钮步骤2}
 					\label{fig:ch5macro6_button2}
 				\end{figure}
-		\item 在此步骤也可以为宏设置其他按钮形状，添加后，选中这个宏，再点“修改”，
-		选择喜欢的按钮形状，然后点“确定”返回即可，如\autoref{fig:ch5macro6_button3}所示。
+		\item 在此步骤也可以为宏设置其他按钮形状，添加后，选中这个宏，再点\menu{修改}，
+		选择喜欢的按钮形状，然后点\menu{确定}返回即可，如\autoref{fig:ch5macro6_button3}所示。
 		此时快速访问工具栏上就会有这个宏的按钮了，用时点击即可。	
 			\begin{figure}[htbp]
 				\centering
@@ -1562,8 +1721,8 @@
 			另一个是文末的参考文献列表部分（Bibliography）。
 			主要是通过修改style即csl文件实现的。修改csl文件可以通过Zotero
 			自带的Style Editor来完成（在Zotero中，
-			依次点击Edit-Preferences-Cite-Styles,在Style Mangager选
-			中要修改的Style再点击Tools下面的Style Editor按钮），
+			依次点击\menu{Edit-Preferences-Cite-Styles},在Style Mangager选
+			中要修改的Style再点击\menu{Tools}下面的\menu{Style Editor}按钮），
 			但这种方法需要对csl语言比较熟悉。
 			另一种方法是通过csl文件在线编辑方式进行，操作比较直观。
 			下面以springer-basic-author-date 这种格式的csl进行修改。	
@@ -1572,8 +1731,8 @@
 				在浏览器地址栏中输入
 				\href{https://editor.citationstyles.org/searchByName/}
 				{https://editor.citationstyles.org/searchByName/}回车，
-				然后搜索栏中输入style的名称，如springer-Basic，点击Search，
-				在下面的结果中Springer - Basic (author-date)下面的Edit进行在线编辑，
+				然后搜索栏中输入style的名称，如springer-Basic，\menu{Search}，
+				在下面的结果中Springer - Basic (author-date)下面的\menu{Edit}进行在线编辑，
 				如\autoref{fig:ch5Search_style}所示。
 				\begin{figure}[htbp]
 					\centering
@@ -1586,22 +1745,22 @@
 				\begin{figure}[htbp]
 					\centering
 					\includegraphics[scale=0.5]{ch5Find_et al}
-					\caption{找到et al}
+					\caption{找到\menu[,]{Et-al}}
 					\label{fig:ch5Find_et al}
 				\end{figure}
-			\item 如果Names下面没有Et-al选项，点击上侧的“+”，在弹出的对话框中点击Et-al，
+			\item 如果Names下面没有Et-al选项，点击上侧的\menu{+}，在弹出的对话框中\menu[,]{Et-al}，
 			如\autoref{fig:ch5Click_etal}。
 				\begin{figure}[htbp]
 					\centering
 					\includegraphics[scale=0.5]{ch5Click_etal}
-					\caption{点击上面的“+”}
+					\caption{点击上面的\menu{+}}
 					\label{fig:ch5Click_etal}
 				\end{figure}
-			\item 然后点击Text formatting下面的“I”按钮，如\autoref{fig:ch5Click_italic}所示。
+			\item 然后\menu{Text formatting}下面的\menu{I}按钮，如\autoref{fig:ch5Click_italic}所示。
 				\begin{figure}[htbp]
 					\centering
 					\includegraphics[scale=0.5]{ch5Click_italic}
-					\caption{点击“I”按钮}
+					\caption{点击\menu{I}按钮}
 					\label{fig:ch5Click_italic}
 				\end{figure}
 			\end{enumerate}
@@ -1609,19 +1768,19 @@
 			 如果需要改Bibliography中作者后面的et al为斜体，过程一样，如果不需要，
 			 可以跳转到\cref{it:StyleInfo}。
 			 \begin{enumerate}
-				 \item 点击EXAMPLE BIBLIOGRAPHY下面的作者，再点击Names下面的Et al，
-				 如果没有Et-al，按+添加Et-al，如\autoref{fig:ch5Click_etal2}所示。
+				 \item 点击EXAMPLE BIBLIOGRAPHY下面的作者，再点击Names下面的\menu[,]{Et-al}，
+				 如果没有Et-al，按\menu{+}添加Et-al，如\autoref{fig:ch5Click_etal2}所示。
 			 		\begin{figure}[htbp]
 						\centering
 						\includegraphics[scale=0.5]{ch5Click_etal2}
-						\caption{找到BIBLIOGRAPHY下的et al}
+						\caption{找到BIBLIOGRAPHY下的\menu[,]{Et-al}}
 						\label{fig:ch5Click_etal2}
 					\end{figure}
-				\item 在Text formatting下点击“I”，使之为选中状态，如\autoref{fig:ch5Click_italic2}所示。
+				\item 在Text formatting下点击\menu{I}，使之为选中状态，如\autoref{fig:ch5Click_italic2}所示。
 					\begin{figure}[htbp]
 						\centering
 						\includegraphics[scale=0.5]{ch5Click_italic2}
-						\caption{点击“I”按钮}
+						\caption{点击\menu{I}按钮}
 						\label{fig:ch5Click_italic2}
 					\end{figure}
 				\end{enumerate}	
@@ -1629,7 +1788,7 @@
 
 				都修改完成以后，还要修改style信息：
 				\begin{enumerate} \label{it:StyleInfo}
-				\item 点击STYLE INFO下面的info，
+				\item 点击STYLE INFO下面的\menu{info}，
 				然后将Title（一般为投稿期刊的名称）和id设为唯一的值，
 				防止覆盖本地的相同id的Style，如\autoref{fig:ch5Change_csl_title}所示。
 				\begin{figure}[htbp]
@@ -1638,7 +1797,7 @@
 					\caption{修改Style的名称和id}
 					\label{fig:ch5Change_csl_title}
 				\end{figure}
-			\item 然后依次点击Style-Save Style,保存Style，如\autoref{fig:ch5SaveStyle}所示。
+			\item 然后依次\menu{Style-Save Style},保存Style，如\autoref{fig:ch5SaveStyle}所示。
 				\begin{figure}[htbp]
 					\centering
 					\includegraphics[scale=0.5]{ch5SaveStyle}
@@ -1652,8 +1811,8 @@
 					\caption{确定保存Style}
 					\label{fig:ch5ClickSave}
 				\end{figure}
-			\item 在弹出的对话框中点击Download Style，如\autoref{fig:ch5DownloadStyle}所示。
-			如果点击Download Style没有反应，将此对话框关闭，
+			\item 在弹出的对话框中点击\menu{Download Style}，如\autoref{fig:ch5DownloadStyle}所示。
+			如果点击\menu{Download Style}没有反应，将此对话框关闭，
 			刷新一下页面，重复步骤2-4，将csl文件存到自己的位置。
 				\begin{figure}[htbp]
 					\centering
@@ -1675,7 +1834,7 @@
 		\section{正文中如何实现作者（年代）的引文格式？}\label{sec:author_year}
 			在作者-年代引用格式中，一般引用格式为“（作者，年代）”如“...没有发现相关性（张三，2017）”，
 			但有时作者放在前面，引用格式为：“作者（年代）”，如“张三（2017）发现了...”，
-			在EndNote实现比较简单，只需要在引用处右击，选择Display as Author （year）即可。
+			在EndNote实现比较简单，只需要在引用处右击，选择\menu{Display as Author （year）}即可。
 			在Zotero现在没有直接实现的方法。根据Zotero论坛的方法，可以用如下的方法实现：
 			\begin{enumerate}
 			\item 用正常的方法插入文献。形成的格式为：\label{it:copyAuthor}
@@ -1684,7 +1843,7 @@
 
 				Abbas FMA, Foroogh B, Liong MT, Azhar ME. 2008. Multivariate statistical analysis of antioxidants in dates (phoenix dactylifera). Int. Food Res. J. 15(2):193–200
 				\end{lstlisting}
-			\item 然后依次点击Word中Zotero工具条，Add/Edit Citation-Z-Class View，
+			\item 然后依次点击Word中Zotero工具条，\menu{Add/Edit Citation-Z-Class View}，
 			如\autoref{fig:ch5ClassicView}所示。
 				\begin{figure}[htbp]
 					\centering
@@ -1692,7 +1851,7 @@
 					\caption{切的为经典视图}
 					\label{fig:ch5ClassicView}
 				\end{figure}
-			\item 在弹出的对话框中点击Suppress Author前面的复选框，再点击OK，
+			\item 在弹出的对话框中\menu{Suppress Author}前面的复选框，再点击\menu{OK}，
 			如\autoref{fig:ch5SupressAuthor}所示。
 				\begin{figure}[htbp]
 					\centering
@@ -1713,7 +1872,7 @@
 		\section{设置文献题目中的斜体、上（下）标}\label{sec:italic}
 			一些论文的题目由于是拉丁单词或其它原因需要在参考文献中表现为斜体：
 			如\textit{in vitro}， \textit{longissimus thoraci}，
-			要改为斜体，可以在插入参考文献后在Word中用字体中的“I”按钮实现，
+			要改为斜体，可以在插入参考文献后在Word中用字体中的\menu{I}按钮实现，
 			但是这种方法在参考文献刷新后需要重新设置。
 			下面的方法可以在刷新或再插入、删除文献后斜体保持不变，
 			主要是通过修改Zotero中该文献的条目的题目来实现的。
@@ -1732,7 +1891,7 @@
 						\begin{figure}[htbp]
 							\centering
 							\includegraphics[scale=0.5]{ch5WordRefresh}
-							\caption{在Word中点击刷新按钮}
+							\caption{在Word中\menu{刷新}按钮}
 							\label{fig:ch5WordRefresh}
 						\end{figure}
 						\begin{figure}[htbp]
@@ -1764,7 +1923,8 @@
 			但多数杂志要求参考文献题目是句子（Sentence）格式，
 			即只是题目的首字母大写（缩写除外，都是大写），在Zotero中转换的方法如下：
 			
-			选中文章，然后在右侧文章信息Info中Title字段处右击，选择Transform Text-Sentence case，
+			选中文章，然后在右侧文章信息Info中Title字段处右击，
+			选择\menu{Transform Text-Sentence case}，
 			然后再把缩略语等需要大写的手动修改一下。如\autoref{fig:ch5Title_case}所示：
 			
 				\begin{figure}[htbp]
@@ -1779,7 +1939,7 @@
 			需要用到批量转换的方法(操作有风险，建议先备份库再进行下面的操作)。
 			\begin{enumerate}
 				\item 选中需要转换的文献，
-				在Zotero中依次点击：Zotero-Tools-Developer-Run Javascript，
+				在Zotero中依次点击：\menu{Tools-Developer-Run Javascript}，
 				如\autoref{fig:ch5RunJavaScript}所示：
 
 				%run javascript
@@ -1809,7 +1969,7 @@
 						}
 					return result;
 				\end{lstlisting}
-				\item 点击\autoref{fig:ch5RunJavaScript1}中的Run按钮，右侧会显示题目的修改情况。
+				\item 点击\autoref{fig:ch5RunJavaScript1}中的\menu{Run}按钮，右侧会显示题目的修改情况。
 						%run javascript
 						\begin{figure}[htbp]
 							\centering
@@ -1828,11 +1988,11 @@
 		
 		\section{Word中用Zotero插入的文献是类似乱码的域代码}\label{sec:field_code}
 		有时候用Zotero在Word中插入文献后显示得类似乱码，如\autoref{fig:ch5Field_code}所示，	
-		这样可能是显示问题，可以试试按Alt+F9。
+		这样可能是显示问题，可以试试按\keys{Alt+F9}。
 		根据\href{https://link.zhihu.com/?target=https\%3A//zhidao.baidu.com/question/158669989.html}
-		{百度知道}Alt + F9的意思是：
+		{百度知道}\keys{Alt + F9}的意思是：
     	在Microsof Office 的 Word 中
-    	Alt+F9组合键的作用：显示或隐藏文档中所有域代码。
+    	\keys{Alt+F9}组合键的作用：显示或隐藏文档中所有域代码。
 		Word域的含义，Word域的中文意思是范围，类似数据库中的字段，
 		实际上，它就是Word文档中的一些字段。每个Word域都有一个唯一的名字，但有不同的取值。
     	例如：
@@ -1849,9 +2009,9 @@
 	    	应该先安装Word再安装Zotero，如果仍然没有工具条(一些绿色精简版的Word中可能会存在这些情况),	    	
 			解决办法是：
 			\begin{enumerate}
-				\item 关闭Word，在Zotero中依次点击Edit-Preferences，在弹出的对话框中，
-				点击Cite-Word Processors-Install Microsoft Word Add-in，
-				如\autoref{fig:ch5InstallWordPlugin}所示，然后在弹出的对话框中点击OK，
+				\item 关闭Word，在Zotero中依次点击\menu{Edit-Preferences}，在弹出的对话框中，
+				点击\menu{Cite-Word Processors-Install Microsoft Word Add in}，
+				如\autoref{fig:ch5InstallWordPlugin}所示，然后在弹出的对话框中点击\menu{OK}，
 				如\autoref{fig:ch5InstallWordPluginOK}所示。
 				打开Word看一下Zotero工具条是不是出现了。
 			 
@@ -1873,16 +2033,15 @@
 				\item 如果上面的方法不行，
 			可以尝试将Zotero安装目录中的模板文件手动复制到Word的启动目录中。
 	    	
-			如：将\path{D:\Zotero\extensions\zoteroWinWordIntegration@zotero.org\install\Zotero.dotm}
+			如：将\winpath{D:\Zotero\extensions\zoteroWinWordIntegration@zotero.org\install\Zotero.dotm}
 			复制到 
-
-			\verb|C:\Users\<YourName>\AppData\Roaming\Microsoft\Word\STARTUP\|中。
+			\winpath{C:\Users\<YourName>\AppData\Roaming\Microsoft\Word\STARTUP}中。
 			或是尝试以管理员模式启动Word。
 	    		
 			   \item 如果Word出现了工具条，但点击插入文献时提示Zotero Integration Error，
 			   可能是Zotero中工具条禁用了。解决办法是在
-			   Zotero中点击Edit-Preferences-Cite-Word Processors-Enable Plugins and Restart Zotero
-			   或点击Tools-Add-ons-点击Zotero Word ...后面的 Enable
+			   Zotero中点击\menu{Edit-Preferences-Cite-Word Processors-Enable Plugins} 重启Zotero
+			   或点击\menu{Tools-Addons}点击Zotero Word ...后面的 \menu{Enable}
 			   ，如\autoref{fig:ch5WordPluin}所示,最后再试试是否正常了。
 			   详细情况可参见\href{https://zhuanlan.zhihu.com/p/58931999}
 			   {Word中没有Zotero工具条的解决办法之一}。
@@ -1912,16 +2071,16 @@
 	    			\end{figure}
 				产生这个问题的原因是选用的csl文件（csl文件名称中可能含有note字样）
 				生成的是脚注或尾注格式的参考文献，
-				确认的方式是在Word中的Zotero工具条上点击Document Preferences，
+				确认的方式是在Word中的Zotero工具条上点击\menu{Document Preferences}，
 				看下Language下是否为Display Citation As: Footnotes或Endnotes，
 				如果是，这就是生成这样参考文献的原因。
 				而参考文献在文章末尾的应该是Store Citation As: Field, Bookmark。 
 				如果将显示为传统的在文章末尾，可以按以下步骤：
     			\begin{enumerate}
     				\item 
-						 在Word中的Zotero工具条上点击Document Preferences，
+						 在Word中的Zotero工具条上点击\menu{Document Preferences}，
 						 如果显示为Display Citation As: 中选中的是 Endnotes，
-						 则点击Footnotes前的单选按钮。点击确定，如\autoref{fig:ch5footnotes1}。
+						 则点击Footnotes前的单选按钮。点击\menu{确定}，如\autoref{fig:ch5footnotes1}。
 			    			 \begin{figure}[ht]
 			    				\centering
 			    				\includegraphics[scale=0.6]{ch5footnotes1}
@@ -1929,9 +2088,9 @@
 			    				\label{fig:ch5footnotes1}
 			    			\end{figure}
 		    			\item 
-							在Word中的Zotero工具条上点击Document Preferences，
+							在Word中的Zotero工具条上点击\menu{Document Preferences}，
 							选择China National Standard GB/T 7714-2015 （numeric, Chinese）,
-							不要选择带note字样的。点击OK，如\autoref{ch5changeStyle}。
+							不要选择带note字样的。点击\menu{OK}，如\autoref{ch5changeStyle}。
 				    			 \begin{figure}[ht]
 				    				\centering
 				    				\includegraphics[scale=0.5]{ch5changeStyle}
@@ -1939,7 +2098,7 @@
 				    				\label{ch5changeStyle}
 				    			\end{figure}
 		    			\item 
-							如果参考文献还是没有在文章末尾出现，点击工具条上的Add Bibliography，
+							如果参考文献还是没有在文章末尾出现，点击工具条上的\menu{Add Bibliography}，
 							正常情况下参考文献应该会出现在文章末尾，如\autoref{ch5EndofArt}所示。
 				    			\begin{figure}[ht]
 				    				\centering
@@ -1975,9 +2134,9 @@
 	       	
 	      取消这些安全警告的方法：
     	
-		在Word中依次点击文件-选项-信任中心-信任中心设置-受信任位置-添加新位置，
+		在Word中依次点击\menu{文件-选项-信任中心-信任中心设置-受信任位置-添加新位置}，
 		将启动目录填写进去。    	
-		如\path{C:\Users\<YourName>\AppData\Roaming\Microsoft\Word\STARTUP\}。
+		如\winpath{C:\Users\<YourName>\AppData\Roaming\Microsoft\Word\STARTUP}。
 		如\autoref{fig:ch5AddTrustedLoc}所示。
 	    		\begin{figure}[ht]
 					\centering
@@ -1994,7 +2153,7 @@
 			具体步骤如下：
 			\begin{enumerate}
 				\item 到\url{https://github.com/l0o0/jasminum/releases}
-				上右击jasminum\_x.xpi(x为插件的版本)，选择“链接另存为(K)”，
+				上右击jasminum\_x.xpi(x为插件的版本)，选择\menu{链接另存为(K)}，
 				将jasminum插件下载自己的目录，如桌面，如图\autoref{fig:ch5jasminum_down}所示：
 				%jasminum下载
 	    		\begin{figure}[ht]
@@ -2003,10 +2162,10 @@
 					\caption{jasminum下载}
 					\label{fig:ch5jasminum_down}
 	    		\end{figure}
-				\item 在Zotero中依次点击Tools-Add-ons，
-				在弹出的界面中点击齿轮-Install Add-on From File...
-				在弹出的对话框中找到下载的jasminum\_*.xpi插件（*为版本号），点击“打开”,
-				倒计时结束后，点击Install Now，安装完成后点击Restart now重新启动Zotero。
+				\item 在Zotero中依次点击\menu{Tools-Add ons}，
+				在弹出的界面中点击\menu{齿轮-Install Add on From File...}
+				在弹出的对话框中找到下载的jasminum\_*.xpi插件（*为版本号），点击\menu{打开},
+				倒计时结束后，点击\menu{Install Now}，安装完成后点击\menu{Restart now}重新启动Zotero。
 				插件(扩展)的方法可见\cref{sec:ZotFileInstall}中ZotFile的方法。
 				\item 将中文论文拖到Zotero库中，如\autoref{fig:ch5Drag_Chinese_PDF}所示：
 					%拖动中文PDF
@@ -2016,7 +2175,7 @@
 						\caption{拖动中文PDF到Zotero库中}
 						\label{fig:ch5Drag_Chinese_PDF}
 					\end{figure}
-				\item 在文献上右击，再点击Retrieving CNKI Metadata，
+				\item 在文献上右击，再\menu{Retrieving CNKI Metadata}，
 				如\autoref{fig:ch5Retrive_CNKI}所示：
 					%抓取CNKI元信息
 					\begin{figure}[ht]
@@ -2047,15 +2206,20 @@
 
 			\end{enumerate}
 		
-		\section{Zotero条目右键菜单中为什么没有Find Available PDF？}\label{sec:Find_PDF}	
-				一般情况下在Zotero条目上右击会出现Find Available PDF，如果没有出现，可能是以下两种情况：
+	\section{Zotero条目右键菜单中为什么没有Find Available PDF？}\label{sec:Find_PDF}	
+				一般情况下在Zotero条目上右击会出现\menu{Find Available PDF}，如果没有出现，可能是以下两种情况：
 				\begin{enumerate}
-					\item 条目本来已经有PDF附件，右键菜单会显示View PDF。
+					\item 条目本来已经有PDF附件，右键菜单会显示\menu{View PDF}。
 					\item 条目的URL和DOI两个字段都是空的。
 				\end{enumerate}
 				详情参见\href{https://zhuanlan.zhihu.com/p/348697024}
 							{[Zotero]右键菜单中为什么没有Find Available PDF？}
-		\section{Zotero生成双语参考文献的变通实现方法}\label{sec:Biolan}
+	
+	\section{Zotero删除条目（题录）时同时删除PDF附件的方法}\label{sec:Delete_attach}						
+%待补充
+%\href{https://zhuanlan.zhihu.com/p/338159167}
+ %
+	\section{Zotero生成双语参考文献的变通实现方法}\label{sec:Biolan}
 				为满足期刊论文国际交流需要，现在很多中文期刊要求中文参考文献需增加英文引用格式，
 				排于对应的中文文献下方，如《农业工程学报》、《食品与发酵工业》等。
 				现在的文献管理软件基本上没有现成的解决方法，下面提供一个变通的方法，
@@ -2081,8 +2245,8 @@
 							\caption{将翻译的英文格式添加到Zotero库的对应中文条目的Short Title中}
 							\label{fig:ch5Short_title}
 						\end{figure}
-						\item 在Zotero中点击Edit-Preferences-Advanced-Files and Folders-
-							Show Data Directory找到自己使用的数据文件夹，进入styles文件夹，
+						\item 在Zotero中点击\menu{Edit-Preferences-Advanced-Files and Folders-
+							Show Data Directory}找到自己使用的数据文件夹，进入styles文件夹，
 							如\autoref{fig:ch5Files_folders}，\autoref{fig:ch5Styles}所示：
 							%找到Zotero的数据文件夹
 							\begin{figure}[ht]
@@ -2151,7 +2315,7 @@
 							\end{lstlisting}
 						\item 如果自己不愿意修改csl文件，可以下载我修改的，放到自己能找到位置。下载地址：
 							\url{https://www.jianguoyun.com/p/DU5V1AkQtOD-BRjtqcwD}，
-							然后在Zotero中点击Edit-Preferences-Cite-Styles，点击“+”，
+							然后在Zotero中点击\menu{Edit-Preferences-Cite-Styles}，点击\menu{+}，
 							找到刚才下载的csl文件，添加此style文件。
 							具体过程可以参考：\cref{sec:addStyle}
 							或\href{https://zhuanlan.zhihu.com/p/64624484}{[Zotero]如何添加csl格式文件？}
@@ -2188,8 +2352,8 @@
 			Zotero检索引擎的设置可以通过编辑Zotero数据文件夹中的locate下的engines.json
 			文件进行添加、删除或修改。
 			在Zotero中依次点击：
-			Edit-Preferences–Advanced–Files and Folders–Show Data Directory，打开Zotero 
-			文件夹，进入locate目录，用文本编辑器打开engines.json。Zotero数据文件夹的打开
+			\menu{Edit-Preferences–Advanced–Files and Folders–Show Data Directory}，打开Zotero 
+			文件夹，进入\winpath{locate}目录，用文本编辑器打开engines.json。Zotero数据文件夹的打开
 			可见\cref{sec:Biolan}。engines.json 文件基于 OpenURL 框架编写而成，
 			每个检索引擎的设置放在了花括号之中，包括名称、别名、描述、
 			检索式等。
@@ -2249,7 +2413,7 @@
 
 		打开高级搜索的方法包括：
 				\begin{enumerate}
-					\item 右击My Library，选择New Saved Search，
+					\item 右击\menu{My Library}，选择\menu{New Saved Search}，
 					如\autoref{fig:ch5Advanced_search_mylib}所示，
 					弹出的对话框如\autoref{fig:ch5Advanced_search_mylib1}所示，
 					可以对搜索进行命名，设置多重搜索条件。
@@ -2268,7 +2432,7 @@
 							\caption{高级搜索对话框1}
 							\label{fig:ch5Advanced_search_mylib1}
 						\end{figure}
-					\item 另外，也可以在Zotero中依次点击Edit-Advanced Search，
+					\item 另外，也可以在Zotero中依次点击\menu{Edit-Advanced Search}，
 					如\autoref{fig:ch5EditAdSearch}所示或直接点击
 					Zotero工具栏中的放大镜图标，打开高级搜索，
 					如\autoref{fig:ch5ToolbarSearch}所示，
@@ -2278,7 +2442,7 @@
 						\begin{figure}[ht]
 							\centering
 							\includegraphics[scale=0.6]{ch5EditAdSearch}
-							\caption{点击Edit，找到Advanced Search}
+							\caption{点击\menu{Edit}，找到\menu{Advanced Search}}
 							\label{fig:ch5EditAdSearch}
 						\end{figure}
 						%直接点击Zotero工具栏上的放大镜图标
@@ -2291,8 +2455,8 @@
 					\item 最近1周加入文献的设置方法：按照上面的方法打开高级搜索，
 					Search in library中选择需要搜索的库，
 					其他按\autoref{fig:ch5Last7DSearch}进行设置，然后点击
-					Save Search，输入需要保存的名称，如“最近1周文献”，点击OK，
-					则在Zotero库中就会出现“最近1周文献”的分类，
+					\menu{Save Search}，输入需要保存的名称，如“最近1周文献”，点击\menu{OK}，
+					则在Zotero库中就会出现\menu{最近1周文献}的分类，
 					如\autoref{fig:ch5Last7DSearch1}所示，点击会显示最近1周导入的
 					文献，如果库中的文献发生了变化，如新添加了文献，这个分类中的文献
 					也会发生变化。
@@ -2314,7 +2478,7 @@
 																
 					\item 最近5年文献的设置方法：同理，打开高级搜索，
 					按\autoref{fig:ch5Last5Years}进行设置，然后点击
-					 Save Search，输入需要保存的名称，如“近5年文献”，点击OK，
+					\menu{Save Search}，输入需要保存的名称，如“近5年文献”，点击\menu{OK}，
 					 则在Zotero库中就会出现“近5年文献”的分类，
 					 如\autoref{fig:ch5Last5Years1}所示，点击会显示最近5年的
 					 文献，如果库中的文献发生了变化，如新添加了文献，这个分类中的文献
@@ -2352,8 +2516,9 @@
 			\url{http://www.soopat.com/}或\url{http://cprs.patentstar.com.cn/}
 			进行检索就可以了\footnote{这两个网站可能需要注册才能检索和导入其PDF格式的全文。}。
 		
-
-			\section{Zotero中如何点击父文件夹时也同时显示子文件夹内容？}\label{sec:ShowSub}	
+	\section{Zotero中无关闭、最大化、最小化、窗口标题的窗口移动或放大缩小的方法？}\label{sec:no_max}	
+		在编辑Zotero中经常遇到	%待补充
+	\section{Zotero中如何点击父文件夹时也同时显示子文件夹内容？}\label{sec:ShowSub}	
 				例如我有一个分类为“其它”，“其它”下面又有“安全”、“无损检测”和“蛋白质组学及氧化”三个子分类，
 				“其它”中有6篇文献，“安全”有28篇文献，“无损检测”48篇文献，“蛋白质组学及氧化”5篇文献，
 				但在点击“其它”时只显示了6篇文献，子分类“安全”、“无损检测”等文件夹中的文献没有显示，如
@@ -2361,7 +2526,7 @@
 
 
 				设置方法为：
-				在Zotero中依次点击View-Show ltems from subcollections，如
+				在Zotero中依次点击\menu{View-Show ltems from subcollections}，如
 				\autoref{fig:ch5ShowItemSub}所示，
 				%子分类中的文献不显示
 				\begin{figure}[ht]
@@ -2393,7 +2558,7 @@
 					\label{fig:ch5ShowSubAll}
 				\end{figure}
 
-		\section{Word中的文献如何导入到Zotero库中？}\label{sec:RefExtract}	
+	\section{Word中的文献如何导入到Zotero库中？}\label{sec:RefExtract}	
 			我们在整理汇总文件时，经常收到不同人提交的文件，里面如果也含有参考文献列表，
 			几份文件合并到一起时，如果是按文献引用的次序进行编码的，参考文献的顺序会发生变化，
 			这时就需要将各个文件的参考文献列表都导入到Zotero重新插入。
@@ -2407,8 +2572,8 @@
 				注意一定要docx文件，doc文件无法识别。
 				结果中就会显示文件中参考文献的数量和当前应用的CSL文件，
 				在Optput format后面选择输出的格式，如RIS，
-				预览框中就会显示提取的参考文献RIS格式。点击Download，
-				就可以下载文件的ris格式，再通过Zotero的File-Import菜单导入，
+				预览框中就会显示提取的参考文献RIS格式。\menu{Download}，
+				就可以下载文件的ris格式，再通过Zotero的\menu{File-Import}菜单导入，
 				见\cref{OtherRefSoft}。
 				%Reference Extractor界面
 				\begin{figure}[htbp]
@@ -2421,12 +2586,12 @@
 			可以通过一个在线的参考文献解析网站
 			\href{https://anystyle.io/}{AnyStyle}（\url{https://anystyle.io/}）
 			来进行解析，例如将纯文本的参考文献信息粘贴到Parse下面的本文框中，
-			点击下面的Parse * references按钮，
+			点击下面的\menu{Parse * references}按钮，
 			在Edit下面的框中进行编辑修改，点击识别错误的字段，
-			再点击Assign label，
+			再点击\menu{Assign label}，
 			例如当前例子中就将题目、期刊都识别为作者了，
 			需要手动修改字段名称。中文的识别错误较多，英文的感觉识别率还不错。
-			编辑结束后，再点击3.Save下面的BibTex，
+			编辑结束后，再点击\menu{3.Save}下面的\menu{BibTex}，
 			如\autoref{fig:ch5RefParse}所示，下载，再从Zotero中导入，
 			见\cref{OtherRefSoft}。
 			%使用AnyStyle解析参考文献
