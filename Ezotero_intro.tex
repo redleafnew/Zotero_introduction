@@ -78,7 +78,8 @@
 	  
 	\usepackage[os=win]{menukeys} %使用目录、菜单、按键
 		\renewmenumacro{\menu}[-]{menus} %将默认的>改为-
-		\newmenumacro{\winpath}[bslash]{pathswithfolder} %修改为winpath
+		\newmenumacro{\winpath}[bslash]{hyphenatepathswithfolder} %修改为winpath
+		%\newmenumacro{\winpath}[bslash]{hyphenatepathswithfolder} 
 	\usepackage{indentfirst}
 \begin{document}
 
@@ -173,8 +174,8 @@
 				\item 选择Standard后\menu{下一步}提示安装目录为\winpath{C:\Program Files (x86)\Zotero}，
 				此处无法修改安装目录，
 				如\autoref{fig:ch1StartInstall}。如果要修改需要在上一步选择Custom选项。
-				\item 此时信息已经收集完毕，点击\menu{Install(安装)}就开始安装了，如\autoref{fig:ch1Installing}。
-				\item 最后安装完成，点击\menu{Finish(完成)}就可以打开Zotero，如\autoref{fig:ch1InstallComplete}所示。
+				\item 此时信息已经收集完毕，点击\menu{Install}(安装)就开始安装了，如\autoref{fig:ch1Installing}。
+				\item 最后安装完成，点击\menu{Finish}(完成)就可以打开Zotero，如\autoref{fig:ch1InstallComplete}所示。
 				\item 如果觉得安装麻烦，也可以点击
 				\href{https://www.zotero.org/download/client/dl?channel=release&platform=win32-zip}{下载Zip格式}，
 				解压后直接使用。另外，也可以从\href{https://github.com/pedrom34/ZoteroPortable}
@@ -190,14 +191,15 @@
 		\end{enumerate}
 			
 				\begin{figure}[htbp]
-					
+					\centering
 					\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
 						\centering
 						\includegraphics[scale=0.43]{ch1InstallType}
 						\caption{选择安装类型}
 						\label{fig:installType}
 					\end{minipage}
-					\hspace{1cm}	
+					\hspace{1cm}
+					\centering	
 					\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
 							%fig install start
 						\centering
@@ -212,6 +214,7 @@
 				%fig installing
 				\begin{figure}[htbp]
 					\noindent
+					\centering
 					\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
 						\centering
 						\includegraphics[scale=0.43]{ch1Installing}
@@ -239,7 +242,7 @@
 		
 		在访问\href{https://www.zotero.org/download/}
 		{Zotero浏览器插件安装网站https://www.zotero.org/download/}时，
-		网站会自动检测当前所用浏览器内核，提示安装相应的插件，
+		网站会检测当前所用浏览器内核，提示安装相应插件，
 		如\autoref{fig:ch1PluginWeb}所示。可以直接点击\menu{Install Chrome Connector}，
 		然后出现是否需要安装的提示，如\autoref{fig:ch1PluginInstall},
 		点击\menu{添加扩展程序}进行插件安装。插件的安装过程有可能需要翻墙，
@@ -297,7 +300,7 @@
 			%data folder
 			\begin{figure}[htbp]
 				\centering
-				\includegraphics[width=0.5\linewidth]{ch3ZoteroPre1}
+				\includegraphics[scale=0.4]{ch3ZoteroPre1}
 				\caption{打开Zotero设置}
 				\label{fig:ch1ZoteroPre1}
 			\end{figure}
@@ -515,7 +518,7 @@
 			\end{figure}
 		\subsection{链接全文}\label{sec:linkFulltex}
 				对于我们从其他网站下载的全文或其他附件信息，
-				我们可以手动链接到参考文献条目中，方法是先选中对应的参考文献条目
+				我们可以手动链接到参考文献条目中，先选中对应的参考文献条目
 				，在Zotero点击回形针图标，
 				选择\menu{Attach Stored Copy of File ...}，
 				如\autoref{fig:ch1LinkFile1}所示，找到相应的附件。
@@ -556,9 +559,9 @@
 				\label{fig:ch2WordInsert}
 			\end{figure}
 			\item
-			如果列表中没有我们需要的文章格式\label{tag:notyle}，
+			如果列表中没有需要的文章格式\label{tag:notyle}，
 			点击\autoref{fig:ch2WordInsert}中的\menu{Manage Styles...}，
-			则会弹出\menu{Zotero Preferences}对话框，
+			弹出\menu{Zotero Preferences}对话框，
 			如\autoref{fig:ch2ZoteroPre}所示。
 			%Zotero Preferences
 			\begin{figure}[htbp]
@@ -569,7 +572,7 @@
 			\end{figure}
 			\item
 			点击\autoref{fig:ch2ZoteroPre}中\menu{+}，
-			找到从网站上或从其他人那得到的csl文件。
+			找到网站或从其他人那得到的csl文件。
 			或是点击\menu{Get additional styles...}，则会打开Zotero的Style仓库，
 			从中搜索我们需要的期刊，如meat science，
 			在得到的结果点击需要的期刊格式，
@@ -726,10 +729,12 @@
 			运行后需要注册一个坚果云的用户，
 			如\autoref{fig:ch3JianguoRe}所示，填入需要Email、
 			密码及昵称等信息，如\autoref{fig:ch3JianguoReg2}所示，
-			点击下一步，设置需要同步的文献贮存的地址，如\autoref{fig:ch3JianguoReg3}所示，
-			然后关闭此窗口或点击\menu{我已知道如何使用}。
+			点击\menu{下一步}，可能还需要手机验证。
+			后续还需要设置的文献贮存的地址，如\autoref{fig:ch3JianguoReg3}所示，
+			然后关闭此窗口。
 			当然也可以在坚果云的网站\url{https://www.jianguoyun.com/d/signup}上注册用户,
-			然后在\autoref{fig:ch3JianguoRe}点击\menu{登录}即可。
+			然后在\autoref{fig:ch3JianguoRe}点击\menu{登录}，
+			登录完毕后再设置需要同步的目录。
 			
 			%Jianguo reg
 			\begin{figure}[htbp]
@@ -760,49 +765,41 @@
 				%Jianguo reg3
 				\begin{figure}
 					\centering
-					\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
-					\centering
-					\includegraphics[scale=0.5]{ch3JianguoReg3}
+				  	\includegraphics[scale=0.5]{ch3JianguoReg3}
 					\caption{坚果云用户注册步骤3}
 					\label{fig:ch3JianguoReg3}
-				\end{minipage}
-				%Jianguosyn folder
-					\begin{minipage}[t]{\dimexpr0.5\textwidth-4em}
-						\centering
-						\includegraphics[width=0.5\linewidth]{ch3SynFolder}
-						\caption{管理坚果云同步文件夹}
-						\label{fig:ch3SynFolder}
-					\end{minipage}
+				 
 				\end{figure}
 			\item  因为同步文献全文的需要，
-			我们需要将同步的文件夹设置我们在\autoref{fig:ch3BaseDir}中设置的附件存放的位置，
-			即图中Base directory的路径，在系统托盘中的坚果云图标上右击，
-			然后选择\menu{同步文件夹-管理}，对同步的文件夹进行重新设置，
-			如\autoref{fig:ch3SynFolder}所示。
-			
-			\item 在弹出的对话框中，点击
-			\menu{移动}，然后输入或点击\menu{浏览}找到全文附件所在的目录，值得注意的是，在用\menu{浏览}
-			找到文件夹，
-			坚果云会自动在末尾加上“我的坚果云”，注意删除。接着坚果云会提示，
-			文件夹已经存在，点击\menu{合并}即可，
-			如\autoref{fig:ch3JianguoMergeFolder}所示。
-			%Jianguosyn change folder
-			\begin{figure}[htbp]
-				\centering
-				\includegraphics[scale=0.6]{ch3JianguoMoveFolder}
-				\caption{更改坚果云同步文件夹}
-				\label{fig:ch3JianguoMoveFolder}
-			\end{figure}
-			
-			%Jianguosyn change folder
-			\begin{figure}[htbp]
-				\centering
-				\includegraphics[width=0.5\linewidth]{ch3JianguoMergeFolder}
-				\caption{合并坚果云同步文件夹}
-				\label{fig:ch3JianguoMergeFolder}
-			\end{figure}
+				我们需要将同步的文件夹设置我们在\autoref{fig:ch3BaseDir}中设置的附件存放的位置，
+				即图中Base directory的路径，
+				如\winpath{E:\Jianguo\references}；在Windows资源管理器中
+				找到\winpath{references}，在\winpath{references}上右击，
+				选择\menu{坚果云-同步该文件夹}，如\autoref{fig:ch4JianguoAdd}所示；
+				在接下来的两个对话框中点击
+				\menu{完成}，正常情况下\winpath{references}左下角会出现绿色
+				对勾表示同步完成，若左下角出现蓝色圆圈则表示正在同步。
+				当然也可以直接将\winpath{references}目录剪切到
+				\autoref{fig:ch3JianguoReg3}目录中，
+				但是需要在Zotero中
+			将Base directory（见\cref{sec:newLibrary}）
+			和ZotFile的附件存在的位置也设为这个目录（见\cref{sec:zotFilePre}）。
+				%Jianguosyn change folder
+					\begin{figure}[htbp]
+						\centering
+						\includegraphics[width=0.5\linewidth]{ch4JianguoAdd}
+						\caption{将references文件夹加入到同步中}
+						\label{fig:ch4JianguoAdd}
+					\end{figure}
+			\item 在新的需要同步的另一台电脑上，同样安装上坚果云软件，登录后，默认的
+			reference文件夹放在了\autoref{fig:ch3JianguoReg3}的目录中，在Zotero中
+			将Base directory（见\cref{sec:newLibrary}）
+			和ZotFile的附件存在的位置也设为这个目录（见\cref{sec:zotFilePre}）， 
+			两个电脑之间包括参考文献条目和附件就可以同步了。
+	
 		\end{enumerate}
 		
+
 		坚果云的其他问题可以访问\url{http://help.jianguoyun.com/}查找解决方法。
 		
 		\section{ ZotFile插件安装}\label{sec:ZotFileInstall}
@@ -909,7 +906,7 @@
 			注意不要选择\menu{Sync full-tex content(同步全文内容)}
 			和\menu{File Syncing(文件同步)}前面的选项，如\autoref{fig:ch3ZoteroPre3}所示，因为Zotero提供的全文同步空间有限，
 			我们在\cref{sec:jianguoReg}中设置了用坚果云同步全文，但此时Zotero还不能同步全文到其他电脑，
-			还需要使用ZotFile插件将全文附件自动复制到坚果云的同步盘中。
+			还需要使用ZotFile插件将全文附件自动复制到坚果云的同步盘中，见\cref{sec:zotFilePre}。
 			\item				  	
 			也可以利用坚果云提供的WebDAV服务同步全文，设置方法见坚果云帮助\url{http://help.jianguoyun.com/?p=3168},
 			简书文章\url{https://www.jianshu.com/p/e7f5c3e95cf4}。			  
@@ -1044,7 +1041,7 @@
 		\label{fig:ch4ZotGroupName}
 	\end{figure}
 	\item 接下来的页面中是群组的一些设置，如群组的类型，哪些人可以读群组文献库，哪些人可以对群组编辑
-	，哪些人可以编辑群组文件等，根据需要进行选择即可，完成后点击Save Settings，
+	，哪些人可以编辑群组文件等，根据需要进行选择即可，完成后点击\menu{Save Settings}，
 	如\autoref{fig:ch4ZotGroupSetting}所示，而后网页提示Group Settings Saved(群组设置已保存)。
 	%zotero group
 	\begin{figure}[htbp]
@@ -1056,7 +1053,7 @@
 	\item 群组设置完成后，点击页面顶部的\menu{Groups}，
 	在打开的页面中点击\menu{Manage Members}链接来管理群组成员，
 	如\autoref{fig:ch4ZotGroupInvite1}所示。
-	在这个页面中也可以点击\menu{Manage Profile}
+	在这也可以点击\menu{Manage Profile}
 	或\menu{Manage Library}对群组的相关设置进行调整。
 	%zotero group
 	\begin{figure}[htbp]
@@ -1204,7 +1201,7 @@
 	%drag citataion
 		\begin{figure}[htbp]
 			\centering
-			\includegraphics[scale=0.9]{ch4ZotGroupDragCitation}
+			\includegraphics[scale=0.7]{ch4ZotGroupDragCitation}
 			\caption{通过拖放的方式在群组库中添加文献}
 			\label{fig:ch4ZotGroupDragCitation}
 		\end{figure}
@@ -1212,7 +1209,7 @@
 		%drag citataion
 			\begin{figure}[htbp]
 			\centering
-			\includegraphics[scale=0.9]{ch4ZotGroupDrayFromGroup}
+			\includegraphics[scale=0.7]{ch4ZotGroupDrayFromGroup}
 			\caption{通过拖放的方式复制群组库文献到本地}
 			\label{fig:ch4ZotGroupDrayFromGroup}
 			\end{figure}
@@ -1230,7 +1227,7 @@
 	文献题目中的格式(斜体、上标、下标、大小写，\cref{sec:italic}，\cref{sec:case})等问题。
 		
 	\section{如何备份和恢复Zotero数据} \label{sec:back}
-%待补充
+ 
 	Zotero的备份包括其设置（或称为配置，包括插件及其设置、文件的存贮路径）和
 	数据（主要包括其文献条目、附件、style、translator等）。不要指望通过同步
 	来备份，同时只是同步了参考文献条目和存放在storage目录中的附件，而Zotero
@@ -1410,14 +1407,14 @@
 				  %Zotero选项
 				  \begin{figure}[htbp]
 				  	\centering
-				  	\includegraphics[scale=1]{ch5ZoteroOptions}
+				  	\includegraphics[scale=0.8]{ch5ZoteroOptions}
 				  	\caption{右击Zotero在浏览器中的图标}
 				  	\label{fig:ch5ZoteroOption}
 				  \end{figure}
 			     %更新translator
 			     \begin{figure}[htbp]
 			  	  \centering
-			  	  \includegraphics[scale=1]{ch5ZoteroUpdateTran}
+			  	  \includegraphics[scale=0.8]{ch5ZoteroUpdateTran}
 			  	  \caption{更新translator}
 			  	  \label{fig:ch5ZoteroUpdateTran}
 			     \end{figure}
@@ -1602,7 +1599,102 @@
 		{GB/T 7714相关的csl以及Zotero使用技巧及教程}。
 		
 	\section{批量修改文献语言}\label{sec:change_lan}	
-	%待补充	
+
+		使用支持双语同时显示“等”和“et al”的csl
+		（见\cref{sec:etal_set}及\href{https://zhuanlan.zhihu.com/p/320253145}
+		{Zotero基于GB/T-7714-2015的Style实现同时生成“et al”和“等”}或
+		\href{https://zhuanlan.zhihu.com/p/314928204}
+		{Zotero修改版终于可以原生支持同时生成“et al”和“等”了}
+		）时需要修改语言，一般可以在Zotero点击选中条目（文献）
+		后再点击\menu{Info}下面的\menu{language}字段直接修改为en。
+		如果有多篇需要修改，这样操作就显得比较烦琐了。
+		下面提供两个批量修改的方法：
+		\begin{enumerate}
+			\item 使用JavaScript语言
+			  \begin{enumerate}[(1)]
+				  \item 在Zotero选中需要修改语言的条目；
+				  \item 复制下面的代码到剪切板：
+						%JavaScript
+						\begin{lstlisting}[language=JavaScript]
+							zoteroPane = Zotero.getActiveZoteroPane();
+							items = zoteroPane.getSelectedItems();
+							var rn=0; //计数替换条目个数
+							var lan="en"; //替换的语言
+							for (item of items) {
+							var la = item.getField("language");
+							if (la=="")  //如果为空则替换
+							{item.setField("language", lan);
+							rn+=1;
+							await item.saveTx();
+							}
+
+							}
+							return rn+"个条目语言被替换为"+lan+"。"
+				        \end{lstlisting}
+					\item 点击\menu{Tools-Developer-Run JavaScript}，如：
+					如\autoref{fig:ch5RunJavaScript0}所示：
+
+						%run javascript
+						\begin{figure}[htbp]
+							\centering
+							\includegraphics[scale=0.7]{ch5RunJavaScript}
+							\caption{运行JavaScript}
+							\label{fig:ch5RunJavaScript0}
+						\end{figure}
+						%批量修改语言结果
+						\begin{figure}[htbp]
+							\centering
+							\includegraphics[scale=0.6]{ch5Chang_lan}
+							\caption{批量修改语言结果}
+							\label{fig:ch5Chang_lan}
+						\end{figure}
+				\item 在弹出的对话框中将以下代码复制进去，
+				如\autoref{fig:ch5RunJavaScript1}所示：
+				\item 将JavaScript代码粘贴到代码框中，
+					点击\menu{Run}。则现在language为空的文献就会填为en，
+					如\autoref{fig:ch5Chang_lan}所示。
+			  \end{enumerate}
+			\item 使用\href{https://github.com/wshanks/Zutilo/releases}{Zutilo}插件
+			
+						参考\href{https://forums.zotero.org/discussion/86911/how-to-edit-blank-key-values-in-a-batch#latest}
+						{how to edit blank key values in a batch},
+						感谢网友 \href{https://www.zhihu.com/people/you-hao-zhai-jian-bu-zhai}{石坚}提供。
+					\begin{enumerate}[(1)]
+					    \item 下载\href{https://github.com/wshanks/Zutilo/releases}{Zutilo}插件，
+						地址为\href{https://github.com/wshanks/Zutilo/releases}
+						{https://github.com/wshanks/Zutilo/releases}；
+						\item 在Zotero中点击\menu{Tools-Add ons-齿轮-Install Add on From File}，找到下载的xpi插件安装。
+						\item 然后点击\menu{Tools-Zutilo Preferences-User Interface}进行设置；
+						
+							%Zutilo设置
+							\begin{figure}[htbp]
+								\centering
+								\includegraphics[scale=0.5]{ch5ZutiloSet}
+								\caption{Zutilo设置}
+								\label{fig:ch5ZutiloSet}
+							\end{figure}
+							%Zutilo使用
+							\begin{figure}[htbp]
+								\centering
+								\includegraphics[scale=0.5]{ch5ZutiloUsing}
+								\caption{Zutilo使用}
+								\label{fig:ch5ZutiloUsing}
+							\end{figure}
+						\item 按习惯进行设置，使菜单显示在Zotero右键菜单还是Zutilo菜单，
+							如\autoref{fig:ch5ZutiloSet}所示；
+						\item 复制以下文字：
+
+						\verb|{"itemType": "book", "language": "en"}|
+
+						\item 在Zotero选中需要修改语言的条目，右击。根据当前language字段是否为空，选择点击合适的菜单
+							如\autoref{fig:ch5ZutiloUsing}所示；
+						\item 完成语言修改。
+
+						\item 如果觉得使用菜单麻烦，熟悉了可以使用设置快捷键完成这个功能，
+						在Zutilo的设置中点击\menu{Shortcuts}，设置相应的快捷键。
+				  \end{enumerate}
+		\end{enumerate}
+		详细图文修改过程也可见\href{https://zhuanlan.zhihu.com/p/341989158}{[Zotero]批量修改条目（文献）语言}。
 	\section{使用宏，使中文作者后为“等”，英文为“et al”}\label{sec:etal}
 			由于现在的csl不支持多语言，在用Chinese-gb7714-1987-numeric.csl、
 			Chinese-gb7714-2005-numeric.csl或Chinese-gb7714-2015-numeric.csl
@@ -1673,7 +1765,7 @@
 						也可以用另外的正则表达式，将“et al”替换为“等”，
 						请参见\href{https://zhuanlan.zhihu.com/p/60029219}
 						{Zotero+Word2016参考文献中英文混排，解决et al和等的问题，另一思路}。
-		}：
+		}。
 			\begin{figure}[htbp]
 				\centering
 				\includegraphics[scale=0.5]{ch5macro4}
@@ -1686,8 +1778,8 @@
 				\caption{最终效果}
 				\label{fig:ch5macro5}
 			\end{figure}
-		\item 当然也可以为这个宏分配一个按钮，点击快速访问工具栏最后的向下箭头
-		选择\menu{其他命令(M)...}，如\autoref{fig:ch5macro6_button}所示，	
+		\item 也可以为这个宏分配一个按钮，点击快速访问工具栏最后的向下箭头
+		选择\menu{其他命令(M)...}，如\autoref{fig:ch5macro6_button}所示。	
 				\begin{figure}[htbp]
 					\centering
 					\includegraphics[scale=0.5]{ch5macro6_button}
@@ -2184,7 +2276,7 @@
 						\caption{抓取CNKI元信息}
 						\label{fig:ch5Retrive_CNKI}
 					\end{figure}
-				\item 识别结果如\autoref{fig:ch5CNKI_retrive_res}所示:
+				\item 识别结果如\autoref{fig:ch5CNKI_retrive_res}所示：
 					%识别结果
 					\begin{figure}[ht]
 						\centering
@@ -2216,9 +2308,35 @@
 							{[Zotero]右键菜单中为什么没有Find Available PDF？}
 	
 	\section{Zotero删除条目（题录）时同时删除PDF附件的方法}\label{sec:Delete_attach}						
-%待补充
-%\href{https://zhuanlan.zhihu.com/p/338159167}
- %
+			在Zotero中如果安装了ZotFile插件后，
+			在添加附件时默认会自动将PDF附件移动到自定义的文件夹内，
+			给PDF的管理带来很大方便，但也带来一个问题，
+			就是在Zotero中删除条目（题录）时链接的PDF无法自动删除。
+			当前的解决方法是：
+			\begin{enumerate}
+				\item 在删除条目之前先通过右击PDF选择\menu{Show File}找到该文件，
+				先删除该PDF文件，再删除条目，见\href{https://zhuanlan.zhihu.com/p/337801423}
+			{Zotero利用ZotFile管理附件}。
+				\item 通过Python脚本删除，见\href{https://zhuanlan.zhihu.com/p/121770068}
+				{zotero/python库中参考文献条目删除后，清除残留PDF的脚本}
+				或\href{https://zhuanlan.zhihu.com/p/109531298}
+				{Zotero中安装了Zotfile后删除文献后清除PDF附件的小程序}。
+			\end{enumerate}
+			
+			今天发现可以通过将\menu{转换已链接文件为已存储文件}菜单，
+			然后再删除条目可以同时PDF附件，具体步骤如下：
+			\begin{enumerate}
+				\item 选中需要删除的条目（可以选择多条），点击
+					\menu{Tools-Manage Attachments-Convert Linked Files to Stored Files...}
+				\item 在弹出的对话框中勾选\menu{Delete original files after storing}，
+					再点击\menu{Continue}；
+				\item 然后再选中需要删除的条目，右击选择\menu{Move Items to Trash...}；
+				\item 在弹出的对话框中点击\menu{OK}；
+				\item 然后右击\menu{Trash}，点击\menu{Empty Trash}；
+				\item 在最后的确认对话框中点\menu{OK}；最终PDF会一块删除。
+				\end{enumerate}
+			 
+	注意：只有在清除垃圾箱后对应的PDF才会删除。
 	\section{Zotero生成双语参考文献的变通实现方法}\label{sec:Biolan}
 				为满足期刊论文国际交流需要，现在很多中文期刊要求中文参考文献需增加英文引用格式，
 				排于对应的中文文献下方，如《农业工程学报》、《食品与发酵工业》等。
@@ -2517,7 +2635,28 @@
 			进行检索就可以了\footnote{这两个网站可能需要注册才能检索和导入其PDF格式的全文。}。
 		
 	\section{Zotero中无关闭、最大化、最小化、窗口标题的窗口移动或放大缩小的方法？}\label{sec:no_max}	
-		在编辑Zotero中经常遇到	%待补充
+			由于分辨率设置的不合适等原因，某些窗口无关闭、最大化、最小化、窗口标题，
+			不能关闭，无法移动，典型的是Zotero中点击Style Editor后的窗口，
+			只能在底部关闭窗口，无法使用。另外百分浏览器的下载窗口也无法移动，
+			问题描述和解决办法也可见：\url{https://forums.zotero.org/discussion/86939/
+			the-menu-and-style-name-etc-can-not-display#latest}
+			和\url{https://www.centbrowser.net/zh-cn/forum.php?mod=viewthread&tid=8321&extra=}
+			
+			问题解决方法参考：
+			\url{https://www.askvg.com/how-to-move-or-resize-an-off-screen-window-in-windows/}。
+			具体步骤如下：
+			
+			点击无法移动的窗口同时按\keys{Alt+空格键}，
+			按\keys{M}键，再按方向箭头，即可移动窗口。
+			或是按\keys{S}，再按方向箭头，即可放大、缩小窗口。
+			
+			或是同时按\keys{Alt+空格键}，再按方向箭头，
+			使光标定位到\menu{移动（M）}，按\keys{回车}，移动光标，
+			即可移动窗口。使光标移动到\menu{大小（S）}，
+			按\keys{回车}，再按方向箭头，即可放大、缩小窗口。
+			
+			网友\href{https://www.zhihu.com/people/lin-zhi-70}{林知}
+			提供了一个更加简单的方法，按\keys{Win+\arrowkeyright}，更方便些。
 	\section{Zotero中如何点击父文件夹时也同时显示子文件夹内容？}\label{sec:ShowSub}	
 				例如我有一个分类为“其它”，“其它”下面又有“安全”、“无损检测”和“蛋白质组学及氧化”三个子分类，
 				“其它”中有6篇文献，“安全”有28篇文献，“无损检测”48篇文献，“蛋白质组学及氧化”5篇文献，
