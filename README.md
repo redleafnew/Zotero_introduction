@@ -5,7 +5,7 @@ A Short Chinese Introduction to Zotero》
 
 使用[ElegantBook 3.11](https://github.com/ElegantLaTeX/ElegantBook)模板制作。
 
-可以通过VS Code + LaTeX Workshop + Texlive 2000 编译源文件生成PDF，环境搭建见
+可以通过VS Code + LaTeX Workshop + Texlive 2020 编译源文件生成PDF，环境搭建见
 [Visual Studio Code (vscode)配置LaTeX](https://zhuanlan.zhihu.com/p/166523064)。
 也可以到[https://github.com/redleafnew/Zotero_introduction/releases](https://github.com/redleafnew/Zotero_introduction/releases)下载阶段版本。
 
