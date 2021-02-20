@@ -43,6 +43,7 @@
 	% 修改目录深度
 	\setcounter{tocdepth}{2}
 	%\usepackage[text={140mm,240mm},centering]{geometry}
+	
 
 	%JavaScript定义
 	\lstdefinelanguage{JavaScript}{
@@ -81,6 +82,7 @@
 		\newmenumacro{\winpath}[bslash]{hyphenatepathswithfolder} %修改为winpath
 		%\newmenumacro{\winpath}[bslash]{hyphenatepathswithfolder} 
 	\usepackage{indentfirst}
+	
 \begin{document}
 
  
@@ -534,7 +536,7 @@
 				\label{fig:ch1LinkFile2}
 			\end{figure}
 		\subsection{链接全文}\label{sec:linkFulltex}
-				对于我们从其他网站下载的全文或其他附件信息，
+				对于从其他网站下载的全文或其他附件信息，
 				我们可以手动链接到参考文献条目中，先选中对应的参考文献条目
 				，在Zotero点击回形针图标，
 				选择\menu{Attach Stored Copy of File ...}，
@@ -576,7 +578,7 @@
 				\label{fig:ch2WordInsert}
 			\end{figure}
 			\item
-			如果列表中没有需要的文章格式\label{tag:notyle}，
+			如果列表中没有需要的格式\label{tag:notyle}，
 			点击\autoref{fig:ch2WordInsert}中的\menu{Manage Styles...}，
 			弹出\menu{Zotero Preferences}对话框，
 			如\autoref{fig:ch2ZoteroPre}所示。
@@ -589,7 +591,7 @@
 			\end{figure}
 			\item
 			点击\autoref{fig:ch2ZoteroPre}中\menu{+}，
-			找到网站或从其他人那得到的csl文件。
+			找到需要到的csl文件。
 			或是点击\menu{Get additional styles...}，则会打开Zotero的Style仓库，
 			从中搜索我们需要的期刊，如meat science，
 			在得到的结果点击需要的期刊格式，
@@ -869,7 +871,7 @@
 			随后会出现一个3s倒计时，提示安装信任的扩展，倒计时结束后，
 			点击\menu{Install Now}开始安装，如\autoref{fig:ch3ZotFileInstall4}所示。
 			\item
-			安装完成后，Zotero会提示ZotFile在重启Zotero后安装，
+			安装完成后，会提示ZotFile在重启Zotero后安装，
 			点击\menu{Restart now}重启，如\autoref{fig:ch3ZotFileInstall5}所示，
 			或是再安装完其他插件后一块重启，
 			重启后会如果发现Zotero \menu{Tools}-菜单下有\menu{ZoteFile Preferences...}，说明ZotFile插件安装成功，
@@ -951,7 +953,7 @@
 				\caption{打开ZotFile设置}
 				\label{fig:ch3ZotFilePre1}
 			\end{figure}
-			\item 在弹出的对话框中点击\menu{General Settings},
+			\item 在对话框中点击\menu{General Settings},
 			然后点击\menu{Location of Files}中\menu{Custom Location}小圆圈，
 			再点击后面的\menu{Choose}，
 			选择坚果云同步目录(也是全文附件的存放目录)，如\autoref{fig:ch3ZotFilePre2}所示。
@@ -983,7 +985,7 @@
 		ZotFile默认仅支持pdf, doc, docx, txt, rtf, djvu格式的文件进行重命名移动。
 		可以通过支持更多类型的文件，如从中国知网上下载的caj文件。方法是：
 
-		\quad \quad 在Zotero中依次点击\menu{Tools-ZotFile Preferences...}，
+		\quad \quad 在Zotero中依次点\menu{Tools-ZotFile Preferences...}，
 		然后在对话框中点\menu{Advanced Settings}，
 		在\menu{Other Advanced Settings}中的
 		\menu{Only work with the following filetypes}
@@ -1088,7 +1090,7 @@
 			\label{fig:ch4ZotGroupInvite2}	
 		\end{minipage}	 
 	\end{figure}
-	\item 在打开的页面中，\menu{Send More Invitations}来发送邀请，
+	\item 在打开的页面中，点击\menu{Send More Invitations}来发送邀请，
 	如\autoref{fig:ch4ZotGroupInvite2}所示,
 	在打开的页面的输入框中输入被邀请人的用户名或Email地址，多个用户之间用英文逗号间隔，
 	然后再点击\menu{Invite Members}，如\autoref{fig:ch4ZotGroupInvite3}所示，
@@ -1154,7 +1156,7 @@
 	用自己的用户名/Email地址和密码登录\url{https://www.zotero.org/user/login/}网站。
 	\item 登录网站后依次\menu{Groups-Search for Groups}，如\autoref{fig:ch4ZotSearchGroup1}所示。
 	\item 在打开的网页中点击\menu{Groups}，
-	然后在框中输入群组的名称，点击\menu{Search Groups}，如\autoref{fig:ch4ZotSearchGroup2}所示。
+	然后输入群组的名称，点击\menu{Search Groups}，如\autoref{fig:ch4ZotSearchGroup2}所示。
 	
 	
 	%Join zotero group 
@@ -1310,8 +1312,8 @@
 					\label{ch5DeleteAutoTagOK}
 				\end{figure}
 			
-			我们如果使用自己的标签功能最好把这个功能禁用，方法是在Zotero中依次点击\menu{Edit-Preference-General-Miscellaneous}，在界面的中间位置，在
-			Automatically tag items with keywords and subject headings前面方框内点击，使它处理不选中状态，如\autoref{ch5DisableImportTag}所示。
+			如果使用自己的标签功能最好把这个功能禁用，方法是在Zotero中依次点击\menu{Edit-Preference-General-Miscellaneous}，在界面的中间位置，在
+			Automatically tag items with keywords and subject headings前面方框内点击，使它处于不选中状态，如\autoref{ch5DisableImportTag}所示。
 				\begin{figure}[htbp]
 					\centering
 					\includegraphics[scale=0.8]{ch5DisableImportTag}
@@ -1514,7 +1516,7 @@
 			
 		\section{中文作者后为“等”，英文为“et al”的设置方法}\label{sec:etal_set}	
 			一直以来在Word中同时引用中英文文献，
-			使用默认的Chinese-gb7714-1987-numeric.csl格式化文献，
+			使用默认的Chinese-gb7714-1987-numeric格式化文献，
 			在作者超过三个后同时显示“et al”和“等”是写作的难题（latex可以轻松解决），
 			解决方法或者是手动修改，或是编写宏批量替换，
 			使中文的参考文献中超过3个作者显示为“等”，英文的为“et al”，见\cref{sec:etal}。
@@ -1523,11 +1525,11 @@
 
 
 			\href{https://juris-m.github.io/release/}{JurisM}是Zotero的修改版，
-			在法律文献，多语言方面进行了加强，我们可以借用\href{https://juris-m.github.io/release/}
+			在多语言等方面进行了加强，我们可以借用\href{https://juris-m.github.io/release/}
 			{JurisM}对csl的扩展，实现中文作者后为“等”，英文为“et al”。具体步骤为：
 			\begin{enumerate}
 				\item 到\url{https://juris-m.github.io/styles/}，
-				点击\menu{JM Chinese Std GB/T 7714-2005 (numeric, Chinese)}前面的下载链接，
+				点击\menu[>]{JM Chinese Std GB/T 7714-2005 (numeric,Chinese)}前面的链接，
 				如\autoref{fig:ch5jmStyle-down}所示：
 				%下载安装JM Style
 				\begin{figure}[htbp]
@@ -1795,7 +1797,7 @@
 				\caption{最终效果}
 				\label{fig:ch5macro5}
 			\end{figure}
-		\item 也可以为这个宏分配一个按钮，点击快速访问工具栏最后的向下箭头
+		\item 也可以为这个宏分配按钮，点击快速访问工具栏最后的向下箭头
 		选择\menu{其他命令(M)...}，如\autoref{fig:ch5macro6_button}所示。	
 				\begin{figure}[htbp]
 					\centering
@@ -2032,7 +2034,7 @@
 			但多数杂志要求参考文献题目是句子（Sentence）格式，
 			即只是题目的首字母大写（缩写除外，都是大写），在Zotero中转换的方法如下：
 			
-			选中文章，然后在右侧文章信息Info中Title字段处右击，
+			选中文章，在右侧文章信息Info中Title字段处右击，
 			选择\menu{Transform Text-Sentence case}，
 			然后再把缩略语等需要大写的手动修改一下。如\autoref{fig:ch5Title_case}所示：
 			
@@ -2048,7 +2050,7 @@
 			需要用到批量转换的方法(操作有风险，建议先备份库再进行下面的操作)。
 			\begin{enumerate}
 				\item 选中需要转换的文献，
-				在Zotero中依次点击：\menu{Tools-Developer-Run Javascript}，
+				依次点击：\menu{Tools-Developer-Run Javascript}，
 				如\autoref{fig:ch5RunJavaScript}所示：
 
 				%run javascript
@@ -2148,7 +2150,7 @@
 			或是尝试以管理员模式启动Word。
 	    		
 			   \item 如果Word出现了工具条，但点击插入文献时提示Zotero Integration Error，
-			   可能是Zotero中工具条禁用了。解决办法是在
+			   可能是工具条被禁用了。解决办法是在
 			   Zotero中点击\menu{Edit-Preferences-Cite-Word Processors-Enable Plugins} 重启Zotero
 			   或点击\menu{Tools-Addons}点击Zotero Word ...后面的 \menu{Enable}
 			   ，如\autoref{fig:ch5WordPluin}所示,最后再试试是否正常了。
@@ -2343,7 +2345,7 @@
 			今天发现可以通过将\menu{转换已链接文件为已存储文件}菜单，
 			然后再删除条目可以同时PDF附件，具体步骤如下：
 			\begin{enumerate}
-				\item 选中需要删除的条目（可以选择多条），点击
+				\item 选中删除的条目，点击
 					\menu{Tools-Manage Attachments-Convert Linked Files to Stored Files...}
 				\item 在弹出的对话框中勾选\menu{Delete original files after storing}，
 					再点击\menu{Continue}；
@@ -2483,9 +2485,9 @@
 			Zotero 检索引擎调用 Zotero 文献的 metadata 信息，形成检索表达式，进而实现检索。
 			它可以是检索引擎，也可以仅仅是网址，起到收藏夹的作用；定制性强，可以自己编写、
 			添加需要的检索引擎；针对单一文献的发散性检索，明显区别于 EndNote 数据库引擎。
-
-			Zotero检索引擎的设置可以通过编辑Zotero数据文件夹中的locate下的engines.json
+			Zotero检索引擎的设置可以通过编辑Zotero数据文件夹中的\winpath{locate}下的engines.json
 			文件进行添加、删除或修改。
+
 			在Zotero中依次点击：
 			\menu{Edit-Preferences–Advanced–Files and Folders–Show Data Directory}，打开Zotero 
 			文件夹，进入\winpath{locate}目录，用文本编辑器打开engines.json。Zotero数据文件夹的打开
@@ -2679,9 +2681,10 @@
 				“其它”中有6篇文献，“安全”有28篇文献，“无损检测”48篇文献，“蛋白质组学及氧化”5篇文献，
 				但在点击“其它”时只显示了6篇文献，子分类“安全”、“无损检测”等文件夹中的文献没有显示，如
 				\autoref{fig:ch5ShowSub}所示，如何在点击其他时显示所有的6+28+48+5=87篇文献呢？
-
-
 				设置方法为：
+
+
+				
 				在Zotero中依次点击\menu{View-Show ltems from subcollections}，如
 				\autoref{fig:ch5ShowItemSub}所示，
 				%子分类中的文献不显示
