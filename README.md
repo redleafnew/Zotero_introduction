@@ -3,7 +3,9 @@
 A Short Chinese Introduction to Zotero》
 我自己在用Zotero的方式，简单分享一下。
 
-## 使用[ElegantBook 3.11](https://github.com/ElegantLaTeX/ElegantBook)模板制作。
+## 制作编译
+
+使用[ElegantBook 3.11](https://github.com/ElegantLaTeX/ElegantBook)模板制作。
 
 可以通过VS Code + LaTeX Workshop + Texlive 2020 编译源文件生成PDF，环境搭建见
 [Visual Studio Code (vscode)配置LaTeX](https://zhuanlan.zhihu.com/p/166523064)。
