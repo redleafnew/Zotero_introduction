@@ -14,7 +14,7 @@ A Short Chinese Introduction to Zotero》
 * ## LICENSE
   [GPL](https://www.gnu.org/licenses/gpl-3.0.txt)
 
-* ## 其它问题可参见我的知乎主页：https://zhuanlan.zhihu.com/c_1071081428967743488
+* ## 其它问题可参见[https://github.com/redleafnew/Chinese-std-GB-T-7714-related-csl](https://github.com/redleafnew/Chinese-std-GB-T-7714-related-csl)或我的知乎主页[软件随心](https://zhuanlan.zhihu.com/c_1071081428967743488)。
 
 
 有问题请留言，发Email：redleafnew#163.com或加入QQ群讨论：913637964。
