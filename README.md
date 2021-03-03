@@ -1,7 +1,7 @@
 # Zotero_introduction
 《优雅地用 Zotero 进行文献管理和论文写作
 A Short Chinese Introduction to Zotero》
-我自己在用Zotero的方式，简单分享一下。
+我自己在用Zotero的方式，简单分享一下。如果你觉得本文档对你有用，可以在你的论文致谢中提一下我。
 
 * ## 制作编译
 
@@ -10,6 +10,13 @@ A Short Chinese Introduction to Zotero》
 可以通过VS Code + LaTeX Workshop + Texlive 2020 编译源文件生成PDF，环境搭建见
 [Visual Studio Code (vscode)配置LaTeX](https://zhuanlan.zhihu.com/p/166523064)。
 也可以到[https://github.com/redleafnew/Zotero_introduction/releases](https://github.com/redleafnew/Zotero_introduction/releases)下载阶段版本。
+
+* ## 待添加
+
+  -  [ ] Zotero设置的备份、恢复。
+  -  [ ] Zotero数据文件夹内容、数据备份、恢复。
+  -  [ ] 合并重复文献、批量合并重复文献。
+  -  [ ] 使作者列表中某些作者加粗，加星而且刷新后不变。
 
 * ## LICENSE
   [GPL](https://www.gnu.org/licenses/gpl-3.0.txt)
