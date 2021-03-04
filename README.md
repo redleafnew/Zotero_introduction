@@ -17,7 +17,8 @@ A Short Chinese Introduction to Zotero》
   -  [ ] Zotero数据文件夹内容、数据备份、恢复。
   -  [ ] 合并重复文献、批量合并重复文献。
   -  [ ] 使作者列表中某些作者加粗，加星而且刷新后不变。
-
+  -  [ ] 批量修改作者姓名为首字母大写。
+  
 * ## LICENSE
   [GPL](https://www.gnu.org/licenses/gpl-3.0.txt)
 
