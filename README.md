@@ -19,6 +19,7 @@ A Short Chinese Introduction to Zotero》
   -  [ ] 使作者列表中某些作者加粗，加星而且刷新后不变。
   -  [ ] 批量修改作者姓名为首字母大写。
   -  [ ] 现在不能自动更新引文上标了是怎么回事。
+  -  [ ] 插入文献对话框切换到经典模式。
 * ## LICENSE
   [GPL](https://www.gnu.org/licenses/gpl-3.0.txt)
 
