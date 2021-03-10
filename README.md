@@ -27,4 +27,4 @@ A Short Chinese Introduction to Zotero》
 * ## 其它问题可参见[Chinese-STD-GB-T-7714-related-csl](https://github.com/redleafnew/Chinese-std-GB-T-7714-related-csl)或我的知乎主页[软件随心](https://zhuanlan.zhihu.com/c_1071081428967743488)。
 
 
-有问题请留言，发Email：redleafnew#163.com或加入QQ群讨论：913637964。
+有问题请留言，发Email：redleafnew#163.com或加入QQ群讨论：913637964。 
