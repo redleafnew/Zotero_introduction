@@ -20,7 +20,7 @@ A Short Chinese Introduction to Zotero》
   -  [ ] 批量修改作者姓名为首字母大写。
   -  [ ] 现在不能自动更新引文上标了是怎么回事。
   -  [ ] 插入文献对话框切换到经典模式。
-  -  [ ]不用安装其它软件清理删除条目后残留的PDF方法
+  -  [ ] 不用安装其它软件清理删除条目后残留的PDF方法
 * ## LICENSE
   [GPL](https://www.gnu.org/licenses/gpl-3.0.txt)
 
