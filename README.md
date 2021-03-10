@@ -3,7 +3,7 @@
 A Short Chinese Introduction to Zotero》
 我自己在用Zotero的方式，简单分享一下。如果你觉得本文档对你有用，可以在你的论文致谢中提一下我。
 
-* ## 制作编译
+* ## 制作编译 
 
 使用[ElegantBook 3.11](https://github.com/ElegantLaTeX/ElegantBook)模板制作。
 
