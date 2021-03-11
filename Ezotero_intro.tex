@@ -5,8 +5,8 @@
 	
 	\author{韩敏义}
 	\institute{南京农业大学\\\kaishu\hspace{1.1cm}温氏食品集团股份有限公司}
-	\date{February 21, 2021}
-	\version{1.25}
+	\date{March 12, 2021}
+	\version{1.27}
 	%\bioinfo{自定义}{信息}
 	%\extrainfo{Victory won\rq t come to us unless we go to it. --- M. Moore}
 	
@@ -1254,51 +1254,66 @@
 	文献题目中的格式(斜体、上标、下标、大小写，\cref{sec:italic}，\cref{sec:case})等问题。
 	
 	\section{如何更改Zotero界面语言} \label{sec:chang_gui_lan}
-		安装完成后启动时，Zotero会根据操作系统的语言选择软件界面的语言，
-		如果你现在用的是中文版操作系统，Zotero显示的菜单就是中文的，
-		切换为其他语言的步骤是：在Zotero中依次点击：
-		\menu{编辑-首选项-高级-常规}，然后在对话框中点击\menu{杂项}下
-		的\menu{语言}后面的下拉菜单，选择需要的语言后，会提示
-		“Zotero必须重启才能使变更生效”，点击\menu{立即重启}后
-		Zotero软件会重新启动，重启后Zotero的界面就会变成刚才所选择的语言。
-		如果想把软件界面语言从英文改为简体中文，步骤是：在Zotero中依次点击：
-		\menu{Edit-Preferences-Advanced-General}，在\menu{Miscellaneous}下的
-		\menu{language}后面的下拉菜单，找到需要的语言后\menu{中文(简体)}，会提示
-		“Zotero must be restarted for the change to take effect”，
-		点击\menu{Restart now}后
-		Zotero软件会重新启动，重启后Zotero的界面就会变成简体中文。
+			安装完成后启动时，Zotero会根据操作系统的语言选择软件界面的语言，
+			如果你现在用的是中文版操作系统，Zotero显示的菜单就是中文的，
+			切换为其他语言的步骤是：在Zotero中依次点击：
+			\menu{编辑-首选项-高级-常规}，然后在对话框中点击\menu{杂项}下
+			的\menu{语言}后面的下拉菜单，选择需要的语言后，会提示
+			“Zotero必须重启才能使变更生效”，点击\menu{立即重启}后
+			Zotero软件会重新启动，重启后Zotero的界面就会变成刚才所选择的语言。
+			如果想把软件界面语言从英文改为简体中文，步骤是：在Zotero中依次点击：
+			\menu{Edit-Preferences-Advanced-General}，在\menu{Miscellaneous}下的
+			\menu{language}后面的下拉菜单，找到需要的语言后\menu{中文(简体)}，会提示
+			“Zotero must be restarted for the change to take effect”，
+			点击\menu{Restart now}后
+			Zotero软件会重新启动，重启后Zotero的界面就会变成简体中文。
+
 	\section{如何备份和恢复Zotero数据} \label{sec:back}
- 
-		Zotero的备份包括其设置（或称为配置，包括插件及其设置、文件的存贮路径）和
+ 		Zotero的备份包括其设置（或称为配置，包括插件及其设置、文件的存贮路径）和
 		数据（主要包括其文献条目、附件、style、translator等）。不要指望通过同步
 		来备份，同时只是同步了参考文献条目和存放在storage目录中的附件，而Zotero
 		的设置、存为链接的附件、style、translator不会被同步。
 
-		不同操作系统的Zotero配置默认存放位置见\url{https://www.zotero.org/support/kb/profile_directory}，
-		Win 10中的默认位置在
-		\winpath{C:\Users\<User Name>\AppData\Roaming\Zotero\Zotero\Profiles\<randomstring>},
-		在Win 10中同时按\keys{Win+R}，输入\path{\%appdata\%}，回车。就会打开Roaming目录，
-		然后再双击Zotero等文件夹进入最终的目录，如vwadz9wo.default，
-		备份就是将这个目录复制到一个其他的目录，如\winpath{D:\Zotero_back}。
-		恢复设置的过程是按\keys{Win+R}，输入，\verb|<zotero安装路径>\zotero.exe -P|，
-		如 \verb|D:\zotero\zotero.exe -P|回车，在弹出的对话框中点击
-		\menu{Creat Profile}，再点击\menu{Next}，
-		输入profile的名称，点击\menu{Choose Folder...}，
-		找到刚才备份的目录，如\winpath{D:\Zotero_back\vwadz9wo.default}，最后点\menu{Finish}。
-		在返回的界面中点击\menu{Start Zotero}。如果你的新电脑中目录结构与旧电脑一致，
-		原来的设置（包括目录设置，插件、同步的用户）都会回来。以后启动Zotero时按原来的方式即可。
-		备份和恢复Zotero设置的图文操作见\href{https://zhuanlan.zhihu.com/p/350546813}
-		{Zotero设置的备份与恢复https://zhuanlan.zhihu.com/p/350546813}。
+	\subsection{Zotero设置的备份与恢复}
+				不同操作系统的Zotero配置默认存放位置见\url{https://www.zotero.org/support/kb/profile_directory}，
+				Win 10中的默认位置在
+				\winpath{C:\Users\<User Name>\AppData\Roaming\Zotero\Zotero\Profiles\<randomstring>},
+				在Win 10中同时按\keys{Win+R}，输入\path{\%appdata\%}，回车。就会打开Roaming目录，
+				然后再双击Zotero等文件夹进入最终的目录，如vwadz9wo.default，
+				备份就是将这个目录复制到一个其他的目录，如\winpath{D:\Zotero_back}。
+				恢复设置的过程是按\keys{Win+R}，输入，\verb|<zotero安装路径>\zotero.exe -P|，
+				如 \verb|D:\zotero\zotero.exe -P|回车，在弹出的对话框中点击
+				\menu{Creat Profile}，再点击\menu{Next}，
+				输入profile的名称，点击\menu{Choose Folder...}，
+				找到刚才备份的目录，如\winpath{D:\Zotero_back\vwadz9wo.default}，最后点\menu{Finish}。
+				在返回的界面中点击\menu{Start Zotero}。如果你的新电脑中目录结构与旧电脑一致，
+				原来的设置（包括目录设置，插件、同步的用户）都会回来。以后启动Zotero时按原来的方式即可。
+				备份和恢复Zotero设置的图文操作见\href{https://zhuanlan.zhihu.com/p/350546813}
+				{Zotero设置的备份与恢复https://zhuanlan.zhihu.com/p/350546813}。
 
-		不同操作系统的Zotero数据默认存放位置见\url{https://www.zotero.org/support/zotero_data}，
-		Win 10中的默认位置在
-		\winpath{C:\Users\<User Name>\Zotero}，具体到自己的Zotero存放位置查看方式为：在Zotero依次点击：
-		\menu{Edit-Preferences-Advanced-Files and Folders}，在Data Directory Location下面显示的路径即是
-		当前Zotero数据存放的位置。备份Zotero数据的方法就是将这个目录复制到其他安全的地方即可。
-		恢复Zotero数据的方式为在Zotero依次点击\menu{Edit-Preferences-Advanced-Files and Folders}，
-		点击\menu{Choose}，选定自己备份的目录，根据提示重新启动Zotero即可打开以前的数据。
-		备份和恢复Zotero数据的图文操作见\href{https://zhuanlan.zhihu.com/p/350549136}
-		{Zotero数据的备份与恢复https://zhuanlan.zhihu.com/p/350549136}。
+		\subsection{Zotero数据的备份与恢复}
+				不同操作系统的Zotero数据默认存放位置见\url{https://www.zotero.org/support/zotero_data}，
+				Win 10中的默认位置在
+				\winpath{C:\Users\<User Name>\Zotero}，具体到自己的Zotero存放位置查看方式为：在Zotero依次点击：
+				\menu{Edit-Preferences-Advanced-Files and Folders}，
+				在\menu{Data Directory Location}下面显示的路径即是
+				当前Zotero数据存放的位置。
+				
+				数据文件夹中几个比较重要的目录和文件：\winpath{locate}为检索引擎文件存放处；
+				\winpath{styles}为csl文件存放处；\winpath{translator}翻译器如cnki.js存放处；
+				\winpath{storage}为附件（PDF、网页快照等）存放目录。
+				用了\href{http://zotfile.com/}{ZotFile}后附件就不再存放于此了。
+				zotero.sqlite是这个文件夹中最重要的文件，
+				包含条目元信息、笔记、标签等。Zotero启动时读取这个文件。
+				zotero.sqlite.bak为zotero.sqlite的备份
+				（关闭zotero时或此文件超过12h没更新时会更新），
+				zotero.sqlite.1.bak为zotero升级时zotero.sqlite的备份。
+	
+				备份Zotero数据的方法就是将这个目录复制到其他安全的地方即可。
+				恢复Zotero数据的方式为在Zotero依次点击\menu{Edit-Preferences-Advanced-Files and Folders}，
+				点击\menu{Choose}，选定自己备份的目录，根据提示重新启动Zotero即可打开以前的数据。
+				备份和恢复Zotero数据的图文操作见\href{https://zhuanlan.zhihu.com/p/350549136}
+				{Zotero数据的备份与恢复https://zhuanlan.zhihu.com/p/350549136}。
 
 	\section{Zotero 标签的使用} \label{sec:tag}
 			在默认设置情况下，Zotero界面左下角的区域显示的是Zotero的标签，
