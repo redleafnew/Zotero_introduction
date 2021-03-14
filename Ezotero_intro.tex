@@ -5,8 +5,8 @@
 	
 	\author{韩敏义}
 	\institute{南京农业大学\\\kaishu\hspace{1.1cm}温氏食品集团股份有限公司}
-	\date{March 12, 2021}
-	\version{1.27}
+	\date{March 15, 2021}
+	\version{1.29}
 	%\bioinfo{自定义}{信息}
 	%\extrainfo{Victory won\rq t come to us unless we go to it. --- M. Moore}
 	
@@ -664,25 +664,25 @@
 			\end{figure}
 		\end{enumerate}
 		\section{删除参考文献及调整参考文献的顺序}
-		删除参考文献的方法比较简单，在正文中点击不需要文献，
-		此时文献的背景会变为灰色，选择不需要文献，剪切或删除就可以了，
-		文末的参考文献列表会自动更新。
-		如果需要删除的文献的地方引用了多条文献，
-		则用鼠标点击引用多条文献的地方，然后点击Zotero在Word工具条中的第一个按钮\menu{Add/Edit Citation},
-		在弹出的对话框中删除不需要的文献即可，
-		如\autoref{fig:ch2MultiRef}所示,当然单条参考文献的删除也可以用这个方法。
-		
-		调整参考文献顺序的方法是，
-		将正文中的包括文献引用的部分剪切到合适的部分即可，文末的参考文献列表会自动更新，
-		如果没有自动更新点击Zotero在Word工具条中\menu{Refresh}按钮。
-		
-		%删除文献
-		\begin{figure}[htbp]
-			\centering
-			\includegraphics[width=0.7\linewidth]{ch2MultiRef}
-			\caption{删除参考文献的方法}
-			\label{fig:ch2MultiRef}
-		\end{figure}
+			删除参考文献的方法比较简单，在正文中点击不需要文献，
+			此时文献的背景会变为灰色，选择不需要文献，剪切或删除就可以了，
+			文末的参考文献列表会自动更新。
+			如果需要删除的文献的地方引用了多条文献，
+			则用鼠标点击引用多条文献的地方，然后点击Zotero在Word工具条中的第一个按钮\menu{Add/Edit Citation},
+			在弹出的对话框中删除不需要的文献即可，
+			如\autoref{fig:ch2MultiRef}所示,当然单条参考文献的删除也可以用这个方法。
+			
+			调整参考文献顺序的方法是，
+			将正文中的包括文献引用的部分剪切到合适的部分即可，文末的参考文献列表会自动更新，
+			如果没有自动更新点击Zotero在Word工具条中\menu{Refresh}按钮。
+			
+			%删除文献
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.7\linewidth]{ch2MultiRef}
+				\caption{删除参考文献的方法}
+				\label{fig:ch2MultiRef}
+			\end{figure}
 		\section{切换Style}\label{sec:changeStyle}
 			尽管不愿意看到，但被期刊拒稿也是常见的事情，
 			这时就需要修改后重新投稿，不同期刊往往正文中的引用和文末的参考文献列表格式要求不一样，
@@ -1777,6 +1777,173 @@
 		\end{enumerate}
 		详细图文修改过程也可见\href{https://zhuanlan.zhihu.com/p/341989158}{[Zotero]批量修改条目（文献）语言}。
 	
+		\section{使作者列表中某些作者加粗，加星而且刷新后不变}\label{sec:authorBold}
+
+		在写简历或申报项目时，如果需要附上自己已经发表的论文，自己的名字往往需要加粗，
+		而通讯作者需要加*，NSFC并列第一作者还需要加\#，一般的做法是在生成参考文献列表
+		后手动将需要的名字加粗，加星，加\#，但这样做在更新文献（例如你有了新大作）
+		时加的这些标记会消失，需要重新加。下面提供一个稍为省事的办法：
+
+		实现的原理是通过批量替换的方式在作者的姓名前后加上加粗的标记，
+		如：<b>作者</b>，而通讯作者，加\#也是替换为名字后面加*或\#。
+		如果不需要这个功能了，则再替换为以前的就可以了。
+		但这样替换也存在一个问题，使用名字缩写的csl时，加的*和\#会被省略。
+
+		在Zotero选中需要修改作者的条目。在Zotero中
+		依次点击：\menu{Tools-Developer-Run Javascript}，
+		将以下代码复制到Code窗口中：
+
+		%使作者加粗
+		\begin{lstlisting}[language=JavaScript]
+			var oldName = "Minyi Han";   //原来的姓名，名在前，姓在后
+			var newFirstName = "<b>Minyi</b>"; //新的名字，加*
+			var newLastName = "<b>Han</b>"; //新的姓
+
+			var rn = 0; //计数替换条目个数
+			await Zotero.DB.executeTransaction(async function () {
+				zoteroPane = Zotero.getActiveZoteroPane();
+				items = zoteroPane.getSelectedItems();
+					for (item of items) {
+					let creators = item.getCreators();
+					let newCreators = [];
+					for (let creator of creators) {
+						if (`${creator.firstName} ${creator.lastName}`.trim() == oldName) {
+							creator.firstName = newFirstName;
+							creator.lastName = newLastName;
+							creator.fieldMode = newFieldMode;
+									rn+=1;
+						}
+						newCreators.push(creator);
+
+					}
+					item.setCreators(newCreators);
+
+					await item.save();
+
+					}
+
+				}); 
+				return rn + " item(s) updated";
+				\end{lstlisting}
+			点击\winmenu{Run}，则符合条件的作者姓名前后会加上<b>和</b>。
+			然后再Word中插入此条文献时，作者就会加粗，自己替换时需要修改的作者姓名。
+
+			也可以使用下面代码，不是对所选择的条目有效，需要结合标签（tag）使用，
+			在本例中标签（tag）的名称为“通讯作者”。
+					%使用作者加粗另一代码
+					\begin{lstlisting}[language=JavaScript]
+						var oldName = "Minyi Han";
+						var newFirstName = "<b>Minyi</b>";
+						var newLastName = "<b>Han</b>";
+						var newFieldMode = 0; // 0: two-field, 1: one-field (with empty first name)
+						
+						var s = new Zotero.Search();
+						s.libraryID = ZoteroPane.getSelectedLibraryID();
+						var tagName = '通讯作者'; //添加标签
+						s.addCondition('tag', 'is', tagName);
+						s.addCondition('creator', 'is', oldName);
+						
+						var ids = await s.search();
+						if (!ids.length) {
+						return "No items found";
+						}
+						await Zotero.DB.executeTransaction(async function () {
+						for (let id of ids) {
+						let item = await Zotero.Items.getAsync(id);
+						let creators = item.getCreators();
+						let newCreators = [];
+						for (let creator of creators) {
+						if (`${creator.firstName} ${creator.lastName}`.trim() == oldName) {
+						creator.firstName = newFirstName;
+						creator.lastName = newLastName;
+						creator.fieldMode = newFieldMode;
+						}
+						newCreators.push(creator);
+						}
+						item.setCreators(newCreators);
+						await item.save();
+						}
+						});
+						return ids.length + " item(s) updated";
+						\end{lstlisting}
+				本节的操作也可见
+				\href{https://zhuanlan.zhihu.com/p/353770101}
+				{Zotero使参考文献列表中某些作者名字加粗，加星，刷新后保留}。
+
+		\section{批量修改作者姓名为首字母大写}\label{sec:authorUpper}
+			某些网站的文章利用connector导入Zotero后作者名字全部为大写，
+			如\href{https://pascal-francis.inist.fr/vibad/index.php?action=getRecordDetail&idt=PASCAL7536509928}
+			{HYDRODYNAMICS AND ENERGETICS OF FISH PROPULSION}
+			和\href{https://ci.nii.ac.jp/naid/10008557972/}
+			{CiNii Articles - Environmental factors and growth}
+			用Zotero插入Word中时，如果参考文献要求是作者姓名首字母大写，
+			其余小写，通过修改csl文件中作者姓名大小写无法实现要求。
+			当前只能手动修改Zotero条目的作者大小写来实现，
+			一个一个作者修改太麻烦，参考以前代码，
+			编写了以下代码可以实现批量修改Zotero条
+			目中作者大小写为首字母大写其他小写。
+			
+			实现方法：
+			\begin{enumerate}
+				\item 在Zotero中将需要修改作者大小写的文献条目加上“try”的标签,
+					不含引号，也可以改为其他的名称，在JavaScript代码中也相应修改即可）
+				\item 复制以下代码：
+					%批量修改作者姓名为首字母大写
+					\begin{lstlisting}[language=JavaScript]
+						var newFieldMode = 0; // 0: two-field, 1: one-field (with empty first name)
+						var s = new Zotero.Search();
+						s.libraryID = ZoteroPane.getSelectedLibraryID();
+						var tagName = 'try'; //需要提前将需要修改的项目添加标签
+						s.addCondition('tag', 'is', tagName);
+						//s.addCondition('creator', 'is', oldName);
+						
+						var ids = await s.search();
+							if (!ids.length) {
+							return "No items found";
+						}
+
+						await Zotero.DB.executeTransaction(async function () {
+								for (let id of ids) {
+									var item = await Zotero.Items.getAsync(id);
+									var creators = item.getCreators();
+
+									let newCreators = [];
+									for (let creator of creators) {
+										creator.firstName = titleCase(creator.firstName.trim());
+										creator.lastName = titleCase(creator.lastName.trim());
+										creator.fieldMode = newFieldMode;
+										newCreators.push(creator);
+										} 
+									item.setCreators(newCreators);
+									await item.save();
+									}  
+
+						}); 
+						return ids.length + "个条目作者变为作者首字母大写。";
+
+
+						function titleCase(str) {    var newStr = str.split(" ");    for(var i = 0; i<newStr.length; i++){
+								newStr[i] = newStr[i].slice(0,1).toUpperCase() + newStr[i].slice(1).toLowerCase();
+							}    return newStr.join(" ");
+						}
+						\end{lstlisting}
+			
+		 \item 在Zotero中依次点击Tools-Developer-Run JavaScript：
+		 \item 将JavaScript代码粘贴到代码框中，点击Run。
+		 	则加try标签的文献作者就会改为作者大小写为首字母大写其他小写
+			 （无论作者以前是大写还是小写）。
+			 因为前面没有对作者大小写进行判断，因此，代码的输出值仅供参考。
+		\end{enumerate}
+			 
+		
+		作者姓名批量修改为首字母大写具体操作也可见，
+			 \href{https://zhuanlan.zhihu.com/p/354481222}
+			 {Zotero作者姓名批量修改为首字母大写}。
+			 首字母大写设置脚本参考了
+			 \href{https://blog.csdn.net/dongjt_china/article/details/107283450#:~:text=%E5%9C%A8javascr,%EF%BC%8C%E5%85%B6%E4%BD%99%E9%83%A8%E5%88%86%E5%B0%8F%E5%86%99%E3%80%82}
+			 {javascript如何设置字符串首字母大写}，
+在此感谢。
+		
 		\section{使用宏，使中文作者后为“等”，英文为“et al”}\label{sec:etal}
 			由于现在的csl不支持多语言，在用Chinese-gb7714-1987-numeric.csl、
 			Chinese-gb7714-2005-numeric.csl或Chinese-gb7714-2015-numeric.csl
@@ -2447,6 +2614,9 @@
 				\end{enumerate}
 			 
 	注意：只有在清除垃圾箱后对应的PDF才会删除。
+
+	\section{不用安装其它软件清理删除条目后残留的PDF方法}\label{sec:delPDFUingJS}
+
 	\section{Zotero生成双语参考文献的变通实现方法}\label{sec:Biolan}
 				为满足期刊论文国际交流需要，现在很多中文期刊要求中文参考文献需增加英文引用格式，
 				排于对应的中文文献下方，如《农业工程学报》、《食品与发酵工业》等。
