@@ -653,7 +653,9 @@
 			如\autoref{fig:ch2Bibliography}所示,
 			仅需第一次点击这个\menu{Add/Edit Bibliography}按钮，
 			后面在添加、删除其他文献时，正文的引用及文末的参考文献列表最自动更新，
-			是不是很方便？可以按相同的方法插入其他文献。
+			是不是很方便？可以按相同的方法插入其他文献
+			\footnote{如果觉得通过搜索的方式插入文献不方便可以切换到\winmenu{经典视图}，
+			见cref{sec:classView}。}。
 			
 			%文末文献
 			\begin{figure}[htbp]
@@ -674,7 +676,8 @@
 			
 			调整参考文献顺序的方法是，
 			将正文中的包括文献引用的部分剪切到合适的部分即可，文末的参考文献列表会自动更新，
-			如果没有自动更新点击Zotero在Word工具条中\menu{Refresh}按钮。
+			如果没有自动更新点击Zotero在Word工具条中\menu{Refresh}按钮，
+			也可以参照\cref{sec:norefresh}打开自动更新。
 			
 			%删除文献
 			\begin{figure}[htbp]
@@ -1334,6 +1337,39 @@
 					备份和恢复Zotero数据的图文操作见\href{https://zhuanlan.zhihu.com/p/350549136}
 					{Zotero数据的备份与恢复https://zhuanlan.zhihu.com/p/350549136}。
 	
+	\section{使用添加引用的经典对话框} \label{sec:classView}				
+		\cref{sec:insertRef}提到在Word中插入插入参考文献时，需要搜索文章题目、作者等，如果觉得不方便，
+		也可以使用\winmenu{经典视图}，如果只是偶尔使用，可以点击插入文献时对话框中的\winmenu{Z}，然后在
+		点击\winmenu{经典视图}，如\autoref{fig:ch5ClassView}所示，在弹出的添加/编辑引文对话框中可以
+		选择插入的文献，或点击\winmenu{Multiple Sources...}后点击文献，再
+		点击$\Rightarrow$ ，如果要在同一个地方插入多条文献，也可以在此对话框
+		中点击$\Uparrow$ 或$\Downarrow$，对插入的文献进行排序，如果有不
+		需要的也可以选中文献后点击$\Leftarrow$ 将其移出，如\autoref{fig:ch5MulItem}所示，
+		插入完毕后点击\winmenu{OK}。
+		如果想总是使用经典视图，在Zotero依次点击\winmenu{Edit-Preferences-Cite-Word Processors
+		Use classic Add Citation dialog}，使前面的方框内出现$\checkmark$，
+		如\autoref{fig:ch5UseClassic}所示。
+			%经典视图
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[scale=0.8]{ch5ClassView}
+				\caption{偶尔使用切换到经典视图}
+				\label{fig:ch5ClassView}
+			\end{figure}
+			%同一地方插入多条文献
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[scale=0.6]{ch5MulItem}
+				\caption{插入多条文献}
+				\label{fig:ch5MulItem}
+			\end{figure}
+			%一直使用经典对话框
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[scale=0.8]{ch5UseClassic}
+				\caption{总是使用经典对话框}
+				\label{fig:ch5UseClassic}
+			\end{figure}
 
 	\section{Zotero 标签的使用} \label{sec:tag}
 			在默认设置情况下，Zotero界面左下角的区域显示的是Zotero的标签，
@@ -1499,38 +1535,59 @@
 			  	  \caption{更新translator}
 			  	  \label{fig:ch5ZoteroUpdateTran}
 			     \end{figure}
-		  \item
-		  登录\href{http://www.cnki.net}{CNKI}，试一下在有权限情况时下载题录的同时是否把全文pdf也下载了,
-		  具体方法参见\cref{sec:cnki}。如果不行，试着重新启动浏览器和Zotero，或是重启一下系统。
-		   \end{enumerate}
-	   
-		除了自行到\href{https://github.com/Zotero-CN/translators_CN}{ Zotero translators 
-		中文维护小组的GitHub 
-		\url{ https://github.com/Zotero-CN/translators_CN}}下载相关js外，也可以安装
-		\href{https://github.com/l0o0/jasminum/releases}{茉莉花插件}，其下载安装方法见
-		\cref{sec:Chinese_PDF}, 这个插件除了\cref{sec:Chinese_PDF}所述的抓取中文PDF元信息
-		之外，也可以更新非官方的一些中文网站的js，具体步骤为：在Zotero中依次点击\menu{Edit-Preferences-
-		Jasminum-Unofficial Translator Repository-Refresh}，稍等一会，上面会显示
-		一些中文网站translator，绿色对勾的表示当前是最新的，
-		蓝色叹号的表示没有安装的还需要更新的，点击蓝色叹号更新或安装。
-		或点击\menu{Update All}更新所有中文translator。当然，在此处更新完毕后也需
-		要在浏览器Zotero Connector中更新translator信息。安装茉莉花插件和用其更新translator信息
-		的步骤也可见\href{https://zhuanlan.zhihu.com/p/347628976}
-		{[Zotero]插件（扩展）的安装--以茉莉花（jasminum）为例
-		\url{https://zhuanlan.zhihu.com/p/347628976}}和
-		\href{https://zhuanlan.zhihu.com/p/347642670}
-		{[Zotero]利用jasminum（茉莉花）安装或更新部分中文网站translator
-		\url{https://zhuanlan.zhihu.com/p/347642670}}。
+				\item
+				登录\href{http://www.cnki.net}{CNKI}，试一下在有权限情况时下载题录的同时是否把全文pdf也下载了,
+				具体方法参见\cref{sec:cnki}。如果不行，试着重新启动浏览器和Zotero，或是重启一下系统。
+				\end{enumerate}
+			
+				除了自行到\href{https://github.com/Zotero-CN/translators_CN}{ Zotero translators 
+				中文维护小组的GitHub 
+				\url{ https://github.com/Zotero-CN/translators_CN}}下载相关js外，也可以安装
+				\href{https://github.com/l0o0/jasminum/releases}{茉莉花插件}，其下载安装方法见
+				\cref{sec:Chinese_PDF}, 这个插件除了\cref{sec:Chinese_PDF}所述的抓取中文PDF元信息
+				之外，也可以更新非官方的一些中文网站的js，具体步骤为：在Zotero中依次点击\menu{Edit-Preferences-
+				Jasminum-Unofficial Translator Repository-Refresh}，稍等一会，上面会显示
+				一些中文网站translator，绿色对勾的表示当前是最新的，
+				蓝色叹号的表示没有安装的还需要更新的，点击蓝色叹号更新或安装。
+				或点击\menu{Update All}更新所有中文translator。当然，在此处更新完毕后也需
+				要在浏览器Zotero Connector中更新translator信息。安装茉莉花插件和用其更新translator信息
+				的步骤也可见\href{https://zhuanlan.zhihu.com/p/347628976}
+				{[Zotero]插件（扩展）的安装--以茉莉花（jasminum）为例
+				\url{https://zhuanlan.zhihu.com/p/347628976}}和
+				\href{https://zhuanlan.zhihu.com/p/347642670}
+				{[Zotero]利用jasminum（茉莉花）安装或更新部分中文网站translator
+				\url{https://zhuanlan.zhihu.com/p/347642670}}。
 
 
-	   上面的操作步骤也可参见知乎专栏文章\href{https://zhuanlan.zhihu.com/p/90638718}{[Zotero]
-	   有权限时在导入CNKI题录时同时下载全文的方法\url{https://zhuanlan.zhihu.com/p/90638718}}。
-	
+			上面的操作步骤也可参见知乎专栏文章\href{https://zhuanlan.zhihu.com/p/90638718}{[Zotero]
+			有权限时在导入CNKI题录时同时下载全文的方法\url{https://zhuanlan.zhihu.com/p/90638718}}。
+
+		\section{不能自动更新引文了是怎么回事}\label{sec:norefresh}
+			@我叫小可爱网友询问：zotero 现在不能自动更新引文上标了如何解决，
+			必须要点击Refresh才可以。
+			
+			解决方法：
+
+			在Word的Zotero工具条中点击\winmenu{Document Preferences}，
+			在弹出的对话框中确认\winmenu{Appearance}
+			下面的\winmenu{Automatically update citations}前面的方框中有没有$\checkmark$，
+			如果没有，点击一下，使之选中，然后再插入文档应该就会自动更新了,
+			如\autoref{fig:ch5NoFresh}所示。
+				\begin{figure}[htbp]
+					\centering
+					\includegraphics[scale=0.5]{ch5NoFresh}
+					\caption{自动更新引文}
+					\label{fig:ch5NoFresh}
+				\end{figure}
+
+
+
+
 		\section{如何设置Zotero生成的参考文献格式，刷新后不变？}\label{sec:refresh}
-		Endnote在Word的工具栏中可以设置文末参考文献列表的格式，而Zotero中没有这些功能，
-		如果只是单纯设置格式，那么再插入其他或修改参考文献后格式就会恢复到默认的字体格式，
-		但可以通过在Word中的“书目”样式来实现，而且刷新后也可以保持不变。
-		参考 网友@滏阳河边捉蚯蚓 的方法，具体步骤如下：
+			Endnote在Word的工具栏中可以设置文末参考文献列表的格式，而Zotero中没有这些功能，
+			如果只是单纯设置格式，那么再插入其他或修改参考文献后格式就会恢复到默认的字体格式，
+			但可以通过在Word中的“书目”样式来实现，而且刷新后也可以保持不变。
+			参考 网友@滏阳河边捉蚯蚓 的方法，具体步骤如下：
 			\begin{enumerate}
 				\item
 				用Zotero在Word中生成参考文献后(参见\cref{sec:insertRef})，
@@ -1789,7 +1846,7 @@
 		如果不需要这个功能了，则再替换为以前的就可以了。
 		但这样替换也存在一个问题，使用名字缩写的csl时，加的*和\#会被省略。
 
-		在Zotero选中需要修改作者的条目。在Zotero中
+		在Zotero选中需要修改作者的条目。然后
 		依次点击：\menu{Tools-Developer-Run Javascript}，
 		将以下代码复制到Code窗口中：
 
@@ -1871,14 +1928,14 @@
 				{Zotero使参考文献列表中某些作者名字加粗，加星，刷新后保留}。
 
 		\section{批量修改作者姓名为首字母大写}\label{sec:authorUpper}
-			某些网站的文章利用connector导入Zotero后作者名字全部为大写，
+			某些网站文章利用connector导入Zotero后作者名字全部为大写，
 			如\href{https://pascal-francis.inist.fr/vibad/index.php?action=getRecordDetail&idt=PASCAL7536509928}
 			{HYDRODYNAMICS AND ENERGETICS OF FISH PROPULSION}
 			和\href{https://ci.nii.ac.jp/naid/10008557972/}
 			{CiNii Articles - Environmental factors and growth}
-			用Zotero插入Word中时，如果参考文献要求是作者姓名首字母大写，
+			用Zotero插入Word中时，如果参考文献要求作者姓名首字母大写，
 			其余小写，通过修改csl文件中作者姓名大小写无法实现要求。
-			当前只能手动修改Zotero条目的作者大小写来实现，
+			只能手动修改Zotero条目的作者大小写来实现，
 			一个一个作者修改太麻烦，参考以前代码，
 			编写了以下代码可以实现批量修改Zotero条
 			目中作者大小写为首字母大写其他小写。
