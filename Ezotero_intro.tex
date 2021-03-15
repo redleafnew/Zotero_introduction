@@ -5,8 +5,8 @@
 	
 	\author{韩敏义}
 	\institute{南京农业大学\\\kaishu\hspace{1.1cm}温氏食品集团股份有限公司}
-	\date{March 15, 2021}
-	\version{1.29}
+	\date{March 16, 2021}
+	\version{1.30}
 	%\bioinfo{自定义}{信息}
 	%\extrainfo{Victory won\rq t come to us unless we go to it. --- M. Moore}
 	
@@ -702,7 +702,7 @@
 					\caption{切换Style}
 					\label{fig:ch2ChangeStyle}
 				\end{figure}
-			%zotfile install5
+			%添加本地csl文件
 				\begin{figure}[htbp]
 					\centering
 					\includegraphics[scale=0.5]{ch2addStyle}
@@ -2614,11 +2614,11 @@
 					%识别结果
 					\begin{figure}[ht]
 						\centering
-						\includegraphics[scale=0.5]{ch5CNKI_retrive_res}
+						\includegraphics[scale=0.6]{ch5CNKI_retrive_res}
 						\caption{CNKI抓取结果}
 						\label{fig:ch5CNKI_retrive_res}
 					\end{figure}
-				\item 如果安装了ZotFile插件，可以对附件进行重命名，移动到自己的附件文件夹,
+				\item 如果安装了\href{http://zotfile.com/}{ZotFile}插件，可以对附件进行重命名，移动到自己的附件文件夹,
 				见\cref{sec:zotFilePre}。
 				\item 能够识别以下情况，作者姓名为4字以内，CNKI下载的能较好识别。
 				title\_author.*、
@@ -2673,7 +2673,112 @@
 	注意：只有在清除垃圾箱后对应的PDF才会删除。
 
 	\section{不用安装其它软件清理删除条目后残留的PDF方法}\label{sec:delPDFUingJS}
+			如果使用了\href{http://zotfile.com/}{ZotFile}插件后
+			\footnote{\href{http://zotfile.com/}{ZotFile}的使用安装
+			见\cref{sec:ZotFileInstall}。}，在Zotero中删除条目后，
+			附件不会同时删除，
+			时间长了之后\href{http://zotfile.com/}{ZotFile}目录中会残留大量不需要的附件，
+			上一节（\cref{{sec:Delete_attach}}）介绍了删除条目时同时删除附件的方法，
+			但是有的清除方法利用python脚本删除，需要安装python，有的需要把链接文件转为存贮的文件，
+			用起来不太方便，经过摸索，编写了一个JavaScript脚本，
+			直接在Zotero中操作即可，不需要额外安装软件。
+			
+			使用前请注意：1.附件的清理不可恢复，请提前备份。
+			2.不属于Zotero条目附件的文件不要放在\href{http://zotfile.com/}{ZotFile}的目录中，
+			会被清理。
 
+			\begin{enumerate}
+				\item 在Zotero中依次点击：\menu{Tools-Developer-Run Javascript}。
+				\item 在弹出的对话框中将以下代码复制进去：
+								%JavaScript
+								\begin{lstlisting}[language=JavaScript]
+									var truthBeTold = window.confirm("所有附件的清理不可恢复，单击“确定”继续。单击“取消”停止。")
+									if (truthBeTold) {
+									//清理zotfile目录
+									var AllFiles = []; //现在库中所有的文件
+									var DirFiles = []; //当前文件夹中的文件
+									var DelFileNum = 0; //被清理的文件个数
+									var path = Zotero.ZotFile.getPref("dest_dir")   //得到zotfile目录
+									var FullPath ='' //文件的完整路径
+									var OutText="";//供输出的文本，主要用于换行
+									//得到当前库中的附件
+									var s = new Zotero.Search();
+									s.libraryID = Zotero.Libraries.userLibraryID;
+									var results = await s.search();
+									var items = await Zotero.Items.getAsync(results);
+									for (let item of items){
+									let file = await getFilePath(item);
+									if (file){
+										AllFiles.push(OS.Path.basename(file));//只存入文件名
+									}
+									}
+
+									//得到ZotFile目录中的文件
+									await Zotero.File.iterateDirectory(path, async function(entry){
+										if (!entry.isDir) {
+											DirFiles.push(entry.name);
+										}
+									});
+
+									//判断是否在库的文件中
+									for (let DirFile of DirFiles){
+										if (AllFiles.indexOf(DirFile)==-1){
+										DelFileNum += 1;//计数器加1
+										FullPath = OS.Path.join(path, DirFile);
+										OutText += DelFileNum + ": "+ DirFile + "\n" 
+										await OS.File.remove(FullPath); //删除文件
+										}
+									}
+									alert(DelFileNum + "个文件被清理。\n 被清理的文件：\n" + OutText);
+									async function getFilePath(item) { //1 函数
+									if (item && !item.isNote()) { //2 if
+											if (item.isRegularItem()) { // Regular Item 一般条目//3 if 
+											let attachmentIDs = item.getAttachments();
+												for (let id of attachmentIDs) { //4 for
+													var file = await Zotero.Items.get(id).getFilePathAsync();
+													return file;
+												} //4 for
+											} // 3 if
+											if (item.isAttachment()) { //附件条目 5 if
+													var file = await item.getFilePathAsync();
+													return file;
+											}//5if
+									} //2 if
+									} 
+									}
+								\end{lstlisting}
+				\item 点击Run，根据提示进行操作，如\autoref{fig:ch5DelAttPrompt}所示。
+					%清除残留附件时的提示
+					\begin{figure}[ht]
+						\centering
+						\includegraphics[scale=0.6]{ch5DelAttPrompt}
+						\caption{清除残留附件时的提示}
+						\label{fig:ch5DelAttPrompt}
+					\end{figure}
+				\item 最后结果如\autoref{fig:ch5DelAttRes}所示。
+					%找清除残留附件的结果提示
+					\begin{figure}[ht]
+						\centering
+						\includegraphics[scale=0.6]{ch5DelAttRes}
+						\caption{清除残留附件的结果提示}
+						\label{fig:ch5DelAttRes}
+					\end{figure}
+				\item 可以先将上面JavaScript代码中的
+				%JavaScript
+				\begin{lstlisting}[language=JavaScript]
+					awaitOS.File.remove(FullPath);//删除文件
+				\end{lstlisting}
+				前面加上//，注释掉删除文件的语句，变为
+				\begin{lstlisting}[language=JavaScript]
+					//awaitOS.File.remove(FullPath);//删除文件
+				\end{lstlisting}
+				运行一下代码，看看即将删除的文件，如果没有错误了再正式运行
+				清理残留的附件。
+			\end{enumerate}
+			感谢 @林知 提供的列举文件夹中文件的代码。本节内容也可见于
+			\href{https://zhuanlan.zhihu.com/p/356071795}{Zotero不用安装其它软件清理删除条目后残留的PDF方法}。
+			
+		
 	\section{Zotero生成双语参考文献的变通实现方法}\label{sec:Biolan}
 				为满足期刊论文国际交流需要，现在很多中文期刊要求中文参考文献需增加英文引用格式，
 				排于对应的中文文献下方，如《农业工程学报》、《食品与发酵工业》等。
