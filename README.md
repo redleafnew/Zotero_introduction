@@ -13,14 +13,8 @@ A Short Chinese Introduction to Zotero》
 
 * ## 待添加
 
-  -  [x] Zotero设置的备份、恢复。
-  -  [x] Zotero数据文件夹内容、数据备份、恢复。
-  -  [x] 合并重复文献、批量合并重复文献。
-  -  [x] 使作者列表中某些作者加粗，加星而且刷新后不变。
-  -  [x] 批量修改作者姓名为首字母大写。
-  -  [x] 现在不能自动更新引文了是怎么回事。
-  -  [x] 插入文献对话框切换到经典模式。
-  -  [x] 不用安装其它软件清理删除条目后残留的PDF方法，已添加目录。
+  -  [ ] 利用JavaScript备份配置和数据。
+
 * ## LICENSE
   [GPL](https://www.gnu.org/licenses/gpl-3.0.txt)
 
