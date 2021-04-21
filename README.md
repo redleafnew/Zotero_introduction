@@ -16,6 +16,7 @@ A Short Chinese Introduction to Zotero》
   -  [ ] 利用JavaScript备份配置和数据。
   -  [ ] 将日期中的“–” 改为 “-”。
   -  [ ] 修改Zotero删除条目（题录）时同时删除PDF附件的方法（增加利用插件的方法）。 
+  -  [ ]  参考文献编号位数增加后如何对齐？
 * ## LICENSE
   [GPL](https://www.gnu.org/licenses/gpl-3.0.txt)
 
