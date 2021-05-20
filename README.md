@@ -19,6 +19,7 @@ A Short Chinese Introduction to Zotero》
   -  [ ]  参考文献编号位数增加后如何对齐？
   -  [ ]  参考文献列表只出现一个作者，然后就是等了，怎么样出现全部作者的名字？
   -  [ ]  Zotero安装ZotFile后删除条目和附件。
+  -  [ ]  Zotero如何设置打开PDF附件的软件。
 * ## LICENSE
   [GPL](https://www.gnu.org/licenses/gpl-3.0.txt)
 
