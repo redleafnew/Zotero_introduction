@@ -357,7 +357,11 @@
 			而且可以通过在分类上右击，选择在分类下面再建立子分类，
 			如\autoref{fig:ch1ZoteroNewColl4}所示\footnote{除了分类(文件夹之外)，还可以通过
 			标签和关联对文献进行管理，见\cref{sec:tag}和
-			\href{https://zhuanlan.zhihu.com/p/275707703}{Zotero分类、标签和关联的使用。}}。
+			\href{https://zhuanlan.zhihu.com/p/275707703}{Zotero分类、标签和关联的使用。}}，
+			如果建立了多个分类（文件夹），在搜索文献结果中如果知道文献属于哪个或哪些文件夹呢？
+			Windows操作系统中，用鼠标点击选中文献后，按住Ctrl，文献所属的（分类）文件夹就会高亮显示。
+			其他操作系统的按钮为： Option key (macOS), or Alt key (Linux)，详见
+			\href{https://www.zotero.org/support/collections_and_tags#identifying_collections_an_item_is_in}{Zotero官方文档}。
 			
 			%New Collection2
 			\begin{figure}[htbp]
@@ -851,7 +855,7 @@
 		坚果云的其他问题可以访问\url{http://help.jianguoyun.com/}查找解决方法。
 		
 		\section{ ZotFile插件安装}\label{sec:ZotFileInstall}
-		Zotero可以对题录的全文进行管理，在链接上全文以后，Zotero会将全文复制到其数据目录(数据目录在\cref{sec:newLibrary}提到)
+		Zotero可以对题录的全文进行管理，在链接上全文以后，Zotero会将全文复制到其数据文件夹(数据文件夹在\cref{sec:data_dir}提到)
 		的storage文件夹下的一些名字比较奇怪的文件夹下，对于全文的查找和管理带来不便，因此推荐使用\href{http://zotfile.com/}{ZotFile}插件来进行管理。
 		\begin{enumerate}
 			\item 到\href{http://zotfile.com/}{ZotFile}的GitHub网站\url{https://github.com/jlegewie/zotfile/releases}
@@ -970,7 +974,8 @@
 		
 		
 	\section{ZotFile插件设置及将附件转移到坚果云同步盘}\label{sec:zotFilePre}
-		前面提到，默认情况下Zotero将文献全文等附件会转移到数据目录中的storage下的奇怪字符的文件夹下，
+		前面提到，默认情况下Zotero将文献全文等附件会转移到数据文件夹中的storage下
+		的奇怪字符的文件夹下(数据文件夹在\cref{sec:data_dir}提到)，
 		要想将文件保存到自定义的文件夹中并且用Zotero可以方便地打开，需要使用\href{http://zotfile.com/}{ZotFile}插件来完成这项工作，
 		\href{http://zotfile.com/}{ZotFile}插件的安装见\cref{sec:ZotFileInstall}。
 		\begin{enumerate}
@@ -1313,7 +1318,7 @@
 					备份和恢复Zotero设置的图文操作见\href{https://zhuanlan.zhihu.com/p/350546813}
 					{Zotero设置的备份与恢复https://zhuanlan.zhihu.com/p/350546813}。
 
-			\subsection{Zotero数据的备份与恢复}
+		\subsection{Zotero数据的备份与恢复} \label{sec:data_dir}
 					不同操作系统的Zotero数据默认存放位置见\url{https://www.zotero.org/support/zotero_data}，
 					Win 10中的默认位置在
 					\winpath{C:\Users\<User Name>\Zotero}，具体到自己的Zotero存放位置查看方式为：在Zotero依次点击：
@@ -1336,7 +1341,27 @@
 					点击\menu{Choose}，选定自己备份的目录，根据提示重新启动Zotero即可打开以前的数据。
 					备份和恢复Zotero数据的图文操作见\href{https://zhuanlan.zhihu.com/p/350549136}
 					{Zotero数据的备份与恢复https://zhuanlan.zhihu.com/p/350549136}。
-	
+
+					除了手动进行Zotero的设置和数据进行备份外，还可以利用JavaScript脚本进行设置和数据
+					的备份。前期经过摸索，编写了一个自动备份配置和数据的JavaScript，请有兴趣的测试。
+					\begin{enumerate}
+						\item 到\href{https://github.com/redleafnew/zotero-javascripts/blob/main/8back%20up%20profile%20and%20data.js}
+						{https://github.com/redleafnew/zotero-javascripts/}，
+						点击\menu{Raw}，复制或另存JS脚本。
+						\item 在Zotero中依次点击\menu{Tools-Developer-Run JavaScript}。
+						\item 将代码复制到Code窗口内。
+						\item 在代码框中将\verb|var back_path = 'f:\\backup';//备份目录|，
+						单引号内的内容修改为自己的目录。
+						\item 点击\menu{Run}。
+						\item 则配置和数据会备份到4设置目录下相应日期的的\winpath{profile}和\winpath{data}文件夹中。
+					\end{enumerate}
+					
+					利用JavaScript进行设置和数据备份的过程也可见\href{https://zhuanlan.zhihu.com/p/357859432}
+					{Zotero利用JavaScript备份配置和数据}。
+
+
+
+
 	\section{使用添加引用的经典对话框} \label{sec:classView}				
 		\cref{sec:insertRef}提到在Word中插入插入参考文献时，需要搜索文章题目、作者等，如果觉得不方便，
 		也可以使用\winmenu{经典视图}，如果只是偶尔使用，可以点击插入文献时对话框中的\winmenu{Z}，然后在
@@ -2806,7 +2831,8 @@
 							\label{fig:ch5Short_title}
 						\end{figure}
 						\item 在Zotero中点击\menu{Edit-Preferences-Advanced-Files and Folders-
-							Show Data Directory}找到自己使用的数据文件夹，进入styles文件夹，
+							Show Data Directory}找到自己使用的数据文件夹(数据文件夹在\cref{sec:data_dir}提到)，
+							进入styles文件夹，
 							如\autoref{fig:ch5Files_folders}，\autoref{fig:ch5Styles}所示：
 							%找到Zotero的数据文件夹
 							\begin{figure}[ht]
@@ -2902,13 +2928,60 @@
 				如本例中参考文献2，显示了多余的内容。
 				另外，相应的中文格式后面不家一个空行，需要手动删除。
 
+		\section{Zotero生成的参考文献列表中页码和日期间隔符号如何由“–”改为“-”}\label{sec:DashToHyphen}		
+			Zotero的style中默认的页码范围和日期中年月日的间隔是“–”（en dash），
+			如果需要改为“-”（hyphen）怎么办呢？本节以
+			China National Standard GB/T 7714-2005 （numeric， Chinese）这个style为例讲述一下操作方法：
+				\begin{enumerate}
+					\item 用文本编辑器，如记事本、VS Code等软件打开自己数据文件夹下\winpath{styles}目录中的
+					chinese-gb7714-2005-numeric.csl文件(数据文件夹在\cref{sec:data_dir}提到)。
+					\item 在\verb|\<info>|后面加入下面的代码，如\autoref{fig:ch5page_del}所示：
+									%添加页码范围
+									\begin{figure}[ht]
+										\centering
+										\includegraphics[scale=0.7]{ch5page_del}
+										\caption{修改页码范围的间隔符}
+										\label{fig:ch5page_del}
+									\end{figure}
+						\lstdefinelanguage{JavaScript}{	
+						<locale xml:lang="zh-CN">
+							<terms>
+								<term name="page-range-delimiter">-</term>
+							</terms>
+						</locale>
+						}
+					\item 保存Style。
+					\item 在Word中如果当前选用的是China National Standard GB/T 7714-2005 （numeric， Chinese）
+					点击\keys{Refresh}，如果不是切换为China National Standard GB/T 7714-2005 （numeric， Chinese），
+					看一下效果页码范围中的“–”是否已经改为“-”
+					（如果列表中没有刚才编辑的style，点击Manage Style，点击\menu{+}找到刚才编辑的style，添加进去。
+				\end{enumerate}
 				
+				修改页码间隔的方法来源于：\href{https://forums.zotero.org/discussion/comment/320230#Comment_320230}
+		{Zotero官方论坛}。
+
+		日期中年月日之间间隔符号修改方法类似，用文本编辑器打开Style文件，
+		在里面搜索 \verb|<macro name="accessed-date">|，
+		将此宏下面的\verb|delimiter="&#8211;"|或\verb|delimiter="–"|修改为\verb|delimiter="-"|，
+		如\autoref{fig:ch5date_del}所示。
+						%修改日期的间隔符
+						\begin{figure}[ht]
+							\centering
+							\includegraphics[scale=0.7]{ch5date_del}
+							\caption{修改日期的间隔符}
+							\label{fig:ch5date_del}
+						\end{figure}
+		然后再搜索\verb|<macro name="issued-date">|，同样处理。保存Style文件；
+		然后在Word的Zotero工具条中点击刷新，或点击Document Preferences切换为其他Style再切换回来；		
+		看看日期间隔中“–”是否修改改为“-”
+
 
 		\section{Zotero检索引擎的使用}\label{sec:Engines}
 			Zotero 检索引擎调用 Zotero 文献的 metadata 信息，形成检索表达式，进而实现检索。
 			它可以是检索引擎，也可以仅仅是网址，起到收藏夹的作用；定制性强，可以自己编写、
 			添加需要的检索引擎；针对单一文献的发散性检索，明显区别于 EndNote 数据库引擎。
-			Zotero检索引擎的设置可以通过编辑Zotero数据文件夹中的\winpath{locate}下的engines.json
+			Zotero检索引擎的设置可以通过编辑Zotero数据文件夹(数据文件夹在\cref{sec:data_dir}提到)
+			中的\winpath{locate}下的engines.json
 			文件进行添加、删除或修改。
 
 			在Zotero中依次点击：
@@ -3068,10 +3141,10 @@
 			前者可以到\href{https://github.com/l0o0/translators_CN}
 			{Zotero translators 中文维护小组}下载Soopat.js；
 			而专利之星的translator可以到\url{https://www.jianguoyun.com/p/DWSVAq4QtOD-BRiBi8AD
-			} (访问密码 : yuo0qo)下载PatentStar.js，下载后放到Zotero数据目录的
+			} (访问密码 : yuo0qo)下载PatentStar.js，下载后放到Zotero数据文件夹(数据文件夹在\cref{sec:data_dir}提到)的
 			translators文件夹中，并更新translator\footnote{当网页加载完毕，
 			且Zotero在浏览器中的图标显示为黄色的灯泡时，才算translator更新成功，才能从这两个网站正常导入专利。}，
-			打开Zotero数据文件夹和更新translator的
+			打开Zotero数据文件夹(数据文件夹在\cref{sec:data_dir}提到)和更新translator的
 			具体步骤可参见\cref{sec:cnki_fulltext}，然后登录
 			\url{http://www.soopat.com/}或\url{http://cprs.patentstar.com.cn/}
 			进行检索就可以了\footnote{这两个网站可能需要注册才能检索和导入其PDF格式的全文。}。
