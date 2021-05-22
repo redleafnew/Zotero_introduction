@@ -15,10 +15,10 @@ A Short Chinese Introduction to Zotero》
 
   -  [x] 利用JavaScript备份配置和数据。
   -  [x] 将日期、页码中的“–” 改为 “-”。
-  -  [ ] 修改Zotero删除条目（题录）时同时删除PDF附件的方法（增加利用插件的方法）。 
+  -  [x] 修改Zotero删除条目（题录）时同时删除PDF附件的方法（增加利用插件的方法）。 
   -  [ ]  参考文献编号位数增加后如何对齐？
   -  [ ]  参考文献列表只出现一个作者，然后就是等了，怎么样出现全部作者的名字？
-  -  [ ]  Zotero安装ZotFile后删除条目和附件。
+  -  [x]  Zotero安装ZotFile后删除条目和附件。
   -  [ ]  Zotero如何设置打开PDF附件的软件。
 * ## LICENSE
   [GPL](https://www.gnu.org/licenses/gpl-3.0.txt)
