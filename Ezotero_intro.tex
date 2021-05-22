@@ -2697,6 +2697,28 @@
 			 
 	注意：只有在清除垃圾箱后对应的PDF才会删除。
 
+				除了上面提到的两个方法之外，可以使用JavaScript脚本，
+				\href{https://raw.githubusercontent.com/redleafnew/zotero-javascripts/main/5delete%20the%20addachments%20when%20the%20items%20were%20removed.js}{脚本地址},
+				复制脚本后，在Zotero中依次点击：\menu{Tools-Developer-Run Javascript}，
+				在弹出的对话框中将以下代码复制进去，点击\keys{Run},
+				则当前选中的条目包括附件就会被删除。
+
+				为了使用方便，也可以使用插件，到\href{https://github.com/redleafnew/delitemwithatt/releases}{delitemwithatt.xpi
+				}下载插件，按\cref{sec:change_lan}的方法安装插件。安装结束后，在条目上右击会出现如\autoref{fig:ch5delitem}所示的菜单，根据需要
+				可以选择删除条目及附件，仅删除附件，删除快照等。
+
+				
+					%删除条目的同时删除附件
+					\begin{figure}[ht]
+						\centering
+						\includegraphics[scale=0.6]{ch5delitem}
+						\caption{安装delitemwithatt插件后出现的右键菜单}
+						\label{fig:ch5delitem}
+					\end{figure}
+
+					Zotero安装ZotFile后删除条目和附件的上面所述方法也可见
+					\href{https://zhuanlan.zhihu.com/p/369141058}{Zotero安装ZotFile后删除条目和附件视频讲解}。
+
 	\section{不用安装其它软件清理删除条目后残留的PDF方法}\label{sec:delPDFUingJS}
 			如果使用了\href{http://zotfile.com/}{ZotFile}插件后
 			\footnote{\href{http://zotfile.com/}{ZotFile}的使用安装
