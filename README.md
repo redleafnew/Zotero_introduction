@@ -14,7 +14,7 @@ A Short Chinese Introduction to Zotero》
 * ## 待添加
 
   -  [ ] Zotero中自己的style或translator总是被恢复为官方的怎么办？
-  -  [ ] [Zotero]参考文献作者缩写后面的点如何删除
+  -  [ ] [Zotero]参考文献作者缩写后面的点如何删除？
 
 * ## LICENSE
   [GPL](https://www.gnu.org/licenses/gpl-3.0.txt)
