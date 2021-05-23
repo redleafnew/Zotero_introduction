@@ -5,8 +5,8 @@
 	
 	\author{韩敏义}
 	\institute{南京农业大学\\\kaishu\hspace{1.1cm}温氏食品集团股份有限公司}
-	\date{March 16, 2021}
-	\version{1.31}
+	\date{May 23, 2021}
+	\version{1.40}
 	%\bioinfo{自定义}{信息}
 	%\extrainfo{Victory won\rq t come to us unless we go to it. --- M. Moore}
 	
@@ -44,6 +44,30 @@
 	\setcounter{tocdepth}{2}
 	%\usepackage[text={140mm,240mm},centering]{geometry}
 	
+	\usepackage{listings}
+	%XML高亮显示定义
+	\usepackage{color}
+	\definecolor{gray}{rgb}{0.4,0.4,0.4}
+	\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+	\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+
+	\lstset{
+	basicstyle=\ttfamily,
+	columns=fullflexible,
+	showstringspaces=false,
+	commentstyle=\color{gray}\upshape
+	}
+
+	\lstdefinelanguage{XML}
+	{
+	morestring=[b]",
+	morestring=[s]{>}{<},
+	morecomment=[s]{<?}{?>},
+	stringstyle=\color{black},
+	identifierstyle=\color{darkblue},
+	keywordstyle=\color{cyan},
+	morekeywords={xmlns,version,type}% list your attributes here
+	}
 
 	%JavaScript定义
 	\lstdefinelanguage{JavaScript}{
@@ -380,41 +404,43 @@
 			\end{figure}
 		\end{enumerate}
 	\subsection{从网站导入题录及全文} \label{sec:ImportFromWeb}
-		有很多方式可以在Zotero库中添加文献条目，最方便的还是直接在网上数据库进行导入，
-		安装浏览器插件(扩展)的目的也正是为此。
-		浏览器上Zotero的图标会根据当前打开网页的文献类型而显示不同的图标，
-		默认如\autoref{fig:ch1ZoteroIcon}显示,
-		当前网页含有多条文献时显示为文件夹图标，如果是学位论文则显示学位帽图标。
-		Zotero的这种自动感知功能十分强大，
-		期刊的网页我目前还没有碰到过不能感知的。实际上自动感知所支持的网页还有Amazon，Nytimes等，
-		而且Zotero支持的网页数目还在持续增长。
-		Zotero支持现在常见的网络数据库，如Sciencedirect、Springer及PubMed文献数据库等。我们仅以SD数据库、
-		中国知网CNKI和Google Scholar为例看一下。
+			有很多方式可以在Zotero库中添加文献条目，最方便的还是直接在网上数据库进行导入，
+			安装浏览器插件(扩展)的目的也正是为此。
+			浏览器上Zotero的图标会根据当前打开网页的文献类型而显示不同的图标，
+			默认如\autoref{fig:ch1ZoteroIcon}显示,
+			当前网页含有多条文献时显示为文件夹图标，如果是学位论文则显示学位帽图标。
+			Zotero的这种自动感知功能十分强大，
+			期刊的网页我目前还没有碰到过不能感知的。实际上自动感知所支持的网页还有Amazon，Nytimes等，
+			而且Zotero支持的网页数目还在持续增长。
+			Zotero支持现在常见的网络数据库，如Sciencedirect、Springer及PubMed文献数据库等。我们仅以SD数据库、
+			中国知网CNKI和Google Scholar为例看一下。
 		\subsubsection{Science Direct文献导入}
-		我们完全打开具体的某篇文章的网页时，当鼠标指标Zotero在浏览器中的图标时，
-		会提示：\menu{Save to Zotero (ScienceDirect)}, 如\autoref{fig:ch1SDImport}。
-		一般括号中会显示当前文献所属的数据库或期刊名称。
-		此时，点击这个图标，这篇文献就会导入到Zotero库中，如\autoref{fig:ch1SDRef}。
-		比较吸引人的是，如果有这个数据库(期刊)的权限，
-		这个篇对应的PDF会同时下载下来，而且链接到这篇文献，在Zotero文献库中双击这个条目，
-		则系统会自动调用PDF阅读器打开这篇文献，
-		是不是很方便？如果打开文献网页时鼠标指向Zotero在浏览器中的图标时提示
-		\menu{Save to Zotero (Web Page with snapshot)}，
-		原因是网页还没有完全打开，稍等一会儿或是刷新网页等显示正常了再导入。
-		%SD import
-		\begin{figure}[htbp]
-			\centering
-			\includegraphics[width=0.7\linewidth]{ch1SDImport}
-			\caption{导入ScienceDirect数据库时的提示}
-			\label{fig:ch1SDImport}
-		\end{figure}
-		%SD ref
-		\begin{figure}
-			\centering
-			\includegraphics[width=0.7\linewidth]{ch1SDRef}
-			\caption{导入的ScienceDirect文献在Zotero库中的显示结果}
-			\label{fig:ch1SDRef}
-		\end{figure}
+			我们完全打开具体的某篇文章的网页时，当鼠标指标Zotero在浏览器中的图标时，
+			会提示：\menu{Save to Zotero (ScienceDirect)}, 如\autoref{fig:ch1SDImport}。
+			一般括号中会显示当前文献所属的数据库或期刊名称。
+			此时，点击这个图标，这篇文献就会导入到Zotero库中，如\autoref{fig:ch1SDRef}。
+			比较吸引人的是，如果有这个数据库(期刊)的权限，
+			这个篇对应的PDF会同时下载下来，而且链接到这篇文献，在Zotero文献库中双击这个条目，
+			则系统会自动调用PDF阅读器打开这篇文献，
+			是不是很方便\footnote{一般情况下会调用操作系统默认地打开PDF的软件来打开PDF附件，
+			如果需要修改打开PDF附件的软件，请参阅\cref{sec:open_PDF}}？
+			如果打开文献网页时鼠标指向Zotero在浏览器中的图标时提示
+			\menu{Save to Zotero (Web Page with snapshot)}，
+			原因是网页还没有完全打开，稍等一会儿或是刷新网页等显示正常了再导入。
+			%SD import
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.7\linewidth]{ch1SDImport}
+				\caption{导入ScienceDirect数据库时的提示}
+				\label{fig:ch1SDImport}
+			\end{figure}
+			%SD ref
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.7\linewidth]{ch1SDRef}
+				\caption{导入的ScienceDirect文献在Zotero库中的显示结果}
+				\label{fig:ch1SDRef}
+			\end{figure}
 	\subsubsection{中国知网文献导入} \label{sec:cnki}
 	在中国知网主页\url{http://www.cnki.net/}搜索结果中点击具体的文献，
 	打开文献的页面，此时鼠标移向Zotero在浏览器中的图标时，提示\menu{Save to Zotero (CNKI)},
@@ -559,12 +585,12 @@
 		\subsection{删除（合并）重复文献}\label{sec:delDup}
 				从多个不同数据库导入的文献可能会有重复文献，即两个条目完全相同，这时就需要手动删除重复文献。
 				Zotero允许一个条目同时存在于多个分类（文件夹）中，这种情况不属于重复文献。删除重复文献的方法
-				是点击Zotero左侧的\winmenu{Duplicate Items}，检测到的重复文献就会出现中间的面板中，
+				是点击Zotero左侧的\menu{Duplicate Items}，检测到的重复文献就会出现中间的面板中，
 				点击其中一条文献，与之重复的文献就会全部被选中，右侧面板中显示重复文献的情况。选择其中一条
-				作为主条目，再点击\winmenu{Merge * items}，重复文献就会被删除（合并），
+				作为主条目，再点击\menu{Merge * items}，重复文献就会被删除（合并），
 				如\autoref{fig:ch1MergeDup}所示。如果删除（合并）多条重复文献，在点击选中条目后，按
-				\keys{Ctrl+A}或点击\winmenu{Edit-Select All}选中所有重复文献，
-				再点击\winmenu{Merge * items}即可，也可以使用JavaScript脚本批量删除（合并）重复文献，
+				\keys{Ctrl+A}或点击\menu{Edit-Select All}选中所有重复文献，
+				再点击\menu{Merge * items}即可，也可以使用JavaScript脚本批量删除（合并）重复文献，
 				见\cref{sec:DelDupBatch}。
 
 					%删除重复文献
@@ -658,7 +684,7 @@
 			仅需第一次点击这个\menu{Add/Edit Bibliography}按钮，
 			后面在添加、删除其他文献时，正文的引用及文末的参考文献列表最自动更新，
 			是不是很方便？可以按相同的方法插入其他文献
-			\footnote{如果觉得通过搜索的方式插入文献不方便可以切换到\winmenu{经典视图}，
+			\footnote{如果觉得通过搜索的方式插入文献不方便可以切换到\menu{经典视图}，
 			见cref{sec:classView}。}。
 			
 			%文末文献
@@ -1353,7 +1379,7 @@
 						\item 在代码框中将\verb|var back_path = 'f:\\backup';//备份目录|，
 						单引号内的内容修改为自己的目录。
 						\item 点击\menu{Run}。
-						\item 则配置和数据会备份到4设置目录下相应日期的的\winpath{profile}和\winpath{data}文件夹中。
+						\item 则配置和数据会备份到4设置目录下相应日期的\winpath{profile}和\winpath{data}文件夹中。
 					\end{enumerate}
 					
 					利用JavaScript进行设置和数据备份的过程也可见\href{https://zhuanlan.zhihu.com/p/357859432}
@@ -1364,14 +1390,14 @@
 
 	\section{使用添加引用的经典对话框} \label{sec:classView}				
 		\cref{sec:insertRef}提到在Word中插入插入参考文献时，需要搜索文章题目、作者等，如果觉得不方便，
-		也可以使用\winmenu{经典视图}，如果只是偶尔使用，可以点击插入文献时对话框中的\winmenu{Z}，然后在
-		点击\winmenu{经典视图}，如\autoref{fig:ch5ClassView}所示，在弹出的添加/编辑引文对话框中可以
-		选择插入的文献，或点击\winmenu{Multiple Sources...}后点击文献，再
+		也可以使用\menu{经典视图}，如果只是偶尔使用，可以点击插入文献时对话框中的\menu{Z}，然后在
+		点击\menu{经典视图}，如\autoref{fig:ch5ClassView}所示，在弹出的添加/编辑引文对话框中可以
+		选择插入的文献，或点击\menu{Multiple Sources...}后点击文献，再
 		点击$\Rightarrow$ ，如果要在同一个地方插入多条文献，也可以在此对话框
 		中点击$\Uparrow$ 或$\Downarrow$，对插入的文献进行排序，如果有不
 		需要的也可以选中文献后点击$\Leftarrow$ 将其移出，如\autoref{fig:ch5MulItem}所示，
-		插入完毕后点击\winmenu{OK}。
-		如果想总是使用经典视图，在Zotero依次点击\winmenu{Edit-Preferences-Cite-Word Processors
+		插入完毕后点击\menu{OK}。
+		如果想总是使用经典视图，在Zotero依次点击\menu{Edit-Preferences-Cite-Word Processors
 		Use classic Add Citation dialog}，使前面的方框内出现$\checkmark$，
 		如\autoref{fig:ch5UseClassic}所示。
 			%经典视图
@@ -1593,9 +1619,9 @@
 			
 			解决方法：
 
-			在Word的Zotero工具条中点击\winmenu{Document Preferences}，
-			在弹出的对话框中确认\winmenu{Appearance}
-			下面的\winmenu{Automatically update citations}前面的方框中有没有$\checkmark$，
+			在Word的Zotero工具条中点击\menu{Document Preferences}，
+			在弹出的对话框中确认\menu{Appearance}
+			下面的\menu{Automatically update citations}前面的方框中有没有$\checkmark$，
 			如果没有，点击一下，使之选中，然后再插入文档应该就会自动更新了,
 			如\autoref{fig:ch5NoFresh}所示。
 				\begin{figure}[htbp]
@@ -1907,7 +1933,7 @@
 				}); 
 				return rn + " item(s) updated";
 				\end{lstlisting}
-			点击\winmenu{Run}，则符合条件的作者姓名前后会加上<b>和</b>。
+			点击\menu{Run}，则符合条件的作者姓名前后会加上<b>和</b>。
 			然后再Word中插入此条文献时，作者就会加粗，自己替换时需要修改的作者姓名。
 
 			也可以使用下面代码，不是对所选择的条目有效，需要结合标签（tag）使用，
@@ -2140,10 +2166,10 @@
 		\section{批量删除（合并）重复文献}\label{sec:DelDupBatch}				
 			 	前面讲述了删除（合并）重复文献的方法，见\cref{sec:delDup}，批量
 				 删除（合并）重复文献的方法除了
-				 用\keys{Ctrl+A}或点击\winmenu{Edit-Select All}选中所有重复文献
-				 再点击\winmenu{Merge * items}方法外，也可以使用JavaScript
+				 用\keys{Ctrl+A}或点击\menu{Edit-Select All}选中所有重复文献
+				 再点击\menu{Merge * items}方法外，也可以使用JavaScript
 				 来批量删除。在Zotero中点击
-				 左侧面板的\winmenu{Duplicate Items}，然后
+				 左侧面板的\menu{Duplicate Items}，然后
 				 依次点击：\menu{Tools-Developer-Run Javascript}，将以下代码复制到Code窗口中：
 
 					%批量删除（合并重复文献）
@@ -2155,7 +2181,7 @@
 						Zotero_Duplicates_Pane.merge();
 						}
 					\end{lstlisting}
-				点击\winmenu{Run}即可。代码来源于
+				点击\menu{Run}即可。代码来源于
 				\url{https://forums.zotero.org/discussion/40457/merge-all-duplicates/}的
 				评论中。
 
@@ -2572,7 +2598,7 @@
 	    			\end{figure}
     			
 	    \section{Word中加载zotero工具条时提示加载宏的取消方法}\label{sec:load_mac}
-			如果先安装的Zotero然后安装的office或是由于各种原因重装office，
+			如果先安装的Zotero然后安装的Office或是由于各种原因重装Office，
 			重新安装Zotero在Word中的工具条后在启动Word可能会有
 			如\autoref{fig:ch5WordMacroDisabled}的对话框:
 	    	\begin{figure}[htbp]
@@ -2595,7 +2621,27 @@
 					\caption{将启动目录添加到受信任位置}
 					\label{fig:ch5AddTrustedLoc}
 	    		\end{figure}
-		
+		\section{如何设置打开PDF附件的软件}\label{sec:open_PDF}
+			默认情况下，Zotero中打开PDF附件使用的是操作系统默认的软件，
+			可以通过下面的步骤自定义打开PDF附件的软件。
+			\begin{enumerate}
+				\item 在Zotero中依次点击\menu{Edit-Preferences-General}。
+				\item 点击Open PDFs using 后面\menu{System Default}。
+				
+					\begin{figure}[ht]
+						\centering
+						\includegraphics[scale=0.8]{ch5open-pdf-app}
+						\caption{点击\menu{Custom...}自定义打开PDF的软件}
+						\label{fig:ch5open-pdf-app}
+					\end{figure}
+				\item 点击 \menu{Custom...}，如\autoref{fig:ch5open-pdf-app}所示。
+				\item 浏览找到打开PDF文件软件的可执行文件，点击\menu{打开}，
+				然后在接下来的对话框中点击\menu{OK}即可
+				\item 在Zotero中双击带PDF的附件的条目或PDF附件。
+				\item 打开的软件可能会提示是否设置PDF文件关联，根据自己的需要点击\menu{是}或\menu{否}。
+			\end{enumerate}
+				更详细的介绍也可参见\href{https://zhuanlan.zhihu.com/p/373952017}
+				{Zotero如何设置打开PDF附件的软件}。
 		\section{中文PDF导入方法}\label{sec:Chinese_PDF}
 			英文PDF文件导入到Zotero中的方法比较简单，见\cref{sec:EngPDFIm},
 			而中文PDF中可能不包含元信息，不能按\cref{sec:EngPDFIm}方法导入。
@@ -2609,7 +2655,7 @@
 				%jasminum下载
 	    		\begin{figure}[ht]
 					\centering
-					\includegraphics[scale=0.6]{ch5jasminum_down}
+					\includegraphics[scale=0.8]{ch5jasminum_down}
 					\caption{jasminum下载}
 					\label{fig:ch5jasminum_down}
 	    		\end{figure}
@@ -2626,7 +2672,7 @@
 						\caption{拖动中文PDF到Zotero库中}
 						\label{fig:ch5Drag_Chinese_PDF}
 					\end{figure}
-				\item 在文献上右击，再\menu{Retrieving CNKI Metadata}，
+				\item 在文献上右击，再点击\menu{Retrieving CNKI Metadata}，
 				如\autoref{fig:ch5Retrive_CNKI}所示：
 					%抓取CNKI元信息
 					\begin{figure}[ht]
@@ -2958,20 +3004,26 @@
 					\item 用文本编辑器，如记事本、VS Code等软件打开自己数据文件夹下\winpath{styles}目录中的
 					chinese-gb7714-2005-numeric.csl文件(数据文件夹在\cref{sec:data_dir}提到)。
 					\item 在\verb|\<info>|后面加入下面的代码，如\autoref{fig:ch5page_del}所示：
-									%添加页码范围
+					
+					\begin{lstlisting}[language=XML]	
+					<locale xml:lang="zh-CN">
+						<terms>
+							<term name="page-range-delimiter">-</term>
+						</terms>
+					</locale>
+					<locale xml:lang="en">
+						<terms>
+							<term name="page-range-delimiter">-</term>
+						</terms>
+					</locale>
+					\end{lstlisting}				
+					%添加页码范围
 									\begin{figure}[ht]
 										\centering
 										\includegraphics[scale=0.7]{ch5page_del}
 										\caption{修改页码范围的间隔符}
 										\label{fig:ch5page_del}
 									\end{figure}
-						\lstdefinelanguage{JavaScript}{	
-						<locale xml:lang="zh-CN">
-							<terms>
-								<term name="page-range-delimiter">-</term>
-							</terms>
-						</locale>
-						}
 					\item 保存Style。
 					\item 在Word中如果当前选用的是China National Standard GB/T 7714-2005 （numeric， Chinese）
 					点击\keys{Refresh}，如果不是切换为China National Standard GB/T 7714-2005 （numeric， Chinese），
@@ -2997,6 +3049,94 @@
 		然后在Word的Zotero工具条中点击刷新，或点击Document Preferences切换为其他Style再切换回来；		
 		看看日期间隔中“–”是否修改改为“-”
 
+		\section{数字格式的Style参考文献列表编号位数增加后如何对齐？}\label{sec:align}	
+		有的Style参考文献编号位数增加后不对齐了（如从9增加到10后，从1位增加到2位）
+		如\autoref{fig:ch5non-align}所示：
+				%参考文献编号增加后不再对齐
+				\begin{figure}[ht]
+					\centering
+					\includegraphics[scale=0.4]{ch5non-align}
+					\caption{参考文献编号增加后显示不对齐}
+					\label{fig:ch5non-align}
+				\end{figure}
+				可以通过修改style文件来解决：
+				\begin{enumerate}
+					\item 用任何文本文件编辑器，如记事本，VS Code，或Zotero自带的Style Editor打开csl文件。
+					\item 找到bibliography 字段，添加\verb|second-field-align="flush"|，形成诸如这样的形式：
+					
+					\begin{lstlisting}[language=XML]	
+					<bibliography entry-spacing="0" et-al-min="4" et-al-use-first="3"
+								 line-spacing="1" second-field-align="flush">
+					<layout suffix="." locale="en">
+					<text variable="citation-number" prefix="[" suffix="]"/>
+					<text macro="author" suffix=". "/>
+					.....
+					\end{lstlisting}
+					\item 而且要保证\verb|<text variable="citation-number" prefix="[" suffix="]"/>|
+					这个字段在\verb|<layout| 和\verb|</layout>|之间。
+					\item 保存文件。
+					\item 在Word的Zotero工具条中点击\menu{Refresh}，或点击\menu{Document Preferences}切换为其他Style再切换回来。
+					\item 看是不是对齐了，效果如\autoref{fig:ch5aligned}所示。
+								%修改后的结果
+									\begin{figure}[ht]
+										\centering
+										\includegraphics[scale=0.4]{ch5aligned}
+										\caption{修改后参考文献可以对齐的效果}
+										\label{fig:ch5aligned}
+									\end{figure}
+				\end{enumerate}
+				
+		\section{参考文献列表只出现一个作者，然后就是“等”或“et al”了，怎么样出现全部作者的名字？}\label{sec:more-author}	
+				
+			有些期刊要求参考文献列表3个作者以上时后面作者要省略，中文用“等”，英文用“et al”表示。
+			如何列出所有作者名字呢？可以通过修改style文件实现。
+			下面以Nature.csl（Nature中参考文献列表只出现一个作者，然后就是“等”或“et al”了）为例进行说明。
+		
+			\begin{enumerate}
+				\item 
+					用任何文本文件编辑器，如记事本、VS Code等或Zotero自带的Style Editor，
+					打开自己数据文件夹(数据文件夹在\cref{sec:data_dir}提到)下的nature.csl文件。
+				\item 搜索\verb|et-al-use-first|，
+				将\verb|et-al-use-first="1"|中的数字1改为一个很大的数
+				（超过你文献作者最大的数字，如1000），如\autoref{fig:ch5etal-1000}所示。
+					%修改后的结果
+					\begin{figure}[ht]
+						\centering
+						\includegraphics[scale=0.7]{ch5etal-1000}
+						\caption{修改et al后面的数字为一个比较大的数}
+						\label{fig:ch5etal-1000}
+					\end{figure}
+				\item 保存style文件。
+				\item 在Word中的Zotero工具条中点击\menu{Refresh}，
+				如果刷新无效点击\menu{Document Preferences}，切换为其他style，点击\menu{OK}，
+				再点击\menu{Document Preferences}切换回Nature。
+				\item 看看是不是为全部作者了。
+			\end{enumerate}
+
+		\section{“et al”或“等”前的逗号如何删除}\label{sec:comma-before-et-al}
+
+			大部分情况下，生成的参考文献列表中“et al”或“等”前面要求有逗号，
+			但某些特殊杂志如果要求“et al”或“等”前不能有逗号，可以通过修改样式文件来实现。
+				\begin{enumerate}
+				\item 
+					用任何文本文件编辑器，如记事本、VS Code等或Zotero自带的Style Editor，
+					打开自己数据文件夹(数据文件夹在\cref{sec:data_dir}提到)下所用的Style文件。
+				\item 在所有\verb|<name|字段中添加\verb|delimiter-precedes-et-al="never"|，
+					如修改为：	
+					
+				\begin{lstlisting}[language=XML]
+				<name initialize-with="." and="symbol" delimiter-precedes-et-al="never">
+				\end{lstlisting}
+					
+				\item 保存Style文件。
+				\item 在Word中的Zotero工具条中点击\menu{Refresh}，
+					如果刷新无效点击\menu{Document Preferences}，切换为其他Style，点击\menu{OK}，
+					再点击\menu{Document Preferences}切换回Nature。
+				\item 看看是不是“et al”或“等”前面的逗号消失了。
+		
+		方法来源于\href{https://link.zhihu.com/?target=https%3A//forums.zotero.org/discussion/89728/et-al-without-comma%23latest}
+		{Zotero Forums}。
+			\end{enumerate}
 
 		\section{Zotero检索引擎的使用}\label{sec:Engines}
 			Zotero 检索引擎调用 Zotero 文献的 metadata 信息，形成检索表达式，进而实现检索。
@@ -3291,7 +3431,7 @@
 		或到我的知乎专栏\href{https://zhuanlan.zhihu.com/c_1071081428967743488}{软件随心}上提问。另外，
 		有问题也可以到Zotero的\href{https://forums.zotero.org/}{官方论坛https://forums.zotero.org/}上提出，
 		当前论坛十分活跃，软件开发者也会亲自回复问题，这也可以说是Zotero的另一个主要特色。如果有功能的需求，
-		个性化的style要求，也可以到论坛上反馈，可以很快得到开发者的回应。
+		个性化的style需求，也可以到论坛上反馈，可以很快得到开发者的回应。
 		
 
 \end{document}
