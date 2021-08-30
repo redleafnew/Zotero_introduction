@@ -15,7 +15,7 @@ A Short Chinese Introduction to Zotero》
 
   -  [ ] Zotero中自己的style或translator总是被恢复为官方的怎么办？
   -  [ ] [Zotero]参考文献作者缩写后面的点如何删除？
-  -  [ ] [Zotero]如何新建一个profile？
+  -  [ ] [Zotero]如何新建一个Profile？
 
 
 * ## LICENSE
