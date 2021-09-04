@@ -16,6 +16,7 @@ A Short Chinese Introduction to Zotero》
   -  [ ] Zotero中自己的style或translator总是被恢复为官方的怎么办？
   -  [ ] Zotero参考文献作者缩写后面的点如何删除？
   -  [ ] Zotero如何新建一个Profile？
+  -  [ ] Zotero如何选中重复条目中的部分条目？
 
 
 * ## LICENSE
