@@ -17,7 +17,7 @@ A Short Chinese Introduction to Zotero》
   -  [ ] Zotero参考文献作者缩写后面的点如何删除？
   -  [ ] Zotero如何新建一个Profile？
   -  [ ] Zotero如何选中重复条目中的部分条目？
-
+  -  [ ] Zotero如何批量删除笔记？
 
 * ## LICENSE
   [GPL](https://www.gnu.org/licenses/gpl-3.0.txt)
