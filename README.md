@@ -18,6 +18,7 @@ A Short Chinese Introduction to Zotero》
   -  [ ] Zotero如何新建一个Profile？
   -  [ ] Zotero如何选中重复条目中的部分条目？
   -  [ ] Zotero如何批量删除笔记？
+  -  [ ] Zotero引文下面有虚线下划线是怎么回事？
 
 * ## LICENSE
   [GPL](https://www.gnu.org/licenses/gpl-3.0.txt)
