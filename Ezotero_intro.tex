@@ -6,7 +6,7 @@
 	\author{韩敏义}
 	\institute{南京农业大学\\\kaishu\hspace{1.1cm}温氏食品集团股份有限公司}
 	\date{Oct 02, 2021}
-	\version{2.00}
+	\version{2.10}
 	%\bioinfo{自定义}{信息}
 	%\extrainfo{Victory won\rq t come to us unless we go to it. --- M. Moore}
 	
@@ -117,24 +117,28 @@
 		\markboth{Introduction}{内容简介}
 	
 		文献管理软件对于参考文献的管理、阅读，在论文撰写过程中插入参考文献有很大的帮助作用，其种类有很多，有商业软件，
-		如Endnote，NoteExpress等,也有免费开源的，如Zotero，Mendeley等，在试用过很多软件后，发现免费开源的Zotero
-		可以很方便的从网上导入文献，管理文献及与Word集成，在撰写文章的时候方便的插入参考文献。Endnote用的人很多，也很
-		简单易用，为什么还要学习Zotero呢？最吸引我的在于三个方面，首先，Zotero开源免费，不用再找破解版或license了。
-		其次，如果有权限，Zotero在下载题录\footnote{根据\href{https://zhidao.baidu.com/question/443193991.html}
+		如\href{https://endnote.com/}{Endnote}，
+		\href{http://www.inoteexpress.com/aegean/}{NoteExpress}等,
+		也有免费开源的，如\href{https://www.zotero.org/}{Zotero}，
+		\href{https://www.mendeley.com/download-reference-manager/}{Mendeley}等，在试用过很多软件后，发现免费开源的\href{https://www.zotero.org/}{Zotero}
+		可以很方便的从网上导入文献，管理文献及与Word集成，在撰写文章的时候方便的插入参考文献。
+		\href{https://endnote.com/}{Endnote}用的人很多，也很
+		简单易用，为什么还要学习\href{https://www.zotero.org/}{Zotero}呢？最吸引我的在于三个方面，首先，\href{https://www.zotero.org/}{Zotero}开源免费，不用再找破解版或license了。
+		其次，如果有权限，\href{https://www.zotero.org/}{Zotero}在下载题录\footnote{根据\href{https://zhidao.baidu.com/question/443193991.html}
 		{百度知道}，题录是指文献的基本信息，包括题名、作者、关键词、作者机构、文献来源、摘要等。选择保存题录是指当获得检索结果后，
 		如需要将检索结果的目录保存以供他用时，可在检索结果的简单页面上选择条目进行保存。}的同时可以把全文也下载下来，
 		并且自动链接到相应题录上\footnote{当前只支持外文的数据库，\href{http://www.cnki.net}{CNKI}等中文的数据库还不支持。
 		更新：20200304 使用新的\href{https://github.com/Zotero-CN/translators_CN}{cnki.js}后也可以在导入题录的同时下载中国期刊网的PDF了。
-		详见\cref{sec:cnki_fulltext}。}；最后，Zotero结合其他的同步盘如\href{https://www.jianguoyun.com}{坚果云}、
+		详见\cref{sec:cnki_fulltext}。}；最后，\href{https://www.zotero.org/}{Zotero}结合其他的同步盘如\href{https://www.jianguoyun.com}{坚果云}、
 		\href{https://office.live.com/start/OneDrive.aspx}{OneDrive}使得在不同电脑间同步题录和全文也变得十分方便。
-		因此推荐大家学习一下Zotero的使用。
+		因此推荐大家学习一下\href{https://www.zotero.org/}{Zotero}的使用。
 		\
-		如果你只想用Zotero从网上导入题录，请看\cref{ch:install}，这章介绍了Zotero的下载安装，从网站导入题录及链接全文。
-		如果还想用Zotero在Word中插入参考文献，请看\cref{ch:insert}，如果你还有同步题录及全文的需要，请看\cref{ch:syn}。
+		如果你只想用\href{https://www.zotero.org/}{Zotero}从网上导入题录，请看\cref{ch:install}，这章介绍了\href{https://www.zotero.org/}{Zotero}的下载安装，从网站导入题录及链接全文。
+		如果还想用\href{https://www.zotero.org/}{Zotero}在Word中插入参考文献，请看\cref{ch:insert}，如果你还有同步题录及全文的需要，请看\cref{ch:syn}。
 		如果你加入了学科组，有共享群组文献的需要或从群组库复制文献，请看\cref{ch:group}。一些高级应用请看\cref{ch:questions}。
 		
 		
-		本文档在\href{http://tug.org/texlive/}{\TeX{} Live 2020} 环境下用\href{https://code.visualstudio.com/}{Visual Studio Code}
+		本文档在\href{http://tug.org/texlive/}{\TeX{} Live 2021} 环境下用\href{https://code.visualstudio.com/}{Visual Studio Code}
 		中用\href{https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop}{LaTeX Workshop}编译，
 		环境的搭建见
 		\href{https://zhuanlan.zhihu.com/p/166523064}{Visual Studio Code (vscode)配置LaTeX}。文档编辑中
@@ -146,7 +150,7 @@
 		或关注我的知乎专栏\href{https://zhuanlan.zhihu.com/c_1071081428967743488}{软件随心}，
 		访问\href{https://github.com/redleafnew/Chinese-std-GB-T-7714-related-csl}
 		{Chinese-STD-GB-T-7714-related-csl}
-		找到更多的GB/T 7714相关的csl以及Zotero使用技巧及教程，如果您想了解作者，请参见我的
+		找到更多的GB/T 7714相关的csl以及\href{https://www.zotero.org/}{Zotero}使用技巧及教程，如果您想了解作者，请参见我的
 		\href{http://food.njau.edu.cn/info/1129/1315.htm}{学校主页}或
 		\href{https://baike.baidu.com/item/%E9%9F%A9%E6%95%8F%E4%B9%89}{百度百科主页}谢谢。
 
@@ -155,11 +159,11 @@
 
 \mainmatter
 %第一章
-\chapter[Zotero下载安装及题录导入]{Zotero下载安装及题录导入\footnote{以下介绍的Zotero都是基于英文界面操作，
-  		大家可以方便地根据截图找到相应的中文界面位置。如果想更改Zotero的界面语言
+\chapter[Zotero下载安装及题录导入]{Zotero下载安装及题录导入\footnote{以下介绍的\href{https://www.zotero.org/}{Zotero}都是基于英文界面操作，
+  		大家可以方便地根据截图找到相应的中文界面位置。如果想更改\href{https://www.zotero.org/}{Zotero}的界面语言
 		  参见\cref{sec:chang_gui_lan}。}}\label{ch:install}
 	\section{Zotero的安装} 
-		Zotero原来是基于Firefox浏览器的一个插件，现在有基于桌面的独立安装版。Zotero支持现在常见的操作系统，
+		\href{https://www.zotero.org/}{Zotero}原来是基于Firefox浏览器的一个插件，现在有基于桌面的独立安装版。\href{https://www.zotero.org/}{Zotero}支持现在常见的操作系统，
 		如Windows、Linux及MacOS。
 		可以到\url{https://www.zotero.org/download/}去下载相应操作系统及位数的安装包。
 		这里以Windowns 10 64位版本的安装文件为例进行说明。
@@ -211,9 +215,9 @@
 				如\autoref{fig:ch1StartInstall}。如果要修改需要在上一步选择Custom选项。
 				\item 此时信息已经收集完毕，点击\menu{Install}(安装)就开始安装了，如\autoref{fig:ch1Installing}。
 				\item 最后安装完成，点击\menu{Finish}(完成)就可以打开Zotero，如\autoref{fig:ch1InstallComplete}所示。
-				\item 如果觉得安装麻烦，也可以点击
+				\item 也可以
 				\href{https://www.zotero.org/download/client/dl?channel=release&platform=win32-zip}{下载Zip格式}，
-				解压后直接使用。另外，也可以从\href{https://github.com/pedrom34/ZoteroPortable}
+				解压后直接使用。或从\href{https://github.com/pedrom34/ZoteroPortable}
 				{https://github.com/pedrom34/ZoteroPortable}下载便携格式，
 				下载的方法是在页面上点击绿色的\menu{Code}按钮，
 				再点击\menu{Download ZIP}，下载完毕后解压，运行ZoteroPortable.exe即可打开Zotero，使用也十分方便，甚至可以解压到U盘，
@@ -385,8 +389,8 @@
 			标签和关联对文献进行管理，见\cref{sec:tag}和
 			\href{https://zhuanlan.zhihu.com/p/275707703}{Zotero分类、标签和关联的使用。}}，
 			如果建立了多个分类（文件夹），在搜索文献结果中如果知道文献属于哪个或哪些文件夹呢？
-			Windows操作系统中，用鼠标点击选中文献后，按住Ctrl，文献所属的（分类）文件夹就会高亮显示。
-			其他操作系统的按钮为： Option key (macOS), or Alt key (Linux)，详见
+			Windows操作系统中，用鼠标点击选中文献后，按住\ctrl，文献所属的（分类）文件夹就会高亮显示。
+			其他操作系统的按钮为： \keys{Option} (macOS), 或\keys{Alt} (Linux)，详见
 			\href{https://www.zotero.org/support/collections_and_tags#identifying_collections_an_item_is_in}{Zotero官方文档}。
 			
 			%New Collection2
@@ -417,7 +421,7 @@
 			Zotero支持现在常见的网络数据库，如Sciencedirect、Springer及PubMed文献数据库等。我们仅以SD数据库、
 			中国知网CNKI和Google Scholar为例看一下。
 		\subsubsection{Science Direct文献导入}
-			我们完全打开具体的某篇文章的网页时，当鼠标指标Zotero在浏览器中的图标时，
+			完全打开某篇文章网页，鼠标指向Zotero在浏览器中的图标时，
 			会提示：\menu{Save to Zotero (ScienceDirect)}, 如\autoref{fig:ch1SDImport}。
 			一般括号中会显示当前文献所属的数据库或期刊名称。
 			此时，点击这个图标，这篇文献就会导入到Zotero库中，如\autoref{fig:ch1SDRef}。
@@ -929,7 +933,7 @@
 				\end{minipage}
 			\end{figure}
 			\item
-			随后会出现一个3s倒计时，提示安装信任的扩展，倒计时结束后，
+			随后出现一个3s倒计时，提示安装信任的扩展，结束后，
 			点击\menu{Install Now}开始安装，如\autoref{fig:ch3ZotFileInstall4}所示。
 			\item
 			安装完成后，会提示\href{http://zotfile.com/}{ZotFile}在重启Zotero后安装，
@@ -988,7 +992,7 @@
 			我们在\cref{sec:jianguoReg}中设置了用坚果云同步全文，但此时Zotero还不能同步全文到其他电脑，
 			还需要使用\href{http://zotfile.com/}{ZotFile}插件将全文附件自动复制到坚果云的同步盘中，见\cref{sec:zotFilePre}。
 			\item				  	
-			也可以利用坚果云提供的WebDAV服务同步全文，设置方法见坚果云帮助\url{http://help.jianguoyun.com/?p=3168},
+			也可以利用坚果云提供的WebDAV服务同步全文，方法见\url{http://help.jianguoyun.com/?p=3168},
 			简书文章\url{https://www.jianshu.com/p/e7f5c3e95cf4}。			  
 			%zotfile install5
 			\begin{figure}[htbp]
@@ -1015,7 +1019,7 @@
 				\caption{打开ZotFile设置}
 				\label{fig:ch3ZotFilePre1}
 			\end{figure}
-			\item 在对话框中点击\menu{General Settings},
+			\item 点击\menu{General Settings},
 			然后点击\menu{Location of Files}中\menu{Custom Location}小圆圈，
 			再点击后面的\menu{Choose}，
 			选择坚果云同步目录(也是全文附件的存放目录)，如\autoref{fig:ch3ZotFilePre2}所示。
@@ -1047,8 +1051,8 @@
 		\href{http://zotfile.com/}{ZotFile}默认仅支持pdf, doc, docx, txt, rtf, djvu格式的文件进行重命名移动。
 		可以通过支持更多类型的文件，如从中国知网上下载的caj文件。方法是：
 
-		\quad \quad 在Zotero中依次点\menu{Tools-ZotFile Preferences...}，
-		然后在对话框中点\menu{Advanced Settings}，
+		\quad \quad 在Zotero中点击\menu{Tools-ZotFile Preferences...}，
+		然后在点\menu{Advanced Settings}，
 		在\menu{Other Advanced Settings}中的
 		\menu{Only work with the following filetypes}
 		后面的文本框中添加支持的文件类型，如添加“,caj”，
@@ -1273,7 +1277,7 @@
 
 \section{群组文献添加和复制}\label{sec:copyGroupLibrary}
 \begin{enumerate}
-	\item 在群组库中，也可以像\cref{sec:newLibrary}描述的那样通过\menu{File-New Collection...}
+	\item 在群组库中，也可以像\cref{sec:newLibrary}点击\menu{File-New Collection...}
 	或右击群组的名称选择\menu{New Collection...}
 	建立分类及子分类以方便题录的管理，建立分类的结果如\autoref{fig:ch4ZotGroupNewColl}所示。
 	\item 添加群组文献实现可以通过两种方法实现，一是直接将Zotero左侧面板自己文献库中的题注拖放到群组库的相应文件夹中，
@@ -1330,7 +1334,8 @@
 		的设置、存为链接的附件、style、translator不会被同步。
 
 		\subsection{Zotero设置的备份与恢复}
-					不同操作系统的Zotero配置默认存放位置见\url{https://www.zotero.org/support/kb/profile_directory}，
+					不同系统Zotero配置默认位置见
+					\href{https://www.zotero.org/support/kb/profile_directory}{Profile directory location}，
 					Win 10中的默认位置在
 					\winpath{C:\Users\<User Name>\AppData\Roaming\Zotero\Zotero\Profiles\<randomstring>},
 					在Win 10中同时按\keys{Win+R}，输入\path{\%appdata\%}，回车。就会打开Roaming目录，
@@ -1399,25 +1404,25 @@
 			\end{note}
 		以Win 10操作系统为例：如果Zotero在运行，需要先关闭它。
 		\begin{enumerate}
-			\item 同时按键盘上的Win+R
-				（Win键的位置见
-				\href{Windows键是哪个电脑上的Win键在哪？}{https://product.pconline.com.cn/itbk/software/dnwt/1601/7475121.html} ）
+			\item 同时按键盘上的\keys{Win+R}
+				（
+				\href{https://product.pconline.com.cn/itbk/software/dnwt/1601/7475121.html}{Windows键是哪个电脑上的Win键在哪？} ）
 			\item 在弹出的对话框中输入当前电脑上Zotero的安装位置\verb|\zotero.exe -p|，
-			如\verb|d:\zotero.exe -p|
+			如\verb|d:\zotero.exe -p|。
 			\item 在弹出的对话框中列出当前电脑上已有的Profile，
-				点击Create 可以尝试新建一个Profile。
-			\item 在下面的向导中点击Next
+				点击\menu{Creat Profile} 可以尝试新建一个Profile。
+			\item 在下面的向导中点击\menu{Next}。
 			\item 在向导中输入新profile名称，
 				默认存放位置为\winpath{C:\Users\\[你的用户名]
 				\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\
 				[随机字母和数字].Default User}文件夹内，
-				可以点击Choose Folder存放到其他位置，点Finish完成创建。
+				可以点击\menu{Choose Folder}存放到其他位置，点\menu{Finish}完成创建。
 			\item 返回到选择Profile对话框，可以点击新建的Profile名字，
-			再点击Start Zotero
+			再点击\menu{Start Zotero}。
 			\item 启动后相当于一个全新的Zotero了，可以安装插件，进行相关设置。
 			\item 如果想切换回原来的profile，再重复1-3，在对话框中选择原来的Profile即可。
 		\end{enumerate}
-		上面操作步骤的图文过程见\href{Zotero如何新建一个profile？}{https://zhuanlan.zhihu.com/p/404906012}。
+		上面操作步骤的图文过程见\href{https://zhuanlan.zhihu.com/p/404906012}{Zotero如何新建一个profile？}。
 	
 	\section{使用添加引用的经典对话框} \label{sec:classView}				
 		\cref{sec:insertRef}提到在Word中插入插入参考文献时，需要搜索文章题目、作者等，如果觉得不方便，
@@ -1487,7 +1492,7 @@
 					\label{ch5DeleteAutoTagOK}
 				\end{figure}
 			
-			如果使用自己的标签功能最好把这个功能禁用，方法是在Zotero中依次点击\menu{Edit-Preference-General-Miscellaneous}，在界面的中间位置，在
+			使用标签功能最好把这个功能禁用，在Zotero中依次点击\menu{Edit-Preference-General-Miscellaneous}，在界面的中间位置，在
 			Automatically tag items with keywords and subject headings前面方框内点击，使它处于不选中状态，如\autoref{ch5DisableImportTag}所示。
 				\begin{figure}[htbp]
 					\centering
@@ -1569,16 +1574,16 @@
 				如果你当前在导入CNKI题录时不能同时下载全文，请参考下面的步骤：
 			\begin{enumerate}
 				\item\label{it:cnkijs}
-					首先到\href{https://github.com/Zotero-CN/translators_CN}{ Zotero translators 
+					先到\href{https://github.com/Zotero-CN/translators_CN}{ Zotero translators 
 					中文维护小组的GitHub\footnote{在这个GitHub上除了CNKI的translator之外，
 					还有其他几个国内经常使用的数据库，如万方数据、维普、百度学术、谷粉学术、
 					专利搜索网站SooPAT。如果Zotero自带translator使用异常，可以选择使用这个网站上的。} 
 					\url{ https://github.com/Zotero-CN/translators_CN}}下载CNKI.js
-					，下载方法是用浏览器\footnote{IE浏览器可能打不开，请使用Chromium内核
+					，用浏览器\footnote{IE浏览器可能打不开，请使用Chromium内核
 					浏览器，如\href{https://www.microsoft.com/zh-cn/edge}{新版Microft EDGE}、
 					\href{http://www.centbrowser.cn/history.html}{百分浏览器}等打开。}打开
 					\url{https://raw.githubusercontent.com/l0o0/translators_CN/master/translators/CNKI.js},
-					在打开的网页中右击，选择\menu{另存为(A)...}，放到自己的位置，如\autoref{fig:ch5CNKIJS}图示：
+					在打开的网页中右击，选择\menu{另存为(A)...}，如\autoref{fig:ch5CNKIJS}图示：
 						%CNKI.js
 					\begin{figure}[htbp]
 						\centering
@@ -1622,10 +1627,10 @@
 				具体方法参见\cref{sec:cnki}。如果不行，试着重新启动浏览器和Zotero，或是重启一下系统。
 				\end{enumerate}
 			
-				除了自行到\href{https://github.com/Zotero-CN/translators_CN}{ Zotero translators 
+				除了到\href{https://github.com/Zotero-CN/translators_CN}{ Zotero translators 
 				中文维护小组的GitHub 
-				\url{ https://github.com/Zotero-CN/translators_CN}}下载相关js外，也可以安装
-				\href{https://github.com/l0o0/jasminum/releases}{茉莉花插件}，其下载安装方法见
+				\url{ https://github.com/Zotero-CN/translators_CN}}下载js外，也可安装
+				\href{https://github.com/l0o0/jasminum/releases}{茉莉花插件}，下载安装方法见
 				\cref{sec:Chinese_PDF}, 这个插件除了\cref{sec:Chinese_PDF}所述的抓取中文PDF元信息
 				之外，也可以更新非官方的一些中文网站的js，具体步骤为：在Zotero中依次点击\menu{Edit-Preferences-
 				Jasminum-Unofficial Translator Repository-Refresh}，稍等一会，上面会显示
@@ -1683,8 +1688,8 @@
 			解决方法：
 
 			在Word的Zotero工具条中点击\menu{Document Preferences}，
-			在弹出的对话框中确认\menu{Appearance}
-			下面的\menu{Automatically update citations}前面的方框中有没有$\checkmark$，
+			确认\menu{Appearance}
+			下的\menu{Automatically update citations}前面的方框中有没有$\checkmark$，
 			如果没有，点击一下，使之选中，然后再插入文档应该就会自动更新了,
 			如\autoref{fig:ch5NoFresh}所示。
 				\begin{figure}[htbp]
@@ -2165,7 +2170,7 @@
 在此感谢。
 		
 		\section{使用宏，使中文作者后为“等”，英文为“et al”}\label{sec:etal}
-			由于现在的csl不支持多语言，在用Chinese-gb7714-1987-numeric.csl、
+			现在的csl不支持多语言，用Chinese-gb7714-1987-numeric.csl、
 			Chinese-gb7714-2005-numeric.csl或Chinese-gb7714-2015-numeric.csl
 			生成的参考文献英文作者超过3个后面也是“等”，如\autoref{fig:ch5etal_error}所示（正确的应该是et al）。
 			下面的方法可以实现将英文作者后面的“等”替换为“et al”，
@@ -2303,9 +2308,9 @@
 						Zotero_Duplicates_Pane.merge();
 						}
 					\end{lstlisting}
-				点击\menu{Run}即可。代码来源于
+				点击\menu{Run}即可。源于
 				\url{https://forums.zotero.org/discussion/40457/merge-all-duplicates/}的
-				评论中。
+				评论。
 
 				代码实现的原理为：实际上，是点击了100次"Merge X items"，每次点击之间1s
 				因此，如果你的重复文献更多，可以将代码中的100改为更大的数字。批量删除（合并）
@@ -2390,8 +2395,8 @@
 						\caption{找到需要编辑的style}
 						\label{fig:ch5Search_style}
 					\end{figure}
-				\item 首先点击右侧的EXAMPLE CITATIONSG下面的作者，
-				然后点击左侧Names下面的Et-al，如\autoref{fig:ch5Find_et al}所示。
+				\item 先点击右侧的EXAMPLE CITATIONSG下面的作者，
+				再点左侧Names下面的Et-al，如\autoref{fig:ch5Find_et al}所示。
 					\begin{figure}[htbp]
 						\centering
 						\includegraphics[scale=0.5]{ch5Find_et al}
@@ -2680,10 +2685,11 @@
 							\caption{Zoter在Word中工具条安装完成提示}
 							\label{fig:ch5InstallWordPluginOK}
 							\end{figure}
-				\item 如果上面的方法不行，
+				\item 如果还不行，
 			可以尝试将Zotero安装目录中的模板文件手动复制到Word的启动目录中。
-	    	
-			如：将\winpath{D:\Zotero\extensions\zoteroWinWordIntegration@zotero.org\install\Zotero.dotm}
+	    	如：将
+			
+			\winpath{D:\Zotero\extensions\zoteroWinWordIntegration@zotero.org\install\Zotero.dotm}
 			复制到 
 			\winpath{C:\Users\<YourName>\AppData\Roaming\Microsoft\Word\STARTUP}中。
 			或是尝试以管理员模式启动Word。
@@ -3089,8 +3095,8 @@
 								\caption{找到Zotero的数据文件夹}
 								\label{fig:ch5Styles}
 							\end{figure}
-						\item 找到自己使用的csl文件，一般中文的使用是chinese-std-gb-t-7714-*，
-							我们以China National Standard GB/T 7714-2015 
+						\item 找到csl文件，
+							以China National Standard GB/T 7714-2015 
 							(numeric, Chinese)（
 							下载地址\url{http://www.zotero.org/styles/china-national-standard-gb-t-7714-2015-numeric}）进行说明。
 						\item 	用文本编辑器，如记事本，打开此文件，
@@ -3176,7 +3182,7 @@
 				\begin{enumerate}
 					\item 用文本编辑器，如记事本、VS Code等软件打开自己数据文件夹下\winpath{styles}目录中的
 					chinese-gb7714-2005-numeric.csl文件(数据文件夹在\cref{sec:data_dir}提到)。
-					\item 在\verb|\<info>|后面加入下面的代码，如\autoref{fig:ch5page_del}所示：
+					\item 在\verb|<info>|后面加入下面的代码，如\autoref{fig:ch5page_del}所示：
 					
 					\begin{lstlisting}[language=XML]	
 					<locale xml:lang="zh-CN">
@@ -3207,7 +3213,7 @@
 				修改页码间隔的方法来源于：\href{https://forums.zotero.org/discussion/comment/320230#Comment_320230}
 		{Zotero官方论坛}。
 
-		日期中年月日之间间隔符号修改方法类似，用文本编辑器打开Style文件，
+		日期中间隔符号修改方法类似，打开Style文件，
 		在里面搜索 \verb|<macro name="accessed-date">|，
 		将此宏下面的\verb|delimiter="&#8211;"|或\verb|delimiter="–"|修改为\verb|delimiter="-"|，
 		如\autoref{fig:ch5date_del}所示。
@@ -3246,7 +3252,7 @@
 					.....
 					\end{lstlisting}
 					\item 而且要保证\verb|<text variable="citation-number" prefix="[" suffix="]"/>|
-					这个字段在\verb|<layout| 和\verb|</layout>|之间。
+					字段在\verb|<layout| 和\verb|</layout>|之间。
 					\item 保存文件。
 					\item 在Word的Zotero工具条中点击\menu{Refresh}，或点击\menu{Document Preferences}切换为其他Style再切换回来。
 					\item 看是不是对齐了，效果如\autoref{fig:ch5aligned}所示。
@@ -3345,9 +3351,9 @@
 				\end{lstlisting}
 			
 			
-				可以从网上下载\href{https://www.zhihu.com/people/iseex/answers
+				可以从下载\href{https://www.zhihu.com/people/iseex/answers
 			}{青柠学术}已经编辑好的，
-			下载地址\url{https://www.jianguoyun.com/p/DfIpKNgQtOD-BRjl_MQD}，
+			地址\url{https://www.jianguoyun.com/p/DfIpKNgQtOD-BRjl_MQD}，
 			下载后替换掉原来的engines.json，重新启动Zotero。
 
 			在Zotero中选中文献后再点击检索引擎按钮就会出现检索的网址，
@@ -3485,15 +3491,15 @@
 			进行检索就可以了\footnote{这两个网站可能需要注册才能检索和导入其PDF格式的全文。}。
 		
 	\section{Zotero中无关闭、最大化、最小化、窗口标题的窗口移动或放大缩小的方法？}\label{sec:no_max}	
-			由于分辨率设置的不合适等原因，某些窗口无关闭、最大化、最小化、窗口标题，
-			不能关闭，无法移动，典型的是Zotero中点击Style Editor后的窗口，
-			只能在底部关闭窗口，无法使用。另外百分浏览器的下载窗口也无法移动，
-			问题描述和解决办法也可见：\url{https://forums.zotero.org/discussion/86939/
-			the-menu-and-style-name-etc-can-not-display#latest}
-			和\url{https://www.centbrowser.net/zh-cn/forum.php?mod=viewthread&tid=8321&extra=}
+			由于分辨率设置不当等原因，某些窗口无关闭、最大化、最小化、窗口标题，
+			不能关闭，无法移动，如Zotero中Style Editor窗口，
+			只能在底部关闭窗口。另外百分浏览器的下载窗口也无法移动，
+			见\href{https://forums.zotero.org/discussion/86939/
+			the-menu-and-style-name-etc-can-not-display#latest}{The menu and style name etc. can not display}
+			和\href{https://www.centbrowser.net/zh-cn/forum.php?mod=viewthread&tid=8321&extra=}{下载窗口无法移动吗？}
 			
 			问题解决方法参考：
-			\url{https://www.askvg.com/how-to-move-or-resize-an-off-screen-window-in-windows/}。
+			\href{https://www.askvg.com/how-to-move-or-resize-an-off-screen-window-in-windows/}{How to Move or Resize an Off-Screen Window in Windows?}
 			具体步骤如下：
 			
 			点击无法移动的窗口同时按\keys{Alt+空格键}，
@@ -3539,7 +3545,7 @@
 				所以这个“其它”文件夹中显示有84篇文献。}，如果是老版本的
 				Zotero，
 				请参见\url{https://zhuanlan.zhihu.com/p/261375851}。
-				关于此问题的讨论也可见\url{https://forums.zotero.org/discussion/68833/sources-in-sub-folders-not-showing-up-in-higher-level-folders}。
+				关于此问题的讨论也可见\href{https://forums.zotero.org/discussion/68833/sources-in-sub-folders-not-showing-up-in-higher-level-folders}{Sources in sub-folders not showing up in higher-level folders}。
 				%子分类中的文献不显示设置
 				\begin{figure}[ht]
 					\centering
@@ -3554,8 +3560,8 @@
 			这时就需要将各个文件的参考文献列表都导入到Zotero重新插入。
 			下面根据不同情况提交解决方法，
 			\begin{enumerate}
-				\item 使用文献管理软件插入参考文献的Word（.docx）文件：				
-				对于使用Zotero或Mendeley插入的还包括域代码的Word文件，
+				\item 使用文献管理软件插入参考文献的Word（.docx）文件：
+				对于使用Zotero或Mendeley插入的还有域代码的Word文件，
 				可以使用\href{https://rintze.zelle.me/ref-extractor/}
 				{Reference Extractor}（\url{https://rintze.zelle.me/ref-extractor/}），
 				如\autoref{fig:ch5RefEtract}所示，点击选择文件，找到docx文件，
@@ -3593,11 +3599,11 @@
 			\end{figure}
 			\end{enumerate}
 			
-			其他情况见\href{https://zhuanlan.zhihu.com/p/309597293}
-			{[Zotero]Word中的文献如何导入到Zotero库中}
-			（\url{https://zhuanlan.zhihu.com/p/309597293}）。			
-			本文主要参考
-			\url{https://www.zotero.org/support/kb/importing_formatted_bibliographies。}
+			其他见\href{https://zhuanlan.zhihu.com/p/309597293}
+			{Word中的文献如何导入到Zotero库中}
+			,			
+			参考
+			\url{https://www.zotero.org/support/kb/importing_formatted_bibliographies}。
 
 
 		其他问题见\href{https://zhuanlan.zhihu.com/p/57379260}{[Zotero]常见问题}，
