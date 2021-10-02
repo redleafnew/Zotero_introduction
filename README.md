@@ -2,6 +2,9 @@
 《优雅地用 Zotero 进行文献管理和论文写作
 A Short Chinese Introduction to Zotero》
 我自己在用Zotero的方式，简单分享一下。如果你觉得本文档对你有用，可以在你的论文致谢中提一下我。
+如果您想了解作者，请参见我的[学校主页](http://food.njau.edu.cn/info/1129/1315.htm)或
+[百度百科主页](https://baike.baidu.com/item/%E9%9F%A9%E6%95%8F%E4%B9%89)谢谢。
+
 
 * ## 制作编译 
 
@@ -13,7 +16,7 @@ A Short Chinese Introduction to Zotero》
 
 * ## 待添加
 
-  -  [ ] Zotero中自己的style或translator总是被恢复为官方的怎么办？
+  -  [x] Zotero中自己的style或translator总是被恢复为官方的怎么办？
   -  [ ] Zotero参考文献作者缩写后面的点如何删除？
   -  [ ] Zotero如何新建一个Profile？
   -  [ ] Zotero如何选中重复条目中的部分条目？

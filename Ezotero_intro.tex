@@ -5,8 +5,8 @@
 	
 	\author{韩敏义}
 	\institute{南京农业大学\\\kaishu\hspace{1.1cm}温氏食品集团股份有限公司}
-	\date{May 23, 2021}
-	\version{1.40}
+	\date{Oct 02, 2021}
+	\version{2.00}
 	%\bioinfo{自定义}{信息}
 	%\extrainfo{Victory won\rq t come to us unless we go to it. --- M. Moore}
 	
@@ -146,7 +146,9 @@
 		或关注我的知乎专栏\href{https://zhuanlan.zhihu.com/c_1071081428967743488}{软件随心}，
 		访问\href{https://github.com/redleafnew/Chinese-std-GB-T-7714-related-csl}
 		{Chinese-STD-GB-T-7714-related-csl}
-		找到更多的GB/T 7714相关的csl以及Zotero使用技巧及教程，谢谢。
+		找到更多的GB/T 7714相关的csl以及Zotero使用技巧及教程，如果您想了解作者，请参见我的
+		\href{http://food.njau.edu.cn/info/1129/1315.htm}{学校主页}或
+		\href{https://baike.baidu.com/item/%E9%9F%A9%E6%95%8F%E4%B9%89}{百度百科主页}谢谢。
 
 \tableofcontents
 %\listofchanges
@@ -591,7 +593,7 @@
 				如\autoref{fig:ch1MergeDup}所示。如果删除（合并）多条重复文献，在点击选中条目后，按
 				\keys{Ctrl+A}或点击\menu{Edit-Select All}选中所有重复文献，
 				再点击\menu{Merge * items}即可，也可以使用JavaScript脚本批量删除（合并）重复文献，
-				见\cref{sec:DelDupBatch}。
+				见\cref{sec:DelDupBatch}。如何选中重复条目中的某条文献见\cref{sec:selectDup}。
 
 					%删除重复文献
 					\begin{figure}[htbp]
@@ -1386,8 +1388,37 @@
 					{Zotero利用JavaScript备份配置和数据}。
 
 
-
-
+	\section{如何新建一个Profile？} \label{sec:creatProfile}
+		如果Zotero发生了问题，现有设置无法打开，
+		甚至重新安装Zotero然后打开以前错误的设置，
+		可以尝试新建一个Profile。
+			\begin{note}
+				新建Profile原来安装的插件、数据可能消失，但数据没有真正删除，
+				只是没有在新建的Profile打开，仍然在你的电脑上，
+				可以切换为原来的Profile打开。
+			\end{note}
+		以Win 10操作系统为例：如果Zotero在运行，需要先关闭它。
+		\begin{enumerate}
+			\item 同时按键盘上的Win+R
+				（Win键的位置见
+				\href{Windows键是哪个电脑上的Win键在哪？}{https://product.pconline.com.cn/itbk/software/dnwt/1601/7475121.html} ）
+			\item 在弹出的对话框中输入当前电脑上Zotero的安装位置\verb|\zotero.exe -p|，
+			如\verb|d:\zotero.exe -p|
+			\item 在弹出的对话框中列出当前电脑上已有的Profile，
+				点击Create 可以尝试新建一个Profile。
+			\item 在下面的向导中点击Next
+			\item 在向导中输入新profile名称，
+				默认存放位置为\winpath{C:\Users\\[你的用户名]
+				\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\
+				[随机字母和数字].Default User}文件夹内，
+				可以点击Choose Folder存放到其他位置，点Finish完成创建。
+			\item 返回到选择Profile对话框，可以点击新建的Profile名字，
+			再点击Start Zotero
+			\item 启动后相当于一个全新的Zotero了，可以安装插件，进行相关设置。
+			\item 如果想切换回原来的profile，再重复1-3，在对话框中选择原来的Profile即可。
+		\end{enumerate}
+		上面操作步骤的图文过程见\href{Zotero如何新建一个profile？}{https://zhuanlan.zhihu.com/p/404906012}。
+	
 	\section{使用添加引用的经典对话框} \label{sec:classView}				
 		\cref{sec:insertRef}提到在Word中插入插入参考文献时，需要搜索文章题目、作者等，如果觉得不方便，
 		也可以使用\menu{经典视图}，如果只是偶尔使用，可以点击插入文献时对话框中的\menu{Z}，然后在
@@ -1613,6 +1644,38 @@
 			上面的操作步骤也可参见知乎专栏文章\href{https://zhuanlan.zhihu.com/p/90638718}{[Zotero]
 			有权限时在导入CNKI题录时同时下载全文的方法\url{https://zhuanlan.zhihu.com/p/90638718}}。
 
+		\section{自定义的style或translator总是被恢复为官方的怎么办？}\label{sec:reset_style}
+			如果你发现使用自己修改的或别人发给你的style（样式）或translator（转换器）文件过段时间后
+			就又恢复为原来官方仓库中的文件了，可能是你用的csl或js文件的id和官方的相同，
+			默认情况下Zotero会自动更新样式（至少每24小时会自动更新）和转换器文件（隔几天会自动更新），
+			根据产生的原因，可以通过修改样式和转换器id或禁用Zotero自动检查和更新转换器和样式的方法解决。
+
+			\begin{enumerate}
+				\item 方法1修改id：
+				
+					打开数据文件夹下(数据文件夹在\cref{sec:data_dir}提到)的csl或js文件，
+					在<info>和</info>字段之间找到这个style文件的id，
+					如：http://www.zotero.org/styles/chinese-law-journals
+					将这个id改为非官方id，如添加信息：			
+					http://www.zotero.org/styles/chinese-law-journals-custom
+					，这个网址不存在也没有问题，保存style文件即可。如果需要修改的是js文件的id，
+					则直接修改js文件中的translatorID后面的值即可。
+					后面就不会覆盖这个文件了
+					（除非你的这个id与Zotero官方仓库中另一个style或translator文件的id相同）。
+				\item 方法2禁用自动更新translators和styles的功能：
+						
+					在Zotero中依次点击：\menu{Edit-Preferences-Advanced-General}，			
+					将Automatically check for updated translators and styles前面的$\checkmark$去掉，
+					再点击OK，
+					如\autoref{fig:ch5reset_style}所示：
+						\begin{figure}[htbp]
+							\centering
+							\includegraphics[scale=0.5]{ch5reset_style}
+							\caption{禁用自动更新转换器和样式}
+							\label{fig:ch5reset_style}
+						\end{figure}
+			\end{enumerate}
+
 		\section{不能自动更新引文了是怎么回事}\label{sec:norefresh}
 			@我叫小可爱网友询问：zotero 现在不能自动更新引文上标了如何解决，
 			必须要点击Refresh才可以。
@@ -1631,7 +1694,44 @@
 					\label{fig:ch5NoFresh}
 				\end{figure}
 
+		\section{引文下面有虚线下划线是怎么回事？}\label{sec:citationUnderline}
+			在使用年代作者的引文格式插入到Word中，有时会发现引文下面有虚线下划线，如
+			\autoref{fig:ch5underline}所示。
+				\begin{figure}[htbp]
+					\centering
+					\includegraphics[scale=0.5]{ch5underline}
+					\caption{引文有下划线}
+					\label{fig:ch5underline}
+				\end{figure}
 
+			这是怎么回事呢？
+			
+			原因可能是在插入引文选择使用的样式的界面，没有勾选Automatically update citations这个选项，
+			或是编辑长文档时为了加快Word的反应速度
+			（如果Word中已经插入了很多文献，再新加文献时，Word会扫描已经插入的文献，
+			更新已经插入的文献格式，从而可能会反应比较长的时间）有意禁用了自动更新引文功能。
+			加虚线下划线的原因是为了提醒作者，这些引文可能没有更新到最新格式。
+			
+			知道了原因，就很容易解决了，打开自动更新选项，点一下刷新按钮即可，如\autoref{fig:ch5refresh}所示。
+				\begin{figure}[htbp]
+					\centering
+					\includegraphics[scale=0.5]{ch5refresh}
+					\caption{点击自动更新引文后刷新}
+					\label{fig:ch5refresh}
+				\end{figure}。
+			
+			
+			如果刷新后还是有下划线，把带下划线的引文删除再重新插入一下试试。		
+			效果如\autoref{fig:ch5noUnderline}所示。
+				\begin{figure}[htbp]
+					\centering
+					\includegraphics[scale=0.5]{ch5noUnderline}
+					\caption{自动更新引文}
+					\label{fig:ch5noUnderline}
+				\end{figure}
+			
+			
+			参考：\href{https://www.zotero.org/support/kb/citations_underlined}{Why are my citations underlined with a dashed line?}
 
 
 		\section{如何设置Zotero生成的参考文献格式，刷新后不变？}\label{sec:refresh}
@@ -1885,6 +1985,18 @@
 		\end{enumerate}
 		详细图文修改过程也可见\href{https://zhuanlan.zhihu.com/p/341989158}{[Zotero]批量修改条目（文献）语言}。
 	
+		\section{参考文献作者缩写后面的点如何删除}\label{sec:authorPoint}
+			一些国外期刊（如Nature）要求参考文献列表中作者的名字需要缩写，
+			而且要以点（.）结尾，但很多国内期刊要求名字缩写后面需要点，
+			如何删除名字缩写后面的点呢？下面以nature.csl为例，看一下如何修改。
+			\begin{enumerate}
+				\item 用任意文本编辑器打开自己数据文件夹(数据文件夹在\cref{sec:data_dir}提到)
+				下的nature.csl文件。
+				\item 搜索initialize-with=". "，将引号内的点删除，
+				变为initialize-with=" "，保存文件，在Word使用这个样式文件即可。
+				\item 如果过段时间，这个csl恢复为带点的格式，参考\cref{sec:reset_style}解决。
+			\end{enumerate}
+
 		\section{使作者列表中某些作者加粗，加星而且刷新后不变}\label{sec:authorBold}
 
 		在写简历或申报项目时，如果需要附上自己已经发表的论文，自己的名字往往需要加粗，
@@ -2162,7 +2274,17 @@
 				\label{fig:ch5macro6_button3}
 			\end{figure}
 		\end{enumerate}
-			
+		
+		\section{如何选中重复条目中的部分条目？}\label{sec:selectDup}	
+			在Zotero中，如果点击Duplicate Items（重复条目），
+			则所有重复条目都会被选中，
+			如一个条目如果有三个是重复的，则点击其中一个，这三个会同时被选中，
+			如何取消选择其中的部分条目呢？
+
+			其实很简单，只要按住Ctrl键，再点击其中的一个条目，则此条就会取消选择。
+			参见\href{https://forums.zotero.org/discussion/91561/selection-one-of-duplicates}{Selection one of duplicates}。
+
+			 
 		\section{批量删除（合并）重复文献}\label{sec:DelDupBatch}				
 			 	前面讲述了删除（合并）重复文献的方法，见\cref{sec:delDup}，批量
 				 删除（合并）重复文献的方法除了
@@ -2192,122 +2314,173 @@
 				代码也可从\href{https://github.com/redleafnew/zotero-javascripts}
 				{zotero-javascripts}下载。
 
+		\section{如何批量删除笔记}\label{sec:batchDelNotes}
+			有时从其它地方导入的条目有些多余的笔记，
+			如从Scopus中导入的文献，每条中都有导出的日期和引用次数，
+			如\autoref{fig:ch5supNotes}所示：
+				\begin{figure}[htbp]
+					\centering
+					\includegraphics[scale=0.5]{ch5supNotes}
+					\caption{多余的笔记}
+					\label{fig:ch5supNotes}
+				\end{figure}
+				而从EndNote XML中导入的文献条目会可能有：
+				The following values have no corresponding Zotero Field，参见
+				\href{https://forums.zotero.org/discussion/comment/390716#Comment_390716}{Selecting and deleting only notes}。
+				如果有上千条这样的条目，删除每条的笔记也很费时间，如何批量删除呢？有两个方法：
+					\begin{enumerate}
+						\item 方法1安装delitemwithatt插件：
+						下载地址\href{https://github.com/redleafnew/delitemwithatt}{https://github.com/redleafnew/delitemwithatt}，
+						插件安装与\href{http://zotfile.com/}{ZotFile}
+						和\href{https://github.com/wshanks/Zutilo/releases}{Zutilo}步骤类似，
+						见\cref{sec:ZotFileInstall}和\cref{sec:change_lan}，
+						安装完成后，在需要删除笔记的条目上右击（可选多条），
+						选择\menu{Delete Attachment(s)-Delete Notes only}，
+						确认后即可将所选条目的笔记删除，如\autoref{fig:ch5delattPlug}所示：
+							\begin{figure}[htbp]
+								\centering
+								\includegraphics[scale=0.5]{ch5delattPlug}
+								\caption{仅删除笔记}
+								\label{fig:ch5delattPlug}
+							\end{figure}
+						
+						\item 不安装插件，在搜索框中搜索需要删除的笔记的共同部分，
+						如搜索“Export Date”，如\autoref{fig:ch5searchNotes}所示：
 
-		\section{author+year格式下，et al如何变为斜体？}\label{sec:etal_italic}
-			变为斜体的地方两个，一个是文中的引文部分（Inline Citations），
-			另一个是文末的参考文献列表部分（Bibliography）。
-			主要是通过修改style即csl文件实现的。修改csl文件可以通过Zotero
-			自带的Style Editor来完成（在Zotero中，
-			依次点击\menu{Edit-Preferences-Cite-Styles},在Style Mangager选
-			中要修改的Style再点击\menu{Tools}下面的\menu{Style Editor}按钮），
-			但这种方法需要对csl语言比较熟悉。
-			另一种方法是通过csl文件在线编辑方式进行，操作比较直观。
-			下面以springer-basic-author-date 这种格式的csl进行修改。	
-			\begin{enumerate}
-				\item 
-				在浏览器地址栏中输入
-				\href{https://editor.citationstyles.org/searchByName/}
-				{https://editor.citationstyles.org/searchByName/}回车，
-				然后搜索栏中输入style的名称，如springer-Basic，\menu{Search}，
-				在下面的结果中Springer - Basic (author-date)下面的\menu{Edit}进行在线编辑，
-				如\autoref{fig:ch5Search_style}所示。
-				\begin{figure}[htbp]
-					\centering
-					\includegraphics[scale=0.5]{ch5Search_style}
-					\caption{找到需要编辑的style}
-					\label{fig:ch5Search_style}
-				\end{figure}
-			\item 首先点击右侧的EXAMPLE CITATIONSG下面的作者，
-			然后点击左侧Names下面的Et-al，如\autoref{fig:ch5Find_et al}所示。
-				\begin{figure}[htbp]
-					\centering
-					\includegraphics[scale=0.5]{ch5Find_et al}
-					\caption{找到\menu[,]{Et-al}}
-					\label{fig:ch5Find_et al}
-				\end{figure}
-			\item 如果Names下面没有Et-al选项，点击上侧的\menu{+}，在弹出的对话框中\menu[,]{Et-al}，
-			如\autoref{fig:ch5Click_etal}。
-				\begin{figure}[htbp]
-					\centering
-					\includegraphics[scale=0.5]{ch5Click_etal}
-					\caption{点击上面的\menu{+}}
-					\label{fig:ch5Click_etal}
-				\end{figure}
-			\item 然后\menu{Text formatting}下面的\menu{I}按钮，如\autoref{fig:ch5Click_italic}所示。
-				\begin{figure}[htbp]
-					\centering
-					\includegraphics[scale=0.5]{ch5Click_italic}
-					\caption{点击\menu{I}按钮}
-					\label{fig:ch5Click_italic}
-				\end{figure}
-			\end{enumerate}
-			 以上为文中的引文部分（Inline Citations）作者后面的et al改为斜体。
-			 如果需要改Bibliography中作者后面的et al为斜体，过程一样，如果不需要，
-			 可以跳转到\cref{it:StyleInfo}。
-			 \begin{enumerate}
-				 \item 点击EXAMPLE BIBLIOGRAPHY下面的作者，再点击Names下面的\menu[,]{Et-al}，
-				 如果没有Et-al，按\menu{+}添加Et-al，如\autoref{fig:ch5Click_etal2}所示。
-			 		\begin{figure}[htbp]
-						\centering
-						\includegraphics[scale=0.5]{ch5Click_etal2}
-						\caption{找到BIBLIOGRAPHY下的\menu[,]{Et-al}}
-						\label{fig:ch5Click_etal2}
-					\end{figure}
-				\item 在Text formatting下点击\menu{I}，使之为选中状态，如\autoref{fig:ch5Click_italic2}所示。
+							\begin{figure}[htbp]
+								\centering
+								\includegraphics[scale=0.5]{ch5searchNotes}
+								\caption{搜索笔记}
+								\label{fig:ch5searchNotes}
+							\end{figure}
+						\item 然后在搜索的结果中点击需要删除的笔记，或按Ctrl+A全选，选择需要删除的笔记。
+						右击，选择Move Items to Trash...，即可删除笔记。如\autoref{fig:ch5delNotes}所示：
+					
+							\begin{figure}[htbp]
+								\centering
+								\includegraphics[scale=0.5]{ch5delNotes}
+								\caption{删除笔记}
+								\label{fig:ch5delNotes}
+							\end{figure}
+				
+					参考：\href{https://forums.zotero.org/discussion/comment/390716#Comment_390716}{Selecting and deleting only notes}。
+				\end{enumerate}
+
+				\section{author+year格式下，et al如何变为斜体？}\label{sec:etal_italic}
+				变为斜体的地方两个，一个是文中的引文部分（Inline Citations），
+				另一个是文末的参考文献列表部分（Bibliography）。
+				主要是通过修改style即csl文件实现的。修改csl文件可以通过Zotero
+				自带的Style Editor来完成（在Zotero中，
+				依次点击\menu{Edit-Preferences-Cite-Styles},在Style Mangager选
+				中要修改的Style再点击\menu{Tools}下面的\menu{Style Editor}按钮），
+				但这种方法需要对csl语言比较熟悉。
+				另一种方法是通过csl文件在线编辑方式进行，操作比较直观。
+				下面以springer-basic-author-date 这种格式的csl进行修改。	
+				\begin{enumerate}
+					\item 
+					在浏览器地址栏中输入
+					\href{https://editor.citationstyles.org/searchByName/}
+					{https://editor.citationstyles.org/searchByName/}回车，
+					然后搜索栏中输入style的名称，如springer-Basic，\menu{Search}，
+					在下面的结果中Springer - Basic (author-date)下面的\menu{Edit}进行在线编辑，
+					如\autoref{fig:ch5Search_style}所示。
 					\begin{figure}[htbp]
 						\centering
-						\includegraphics[scale=0.5]{ch5Click_italic2}
+						\includegraphics[scale=0.5]{ch5Search_style}
+						\caption{找到需要编辑的style}
+						\label{fig:ch5Search_style}
+					\end{figure}
+				\item 首先点击右侧的EXAMPLE CITATIONSG下面的作者，
+				然后点击左侧Names下面的Et-al，如\autoref{fig:ch5Find_et al}所示。
+					\begin{figure}[htbp]
+						\centering
+						\includegraphics[scale=0.5]{ch5Find_et al}
+						\caption{找到\menu[,]{Et-al}}
+						\label{fig:ch5Find_et al}
+					\end{figure}
+				\item 如果Names下面没有Et-al选项，点击上侧的\menu{+}，在弹出的对话框中\menu[,]{Et-al}，
+				如\autoref{fig:ch5Click_etal}。
+					\begin{figure}[htbp]
+						\centering
+						\includegraphics[scale=0.5]{ch5Click_etal}
+						\caption{点击上面的\menu{+}}
+						\label{fig:ch5Click_etal}
+					\end{figure}
+				\item 然后\menu{Text formatting}下面的\menu{I}按钮，如\autoref{fig:ch5Click_italic}所示。
+					\begin{figure}[htbp]
+						\centering
+						\includegraphics[scale=0.5]{ch5Click_italic}
 						\caption{点击\menu{I}按钮}
-						\label{fig:ch5Click_italic2}
+						\label{fig:ch5Click_italic}
+					\end{figure}
+				\end{enumerate}
+				以上为文中的引文部分（Inline Citations）作者后面的et al改为斜体。
+				如果需要改Bibliography中作者后面的et al为斜体，过程一样，如果不需要，
+				可以跳转到\cref{it:StyleInfo}。
+				\begin{enumerate}
+					\item 点击EXAMPLE BIBLIOGRAPHY下面的作者，再点击Names下面的\menu[,]{Et-al}，
+					如果没有Et-al，按\menu{+}添加Et-al，如\autoref{fig:ch5Click_etal2}所示。
+						\begin{figure}[htbp]
+							\centering
+							\includegraphics[scale=0.5]{ch5Click_etal2}
+							\caption{找到BIBLIOGRAPHY下的\menu[,]{Et-al}}
+							\label{fig:ch5Click_etal2}
+						\end{figure}
+					\item 在Text formatting下点击\menu{I}，使之为选中状态，如\autoref{fig:ch5Click_italic2}所示。
+						\begin{figure}[htbp]
+							\centering
+							\includegraphics[scale=0.5]{ch5Click_italic2}
+							\caption{点击\menu{I}按钮}
+							\label{fig:ch5Click_italic2}
+						\end{figure}
+					\end{enumerate}	
+
+
+					都修改完成以后，还要修改style信息：
+					\begin{enumerate} \label{it:StyleInfo}
+					\item 点击STYLE INFO下面的\menu{info}，
+					然后将Title（一般为投稿期刊的名称）和id设为唯一的值，
+					防止覆盖本地的相同id的Style，如\autoref{fig:ch5Change_csl_title}所示。
+					\begin{figure}[htbp]
+						\centering
+						\includegraphics[scale=0.5]{ch5Change_csl_title}
+						\caption{修改Style的名称和id}
+						\label{fig:ch5Change_csl_title}
+					\end{figure}
+				\item 然后依次\menu{Style-Save Style},保存Style，如\autoref{fig:ch5SaveStyle}所示。
+					\begin{figure}[htbp]
+						\centering
+						\includegraphics[scale=0.5]{ch5SaveStyle}
+						\caption{保存Style}
+						\label{fig:ch5SaveStyle}
+					\end{figure}
+				\item 在弹出的对话框中点击确定，如\autoref{fig:ch5ClickSave}所示。
+					\begin{figure}[htbp]
+						\centering
+						\includegraphics[scale=0.5]{ch5ClickSave}
+						\caption{确定保存Style}
+						\label{fig:ch5ClickSave}
+					\end{figure}
+				\item 在弹出的对话框中点击\menu{Download Style}，如\autoref{fig:ch5DownloadStyle}所示。
+				如果点击\menu{Download Style}没有反应，将此对话框关闭，
+				刷新一下页面，重复步骤2-4，将csl文件存到自己的位置。
+					\begin{figure}[htbp]
+						\centering
+						\includegraphics[scale=0.5]{ch5DownloadStyle}
+						\caption{下载Style文件到本地}
+						\label{fig:ch5DownloadStyle}
+					\end{figure}
+				\item 在Zotero中添加此csl文件(见\cref{sec:addStyle})，
+				在Word中格式化时选用此csl文件(见\cref{sec:changeStyle})。
+				效果如\autoref{fig:ch5EtalItalicFinal}：
+					\begin{figure}[htbp]
+						\centering
+						\includegraphics[scale=0.5]{ch5EtalItalicFinal}
+						\caption{最终效果，et al都为斜体了}
+						\label{fig:ch5EtalItalicFinal}
 					\end{figure}
 				\end{enumerate}	
-
-
-				都修改完成以后，还要修改style信息：
-				\begin{enumerate} \label{it:StyleInfo}
-				\item 点击STYLE INFO下面的\menu{info}，
-				然后将Title（一般为投稿期刊的名称）和id设为唯一的值，
-				防止覆盖本地的相同id的Style，如\autoref{fig:ch5Change_csl_title}所示。
-				\begin{figure}[htbp]
-					\centering
-					\includegraphics[scale=0.5]{ch5Change_csl_title}
-					\caption{修改Style的名称和id}
-					\label{fig:ch5Change_csl_title}
-				\end{figure}
-			\item 然后依次\menu{Style-Save Style},保存Style，如\autoref{fig:ch5SaveStyle}所示。
-				\begin{figure}[htbp]
-					\centering
-					\includegraphics[scale=0.5]{ch5SaveStyle}
-					\caption{保存Style}
-					\label{fig:ch5SaveStyle}
-				\end{figure}
-			\item 在弹出的对话框中点击确定，如\autoref{fig:ch5ClickSave}所示。
-				\begin{figure}[htbp]
-					\centering
-					\includegraphics[scale=0.5]{ch5ClickSave}
-					\caption{确定保存Style}
-					\label{fig:ch5ClickSave}
-				\end{figure}
-			\item 在弹出的对话框中点击\menu{Download Style}，如\autoref{fig:ch5DownloadStyle}所示。
-			如果点击\menu{Download Style}没有反应，将此对话框关闭，
-			刷新一下页面，重复步骤2-4，将csl文件存到自己的位置。
-				\begin{figure}[htbp]
-					\centering
-					\includegraphics[scale=0.5]{ch5DownloadStyle}
-					\caption{下载Style文件到本地}
-					\label{fig:ch5DownloadStyle}
-				\end{figure}
-			\item 在Zotero中添加此csl文件(见\cref{sec:addStyle})，
-			在Word中格式化时选用此csl文件(见\cref{sec:changeStyle})。
-			效果如\autoref{fig:ch5EtalItalicFinal}：
-				\begin{figure}[htbp]
-					\centering
-					\includegraphics[scale=0.5]{ch5EtalItalicFinal}
-					\caption{最终效果，et al都为斜体了}
-					\label{fig:ch5EtalItalicFinal}
-				\end{figure}
-			\end{enumerate}	
-	
+		
 		\section{正文中如何实现作者（年代）的引文格式？}\label{sec:author_year}
 			在作者-年代引用格式中，一般引用格式为“（作者，年代）”如“...没有发现相关性（张三，2017）”，
 			但有时作者放在前面，引用格式为：“作者（年代）”，如“张三（2017）发现了...”，
