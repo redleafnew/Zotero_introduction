@@ -5,8 +5,8 @@
 	
 	\author{韩敏义}
 	\institute{南京农业大学\\\kaishu\hspace{1.1cm}温氏食品集团股份有限公司}
-	\date{Oct 02, 2021}
-	\version{2.10}
+	\date{Oct 03, 2021}
+	\version{2.15}
 	%\bioinfo{自定义}{信息}
 	%\extrainfo{Victory won\rq t come to us unless we go to it. --- M. Moore}
 	
@@ -768,7 +768,7 @@
 			如\autoref{fig:ch2Unlink}所示。需要注意的是去除域代码后，再插入或删除参考文献列表就不会再自动更新了，而且再用Zotero插入的文献会自动重新编号，要想在原来基础上更新，
 			只能在还保留域代码的文件中进行操作。
 			
-	\chapter[利用坚果云同步全文]{利用坚果云同步全文\footnote{如果没有在不同电脑同步题录和全文的需要，本章可以略过}}\label{ch:syn}		
+	\chapter[利用坚果云同步全文]{利用坚果云同步全文\footnote{如果没有在不同电脑同步题录和全文的需要，本章可以略过。}}\label{ch:syn}		
 		需要在不同电脑上阅读文献及写作的人有同步的需要。另外，如果出于对题录信息和全文备份的需要，也可以使用同步。在本章我们使用Zotero来同步题录信息，使用坚果云来同步全文信息。
 			\section{注册Zotero用户}\label{sec:zotReg}
 		使用Zotero来同步题录信息需要注册Zotero用户，注册的网址是\url{https://www.zotero.org/user/register}，注册的流程与一般网站注册用户差别不大，
@@ -780,9 +780,11 @@
 		by clicking on the following link or pasting it into your browser: 
 		\url{https://www.zotero.org/user/validate/1ab18fc52bb2b7ba6ddb},validate后面的内容会有差异，
 		将这些地址复制到浏览器地址栏，按回车，如果页面显示：Success! You registered your Zotero account!则邮箱验证成功。
-		如果收件箱内没有收到邮件，可以到垃圾邮件内找找，有可能这封邮件被邮件系统误认为是垃圾邮件了。不进行激活可以使用，
+		如果收件箱内没有收到邮件，可以到垃圾邮件内找找，有可能这封邮件被邮件系统误认为是垃圾邮件了。不进行激活也可以使用，
 		但是无法创建群组(创建群组见\cref{sec:CreatGroup})。值得注意的是，注册Zotero用户时需要翻墙，
-		因为这个网站需要调用Google的人机身份验证，如果不翻墙的话，无法完成注册，当然也可以请国外的亲朋好友帮忙注册用户。
+		因为这个网站需要调用Google的人机身份验证，如果不翻墙的话，
+		无法完成注册\footnote{20211003现在好像不需要翻墙也可以注册Zotero账户了。}，
+		当然也可以请国外的亲朋好友帮忙注册用户。
 		完成Zotero用户注册以后还需要在Zotero登录才能进行题录信息的同步，登录的方法见\cref{sec:syn}。
 		%register zotero
 		\begin{figure}[htbp]
@@ -886,7 +888,7 @@
 
 		坚果云的其他问题可以访问\url{http://help.jianguoyun.com/}查找解决方法。
 		
-		\section{ ZotFile插件安装}\label{sec:ZotFileInstall}
+		\section{ZotFile插件安装}\label{sec:ZotFileInstall}
 		Zotero可以对题录的全文进行管理，在链接上全文以后，Zotero会将全文复制到其数据文件夹(数据文件夹在\cref{sec:data_dir}提到)
 		的storage文件夹下的一些名字比较奇怪的文件夹下，对于全文的查找和管理带来不便，因此推荐使用\href{http://zotfile.com/}{ZotFile}插件来进行管理。
 		\begin{enumerate}
@@ -901,7 +903,7 @@
 			\end{figure}
 			
 			\item
-			Zotero插件与Zotero中其他插件(扩展)的安装方法相同，方法是在Zotero菜单中点击\menu{Tools-Add-ons}，
+			Zotero插件与Zotero中其他插件(扩展)的安装方法相同，方法是在Zotero菜单中点击\menu{Tools-{Add-ons}}，
 			如\autoref{fig:ch3ZotFileInstall1}所示。
 			%zotfile install
 			\begin{figure}[htbp]
@@ -912,7 +914,7 @@
 			\end{figure}
 			\item
 			在弹出的对话框中，
-			依次点击\menu{齿轮图标-Install Add-on From File...}，
+			依次点击\menu{齿轮图标-Install {Add-on} From File...}，
 			如\autoref{fig:ch3ZotFileInstall2}所示。
 			\item
 			然后找到以前下载的zotfile-v.v.v-fx.xpi(v为具体的版本号)，如\autoref{fig:ch3ZotFileInstall3}所示。
@@ -939,7 +941,7 @@
 			安装完成后，会提示\href{http://zotfile.com/}{ZotFile}在重启Zotero后安装，
 			点击\menu{Restart now}重启，如\autoref{fig:ch3ZotFileInstall5}所示，
 			或是再安装完其他插件后一块重启，
-			重启后会如果发现Zotero \menu{Tools}-菜单下有\menu{ZoteFile Preferences...}，说明\href{http://zotfile.com/}{ZotFile}插件安装成功，
+			重启后会如果发现Zotero \menu{Tools}菜单下有\menu{ZoteFile Preferences...}，说明\href{http://zotfile.com/}{ZotFile}插件安装成功，
 			\href{http://zotfile.com/}{ZotFile}插件的设置见\cref{sec:zotFilePre}。
 			%zotfile install4
 			\begin{figure}[htbp]
@@ -968,7 +970,7 @@
 			\item
 			在弹出的Zotero Preferences对话框中点击\menu{Sync}，
 			然后在Setting中输入\cref{sec:zotReg}中申请的Zotero的用户名和密码后，
-			再\menu{Set Up Syncing}，如\autoref{fig:ch3ZoteroPre2}所示。
+			点击\menu{Set Up Syncing}，如\autoref{fig:ch3ZoteroPre2}所示。
 			%zotfile install2-3
 				\begin{figure}[t]
 					\centering
@@ -986,18 +988,20 @@
 				\end{minipage}
 			\end{figure}
 			\item
-			如果输入的用户名、密码正确，且网络畅通，则会弹出文件同步的一些选项，
-			注意不要选择\menu{Sync full-tex content(同步全文内容)}
-			和\menu{File Syncing(文件同步)}前面的选项，如\autoref{fig:ch3ZoteroPre3}所示，因为Zotero提供的全文同步空间有限，
+			如果输入的用户名、密码正确，会弹出文件同步的选项，
+			点击\menu{Sync automatically}和\menu{Sync {full-text} content}
+			前面的方框使之选中，\menu{File Syncing}下面的两个选项不要选中，
+			如\autoref{fig:ch3ZoteroPre3}所示，因为Zotero提供的全文同步空间有限，
 			我们在\cref{sec:jianguoReg}中设置了用坚果云同步全文，但此时Zotero还不能同步全文到其他电脑，
-			还需要使用\href{http://zotfile.com/}{ZotFile}插件将全文附件自动复制到坚果云的同步盘中，见\cref{sec:zotFilePre}。
+			还需要使用\href{http://zotfile.com/}{ZotFile}插件将全文附件自动复制到坚果云的同步盘中，
+			见\cref{sec:zotFilePre}。
 			\item				  	
 			也可以利用坚果云提供的WebDAV服务同步全文，方法见\url{http://help.jianguoyun.com/?p=3168},
 			简书文章\url{https://www.jianshu.com/p/e7f5c3e95cf4}。			  
 			%zotfile install5
 			\begin{figure}[htbp]
 				\centering
-				\includegraphics[scale=0.5]{ch3ZoteroPre3}
+				\includegraphics[scale=0.7]{ch3ZoteroPre3}
 				\caption{Zotero同步设置}
 				\label{fig:ch3ZoteroPre3}
 			\end{figure}
@@ -1022,11 +1026,11 @@
 			\item 点击\menu{General Settings},
 			然后点击\menu{Location of Files}中\menu{Custom Location}小圆圈，
 			再点击后面的\menu{Choose}，
-			选择坚果云同步目录(也是全文附件的存放目录)，如\autoref{fig:ch3ZotFilePre2}所示。
+			选择坚果云中文献全文同步目录，如\autoref{fig:ch3ZotFilePre2}所示。
 			%zotfile install5
 			\begin{figure}[htbp]
 				\centering
-				\includegraphics[scale=0.7]{ch3ZotFilePre2}
+				\includegraphics[scale=0.8]{ch3ZotFilePre2}
 				\caption{ZotFile文件夹设置}
 				\label{fig:ch3ZotFilePre2}
 			\end{figure}
@@ -1064,7 +1068,7 @@
 			%zotfile rename
 			\begin{figure}[htbp]
 				\centering
-				\includegraphics[width=0.6\linewidth]{ch3ZotFileRename1}
+				\includegraphics[width=0.5\linewidth]{ch3ZotFileRename1}
 				\caption{ZotFile重命名附件提示}
 				\label{fig:ch3ZotFileRename1}
 			\end{figure}
