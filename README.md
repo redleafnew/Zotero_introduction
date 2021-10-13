@@ -16,7 +16,7 @@ A Short Chinese Introduction to Zotero》
 
 * ## 待添加
 
-  -  [ ]`Zotero`如何将文件位置恢复到storage中？
+  -  []`Zotero`如何将文件位置恢复到storage中？
  
 
 * ## LICENSE
