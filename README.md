@@ -16,12 +16,8 @@ A Short Chinese Introduction to Zotero》
 
 * ## 待添加
 
-  -  [x] Zotero中自己的style或translator总是被恢复为官方的怎么办？
-  -  [x] Zotero参考文献作者缩写后面的点如何删除？
-  -  [x] Zotero如何新建一个Profile？
-  -  [x] Zotero如何选中重复条目中的部分条目？
-  -  [x] Zotero如何批量删除笔记？
-  -  [x] Zotero引文下面有虚线下划线是怎么回事？
+  -  [ ]`Zotero`如何将文件位置恢复到storage中？
+ 
 
 * ## LICENSE
   [GPL](https://www.gnu.org/licenses/gpl-3.0.txt)
@@ -30,3 +26,4 @@ A Short Chinese Introduction to Zotero》
 
 
 有问题请留言，发Email：redleafnew#163.com或加入QQ群讨论：913637964。 
+
