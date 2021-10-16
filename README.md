@@ -17,7 +17,7 @@ A Short Chinese Introduction to Zotero》
 * ## 待添加
 
  -  [ ] `Zotero`如何将文件位置恢复到storage中？
- -  [ ]`Zotero`不用代码不用其它软件清理使用ZotFile后删除条目剩余的游离附件。
+ -  [ ] `Zotero`不用代码不用其它软件清理使用ZotFile后删除条目剩余的游离附件。
  
 
 * ## LICENSE
