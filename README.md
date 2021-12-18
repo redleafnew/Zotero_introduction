@@ -21,7 +21,7 @@ A Short Chinese Introduction to Zotero》
  -  [ ] `Zotero`如何让不同主题的参考文献附件放在同一个文件夹。
  -  [ ] `Zotero`怎么看自带的存贮剩余情况呢。
  -  [ ] `Zotero`在citationstyles.org可视化编辑csl时如何使用自己的文献调试？
- 
+ -  [ ] `Zotero`怎么样可以只导出多篇文献PDF？
 
 * ## LICENSE
   [GPL](https://www.gnu.org/licenses/gpl-3.0.txt)
