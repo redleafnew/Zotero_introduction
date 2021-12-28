@@ -12,7 +12,7 @@ A Short Chinese Introduction to Zotero》
 
 可以通过VS Code + LaTeX Workshop + Texlive 2021 编译源文件生成PDF，环境搭建见
 [Visual Studio Code (vscode)配置LaTeX](https://zhuanlan.zhihu.com/p/166523064)。
-也可以到[https://github.com/redleafnew/Zotero_introduction/releases](https://github.com/redleafnew/Zotero_introduction/releases)下载阶段版本。
+也可以到<https://github.com/redleafnew/Zotero_introduction/releases>下载阶段版本。
 
 * ## 待添加
 
