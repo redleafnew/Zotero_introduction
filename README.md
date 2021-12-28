@@ -21,6 +21,7 @@ A Short Chinese Introduction to Zotero》
  -  [ ] `Zotero`如何让不同主题的参考文献附件放在同一个文件夹。
  -  [ ] `Zotero`怎么看自带的存贮剩余情况呢。
  -  [ ] `Zotero`在citationstyles.org可视化编辑csl时如何使用自己的文献调试？
+ -  [ ] `Zotero`如何删除参考文献列表末尾的点（.）？
  
 
 * ## LICENSE
