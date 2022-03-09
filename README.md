@@ -23,6 +23,7 @@ A Short Chinese Introduction to Zotero》
  -  [ ] `Zotero`在citationstyles.org可视化编辑csl时如何使用自己的文献调试？
  -  [ ] `Zotero`怎么样可以只导出多篇文献PDF？
  -  [ ] `Zotero`如何删除参考文献列表末尾的点（.）？
+ -  [ ] `Zotero`Word参考文献条目末尾有DOI，但CSL代码找不到相应字段修改，怎么办？
 
 * ## LICENSE
   [GPL](https://www.gnu.org/licenses/gpl-3.0.txt)
