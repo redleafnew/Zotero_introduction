@@ -44,6 +44,7 @@
 	\setcounter{tocdepth}{2}
 	%\usepackage[text={140mm,240mm},centering]{geometry}
 	
+	% \usepackage[backend=biber]{biber}
 	\usepackage{listings}
 	%XML高亮显示定义
 	\usepackage{color}
@@ -691,7 +692,7 @@
 			后面在添加、删除其他文献时，正文的引用及文末的参考文献列表最自动更新，
 			是不是很方便？可以按相同的方法插入其他文献
 			\footnote{如果觉得通过搜索的方式插入文献不方便可以切换到\menu{经典视图}，
-			见cref{sec:classView}。}。
+			见\cref{sec:classView}。}。
 			
 			%文末文献
 			\begin{figure}[htbp]
@@ -1080,6 +1081,35 @@
 				\label{fig:ch3ZotFileRename2}
 			\end{figure}
 		\end{enumerate}
+
+	\section{使用ZotFile后如何将文件位置恢复到Storage中？}\label{sec:zotFile_restore_storage}
+	如果使用了\href{http://zotfile.com/}{ZotFile}插件，经过前面章节设置（\cref{sec:zotFilePre}），会将文献附件统一移动到自定义文件夹里。
+	但如果某些插件只支持Storage中的文献，如何把自定义文件夹中的文献再恢复到Storage文件夹中呢？
+
+	\begin{enumerate}
+		\item 在Zotero选中需要转存条目，依次点击\menu{Tools-Manage Attachments-Convert Linked Files to Stored Files...}，
+		如\autoref{fig:ch3zotConFile}所示。
+		\item 在弹出的对话框中根据自己的情况，如果要删除原位置的文件则选中\menu{Delete original file after storing}，
+		然后点击\menu{Continue}，如\autoref{fig:ch3zotConFileConfirm}所示，注意：如果附件已经在其它程序中打开，需要将其关闭，否则转移可能会失败。
+		\item 然后这些文件就会恢复到Zotero数据目录中的Storage文件夹中的8位字母的文件夹内。
+	\end{enumerate}
+	
+	%zotFile_restore_storage
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[scale=0.6]{ch3zotConFile}
+		\caption{将链接文件转为存贮文件}
+		\label{fig:ch3zotConFile}
+	\end{figure}
+
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[scale=0.6]{ch3zotConFileConfirm}
+		\caption{选择转存后是否删除原文件}
+		\label{fig:ch3zotConFileConfirm}
+	\end{figure}
+
+
 
 
   \chapter[Zotero群组的使用]{Zotero群组的使用\footnote{如果没有使用群组的需要，本章可以略过}}\label{ch:group}
