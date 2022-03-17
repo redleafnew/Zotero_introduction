@@ -1083,6 +1083,7 @@
 		\end{enumerate}
 
 	\section{使用ZotFile后如何将文件位置恢复到Storage中？}\label{sec:zotFile_restore_storage}
+
 	如果使用了\href{http://zotfile.com/}{ZotFile}插件，经过前面章节设置（\cref{sec:zotFilePre}），会将文献附件统一移动到自定义文件夹里。
 	但如果某些插件只支持Storage中的文献，如何把自定义文件夹中的文献再恢复到Storage文件夹中呢？
 
@@ -1109,10 +1110,94 @@
 		\label{fig:ch3zotConFileConfirm}
 	\end{figure}
 
+\section{不用代码不用其它软件清理使用ZotFile后删除条目剩余的游离附件}\label{sec:zotFile_clean_att}
+
+由于历史原因，之前使用\href{http://zotfile.com/}{ZotFile}过程中肯定已经删过一些条目，但是不确定附件是否也被删除了。
+同时对数据文件夹下，没有在数据库中链接的附件进行清理。或是在\href{http://zotfile.com/}{ZotFile}附件文件夹中可能会存在一些空的文件夹。
+如何删除这些文件或文件夹？网上可以找到一些方法包括：
+Zotero不用安装其它软件清理删除条目后残留的PDF方法（见\url{https://zhuanlan.zhihu.com/p/356071795}），
+Zotero库中参考文献条目删除后，清除残留PDF的python脚本（见\url{https://zhuanlan.zhihu.com/p/121770068}），
+安装了Zotfile后删除文献后清除PDF附件的小程序（见\url{https://zhuanlan.zhihu.com/p/109531298}）等，
+这些方法或者是需要JavaScript或是需要Python脚本，运行过程也可能会出现错误，对于不太懂编程语言的人来说很痛苦。
+近日从\url{https://github.com/jlegewie/zotfile/issues/96}的回复中看到一个方法，可以只在Zotero中即可完成清理。
+操作步骤如下：
+
+\begin{enumerate}
+	\item 先暂停同步：
+	依次点击\menu{Edit-Preferences-Sync-Settings}，然后点\menu{Snyc automatically}和\menu{Sync {full-text} content}前面的框，
+	使都不要被选中。也可点击\menu{Unlink Account...}，退出账号，在弹出的对话框中点击\menu{Unlink Account}，如\autoref{fig:ch3disaSync}所示，
+	注意不要点击\menu{Remove my Zotero data from this computer}前的方框，如\autoref{fig:ch3zotUnlinWaring}所示。
+
+		%zotFile_clean-att
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[scale=0.5]{ch3disaSync}
+			\caption{暂停同步}
+			\label{fig:ch3disaSync}
+		\end{figure}
+	
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[scale=0.5]{ch3zotUnlinWaring}
+			\caption{选择转存后是否删除原文件}
+			\label{fig:ch3zotUnlinWaring}
+		\end{figure}
+\item 在Zotero中依次点击\menu{Tools-ZotFile Preferences...}，如\autoref{fig:ch3zotPre}所示，
+在弹出对话框中点击\menu{General Settings}，然后再点击\menu{Custom Location}后面的\menu{Choose},
+如\autoref{fig:ch3zotGenerSetting}所示。
+
+		%zotFile_clean-att
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[scale=0.6]{ch3zotPre}
+			\caption{工具ZotFile设置}
+			\label{fig:ch3zotPre}
+		\end{figure}
+	
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[scale=0.5]{ch3zotGenerSetting}
+			\caption{ZotFile常规设置}
+			\label{fig:ch3zotGenerSetting}
+		\end{figure}
+\item 然后选择一个新的目录，如\winpath{D:\att}，点击\menu{选择文件夹}，再返回的对话框中点击\menu{OK}，如\autoref{fig:ch3zotSlePath}所示。
+		%zotFile_clean-att
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[scale=0.5]{ch3zotSlePath}
+			\caption{选择文件夹}
+			\label{fig:ch3zotSlePath}
+		\end{figure}
+	
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[scale=0.6]{ch3zotSelAll}
+			\caption{全选所有条目}
+			\label{fig:ch3zotSelAll}
+		\end{figure}
+\item 在Zotero中点击\menu{My Library}，然后在右侧详细信息中随便点击一个条目，再按\menu{Ctr+A}，全选所有文献条目，如\autoref{fig:ch3zotSelAll}所示。
+\item 右击\menu{Manage Attachments-Rename Attachments}，如\autoref{fig:ch3zotRename}所示，在弹出的对话框点击\menu{OK}，如\autoref{fig:ch3zotConfirm}所示。
+		%zotFile_clean-att
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[scale=0.6]{ch3zotRename}
+			\caption{重命名附件}
+			\label{fig:ch3zotRename}
+		\end{figure}
+	
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[scale=0.5]{ch3zotConfirm}
+			\caption{确认移动且重命名附件}
+			\label{fig:ch3zotConfirm}
+		\end{figure}
+\item 这样所有的附件都会转移到新的目录，将原来的文件夹删除即可。如果还是喜欢原来的目录，再重复操作一遍，建立原来的文件夹，再用\href{http://zotfile.com/}{ZotFile}
+移动重命名即可。	
+\item 如果没有问题了，重新开启同步即可，同步设置见\cref{sec:syn}。	
+\end{enumerate}
 
 
-
-  \chapter[Zotero群组的使用]{Zotero群组的使用\footnote{如果没有使用群组的需要，本章可以略过}}\label{ch:group}
+\chapter[Zotero群组的使用]{Zotero群组的使用\footnote{如果没有使用群组的需要，本章可以略过}}\label{ch:group}
 	同事之间，同一个课题组之间共享题录信息可以通过Zotero提供的群组功能实现。
 	我们可以创建群组并邀请其他人加入(\cref{sec:CreatGroup})。
 	也可以作为成员申请加入其他的群组(\cref{sec:joinGroup})。
