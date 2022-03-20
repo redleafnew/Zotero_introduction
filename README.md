@@ -18,13 +18,14 @@ A Short Chinese Introduction to Zotero》
 
  -  [x] `Zotero`如何将文件位置恢复到storage中？
  -  [x] `Zotero`不用代码不用其它软件清理使用ZotFile后删除条目剩余的游离附件。
- -  [ ] `Zotero`如何让不同主题的参考文献附件放在同一个文件夹。
- -  [ ] `Zotero`怎么看自带的存贮剩余情况呢。
- -  [ ] `Zotero`在citationstyles.org可视化编辑csl时如何使用自己的文献调试？
- -  [ ] `Zotero`怎么样可以只导出多篇文献PDF？
- -  [ ] `Zotero`如何删除参考文献列表末尾的点（.）？
- -  [ ] `Zotero`Word参考文献条目末尾有DOI，但CSL代码找不到相应字段修改，怎么办？
- -  [ ] `Zotero`6.0如何使用系统默认的PDF阅读器？
+ -  [x] `Zotero`如何让不同主题的参考文献附件放在同一个文件夹。
+ -  [x] `Zotero`怎么看自带的存贮剩余情况呢。
+ -  [x] `Zotero`在citationstyles.org可视化编辑csl时如何使用自己的文献调试？
+ -  [x] `Zotero`怎么样可以只导出多篇文献PDF？
+ -  [x] `Zotero`如何删除参考文献列表末尾的点（.）？
+ -  [x] `Zotero`彻底解决参考文献显示网址及DOI问题。
+ -  [x] `Zotero`Word参考文献条目末尾有DOI，但CSL代码找不到相应字段修改，怎么办？
+ -  [x] `Zotero`6.0如何使用系统默认的PDF阅读器？
 
 * ## LICENSE
   [GPL](https://www.gnu.org/licenses/gpl-3.0.txt)

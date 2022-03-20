@@ -5,8 +5,8 @@
 	
 	\author{韩敏义}
 	\institute{南京农业大学\\\kaishu\hspace{1.1cm}温氏食品集团股份有限公司}
-	\date{Oct 03, 2021}
-	\version{2.15}
+	\date{March 20, 2022}
+	\version{3.00}
 	%\bioinfo{自定义}{信息}
 	%\extrainfo{Victory won\rq t come to us unless we go to it. --- M. Moore}
 	
@@ -589,6 +589,33 @@
 				或在条目上右击，选择\menu{Add Attachment}，如\autoref{fig:ch1LinkFile2}所示，
 				后续步骤与前述相同。链接上附件后，原来存的文件可以删除。
 
+		\subsection{Zotero 6.0修改打开附件（PDF）的阅读器？}\label{sec:chang_pdf_browser}
+
+			在Zotero 6.0中内置了打开PDF的阅读器，按\cref{sec:linkFulltex}链接了全文后，
+			双击条目或PDF默认情况会调用其内置的PDF阅读器打开附件，
+			但是在内置的PDF阅读器做的标记、笔记，
+			用其它PDF阅读器
+			（如将PDF文件分享给他人后）打开后，
+			里面的标记、笔记会消失，只能在内置阅读器中
+			点击\menu{File-Save As...}另存为其它PDF
+			或点击\menu{File-Store Annotations in File...}时，
+			再用其它阅读器打开才可以保留标记、笔记，
+			如果不习惯，可以设置用系统默认的或自定义PDF阅读器。步骤如下：
+
+			在Zotero依次点击\menu{Edit-Preferences-General}，
+			在File Handling下面，点击Open PDFs Using后面的选择框，
+			点击 \menu{System Default}即可使用系统默认的PDF阅读器，
+			也可以点击\menu{Custom....}，找到自定义的其它打开PDF的程序
+			，如\autoref{fig:ch1customPDFBrowser}所示。
+
+						%link file2
+						\begin{figure}
+							\centering
+							\includegraphics[width=0.8\linewidth]{ch1customPDFBrowser}
+							\caption{自定义打开PDF的软件}
+							\label{fig:ch1customPDFBrowser}
+						\end{figure}
+
 		\subsection{删除（合并）重复文献}\label{sec:delDup}
 				从多个不同数据库导入的文献可能会有重复文献，即两个条目完全相同，这时就需要手动删除重复文献。
 				Zotero允许一个条目同时存在于多个分类（文件夹）中，这种情况不属于重复文献。删除重复文献的方法
@@ -1082,6 +1109,82 @@
 			\end{figure}
 		\end{enumerate}
 
+	\section{如何让不同主题的参考文献附件放在同一个文件夹}\label{sec:zotFile_dif_sub_folder}
+	
+	我们在收集参考文献时经常需要收集不同主题的文章，如主题包括“3D打印”、“涂膜保鲜”等，
+	如何将不同主题的参考文献附件放在各自不同的文件夹呢，如将3D打印相关的附件放在\winpath{3d}文件夹，
+	涂膜保鲜的放在\winpath{film-preservation}文件夹。
+
+	我们可以结合Zotero的Collection和\href{http://zotfile.com/}{ZotFile}重命名的\%c参数来实现。
+	
+	\begin{enumerate}
+		\item 在Zotero中建立“3d” Collection（文件夹）：
+		在Zotero中依次点击\menu{File-New Collection}或点击工具栏中的\menu{New Collection}按钮，
+		如\autoref{fig:ch3zotNewCol}所示。
+
+		\item 输入Collection的名字，如\winpath{3d}，同样建立其他的Collection，
+		如\autoref{fig:ch3zotNewCol2}所示。
+
+					%zotfile diff sub
+					\begin{figure}[htbp]
+						\centering
+						\includegraphics[width=0.5\linewidth]{ch3zotNewCol}
+						\caption{Zotero新建分类（文件夹）}
+						\label{fig:ch3zotNewCol}
+					\end{figure}
+					%zotfile rename
+					\begin{figure}[htbp]
+						\centering
+						\includegraphics[scale=0.5]{ch3zotNewCol2}
+						\caption{新建3d分类（文件夹）}
+						\label{fig:ch3zotNewCol2}
+					\end{figure}
+		\item 	在Zotero中依次点击\menu{Tools-ZotFile Preferences...}，如\autoref{fig:ch3zotPre0}所示，
+		在弹出对话框中点击\menu{General Settings}，
+		然后点击\menu{Use subfolder defined by}前的方框，使之选中，
+		在后面的框中输入\menu{\%c}，点击\menu{OK}，如\autoref{fig:ch3zotGenerSetting0}所示。
+		
+				%zotFile_clean-att
+				\begin{figure}[htbp]
+					\centering
+					\includegraphics[scale=0.5]{ch3zotPre}
+					\caption{工具ZotFile设置}
+					\label{fig:ch3zotPre0}
+				\end{figure}
+			
+				\begin{figure}[htbp]
+					\centering
+					\includegraphics[scale=0.8]{ch3zotGenerSetting0}
+					\caption{ZotFile常规设置中输入子文件夹定义}
+					\label{fig:ch3zotGenerSetting0}
+				\end{figure}
+		\item 在导入文献时，将3D打印相关的文献都导入到这个Collection中，
+		（文献的导入见\cref{sec:newLibrary}）
+		如果设置了自动重命名，则导入的条目中的附件就会自动重命名，
+		并且放到名字为第2步定义的Collection的子文件夹中（
+		此子文件夹放在了\href{http://zotfile.com/}{ZotFile}设置的
+		\menu{Custom Location}目录中，
+		\href{http://zotfile.com/}{ZotFile}\menu{Custom Location}设置见\cref{sec:zotFilePre}）。
+
+		\item 如果没有自动重命名，则在条目上右击，选择\menu{Manage Attachments-Rename Attachments}，
+		如\autoref{fig:ch3zotRename0}所示。	
+		\item 最终效果如\autoref{fig:ch3zotRenameFinal}所示。
+						%zotFile_clean-att
+						\begin{figure}[htbp]
+							\centering
+							\includegraphics[scale=0.6]{ch3zotRename0}
+							\caption{右击重命名附件}
+							\label{fig:ch3zotRename0}
+						\end{figure}
+					
+						\begin{figure}[htbp]
+							\centering
+							\includegraphics[scale=0.5]{ch3zotRenameFinal}
+							\caption{按不同主题分类的附件最终显示效果}
+							\label{fig:ch3zotRenameFinal}
+						\end{figure}	
+	\end{enumerate}
+
 	\section{使用ZotFile后如何将文件位置恢复到Storage中？}\label{sec:zotFile_restore_storage}
 
 	如果使用了\href{http://zotfile.com/}{ZotFile}插件，经过前面章节设置（\cref{sec:zotFilePre}），会将文献附件统一移动到自定义文件夹里。
@@ -1196,6 +1299,33 @@ Zotero库中参考文献条目删除后，清除残留PDF的python脚本（见\u
 \item 如果没有问题了，重新开启同步即可，同步设置见\cref{sec:syn}。	
 \end{enumerate}
 
+\section{如何只导出多篇文献PDF？}\label{sec:zotFile_exp_pdf}
+
+QQ群有群友问如何导出多篇文献的PDF以方便和其他人共享，
+因为默认的Zotero 5.0导出格式中其附件会导出到单个的文件夹中，
+尽管可以用Everything等软件搜索.PDF将这些附件复制或移动出来，但是毕竟不太方便。
+
+在Zotero 6.0中有了导出PDF菜单，导出的方法是，选中需要导出PDF的条目，依次点击，
+\menu{File-Export PDFs...}(如果选中的是一篇文献，则显示的菜单是\menu{Export PDF...})，
+然后在弹出的对话框中选择保存的目录即可。
+
+如果是Zotero 5.0版本，可以安装Delitem插件（下载地址：
+\url{https://github.com/redleafnew/delitemwithatt}，插件安装方法
+见\cref{sec:ZotFileInstall}），安装后，选中需要导出附件（PDF）的条目，
+右击选择\menu{Export Attachment(s)}，如\autoref{fig:ch3expAtt}所示，然后在弹出的对话框中选择保存的目录即可。
+
+%导出附件
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.8]{ch3expAtt}
+	\caption{导出所选条目的附件}
+	\label{fig:ch3expAtt}
+\end{figure}
+
+
+也可以利用\href{http://zotfile.com/}{ZotFile}移动附件的功能将条目的附件移动到某个文件夹，
+曲线实现导出多篇文献的附件（PDF）功能，见\href{https://zhuanlan.zhihu.com/p/447109035}
+{怎么样可以只导出多篇文献PDF？}。
 
 \chapter[Zotero群组的使用]{Zotero群组的使用\footnote{如果没有使用群组的需要，本章可以略过}}\label{ch:group}
 	同事之间，同一个课题组之间共享题录信息可以通过Zotero提供的群组功能实现。
@@ -2121,6 +2251,7 @@ Zotero库中参考文献条目删除后，清除残留PDF的python脚本（见\u
 				\item 如果过段时间，这个csl恢复为带点的格式，参考\cref{sec:reset_style}解决。
 			\end{enumerate}
 
+		
 		\section{使作者列表中某些作者加粗，加星而且刷新后不变}\label{sec:authorBold}
 
 		在写简历或申报项目时，如果需要附上自己已经发表的论文，自己的名字往往需要加粗，
@@ -2210,6 +2341,11 @@ Zotero库中参考文献条目删除后，清除残留PDF的python脚本（见\u
 						});
 						return ids.length + " item(s) updated";
 						\end{lstlisting}
+				
+				
+				上面的JavaSc代码实现的功能利用Zotero Update IFs也可实现，
+				下载地址：\url{https://github.com/redleafnew/zotero-updateifs}，
+				插件安装方法见\cref{sec:ZotFileInstall}）
 				本节的操作也可见
 				\href{https://zhuanlan.zhihu.com/p/353770101}
 				{Zotero使参考文献列表中某些作者名字加粗，加星，刷新后保留}。
@@ -2491,6 +2627,7 @@ Zotero库中参考文献条目删除后，清除残留PDF的python脚本（见\u
 				\end{enumerate}
 
 				\section{author+year格式下，et al如何变为斜体？}\label{sec:etal_italic}
+
 				变为斜体的地方两个，一个是文中的引文部分（Inline Citations），
 				另一个是文末的参考文献列表部分（Bibliography）。
 				主要是通过修改style即csl文件实现的。修改csl文件可以通过Zotero
@@ -2605,6 +2742,215 @@ Zotero库中参考文献条目删除后，清除残留PDF的python脚本（见\u
 					\end{figure}
 				\end{enumerate}	
 		
+		\section{在citationstyles.org可视化编辑csl时如何使用自己的文献调试？}\label{sec:csl_custom_citation}	
+		
+				\href{https://editor.citationstyles.org/visualEditor/}{Visual CSL Editor}
+				\url{https://editor.citationstyles.org/visualEditor/} 
+				网站可以方便地可视化地编辑csl文件，上面预览窗口默认显示的网站内置的文献，形如：
+				\begin{lstlisting}[language=HTML]
+					Hawking, S. (1966). Properties of expanding universes [Doctoral thesis, University of Cambridge]. https://doi.org/10.17863/CAM.11283
+					Mares, I. (2001). Firms and the welfare state: When, why, and how does social policy matter to employers? In P. A. Hall & D. Soskice (Eds.), Varieties of capitalism. The institutional foundations of comparative advantage
+					 (pp. 184–213). Oxford University Press.
+				\end{lstlisting}
+				这两个参考文献，如果觉得不够，可以点击
+				右上角的\menu{Example citations}按钮添加更多网站内置的参考文献类型，
+				如果想用自己的参考文献来进行调试怎么办呢？
+					\begin{enumerate}
+						\item 在Zotero中选中想作为例子的文献，右击选择\menu{Export Items...}，
+						如\autoref{fig:ch5expItems}所示。
+						%导出文献
+						\begin{figure}[htbp]
+							\centering
+							\includegraphics[scale=0.5]{ch5expItems}
+							\caption{导出拟作为例子的文献}
+							\label{fig:ch5expItems}
+						\end{figure}
+						%选择导出格式
+						\begin{figure}[htbp]
+							\centering
+							\includegraphics[scale=0.5]{ch5expJson}
+							\caption{选择导出的格式为CSL JSON}
+							\label{fig:ch5expJson}
+						\end{figure}
+						\item 在弹出的对话框中点击Format右边的菜单，选择导出的格式为CSL JSON，点击\menu{OK}，
+						如\autoref{fig:ch5expJson}所示。
+						\item 选择文件存放的目录，点击\menu{保存}，转到在上面目录中，
+						用任意本文编辑器（如记事本）打开刚才保存的文件，按\keys{Ctrl+A}全选所有文字，按\keys{Ctrl+C}复制所有文字。
+						在\href{https://editor.citationstyles.org/visualEditor/}{Visual CSL Editor}
+						\url{https://editor.citationstyles.org/visualEditor/} 右侧点击\menu{Example citations}下的
+						\menu{Citation 1}、\menu{Citation 2}或\menu{Citation 3}，在弹出的对话框靠下位置点击\menu{Advanced}，
+						将刚才复制的参考文献粘贴到下面的文本框中，再点击\menu{Add new reference}，
+						如\autoref{fig:ch5addRef}所示。
+							%添加文献
+							\begin{figure}[htbp]
+								\centering
+								\includegraphics[scale=0.5]{ch5addRef}
+								\caption{添加自定义的文献}
+								\label{fig:ch5addRef}
+							\end{figure}
+							%文献显示在EXAMPLE BIBLIOGRAPHY中
+							\begin{figure}[htbp]
+								\centering
+								\includegraphics[scale=0.35]{ch5showInBib}
+								\caption{文献显示在EXAMPLE BIBLIOGRAPHY中}
+								\label{fig:ch5showInBib}
+							\end{figure}
+						\item 刚才复制的文献则会显示在上面，并处理选中状态。
+						关闭此窗口，则会发现刚才的参考文献就会显示在EXAMPLE BIBLIOGRAPHY中，
+						如\autoref{fig:ch5showInBib}所示。
+
+						\item 如果不需要让它显示了，点击Example citations下的刚才点击的
+						\menu{Citation 1}、\menu{Citation 2}或\menu{Citation 3}，
+						将前面的勾去掉即可，或是点击 \menu{Reset all citations to default}，
+						恢复为系统默认的参考文献。
+					\end{enumerate}
+				其它详细情况也可参见\href{https://zhuanlan.zhihu.com/p/437380542}
+				{在citationstyles.org可视化编辑csl时如何使用自己的文献调试}。
+
+	\section{如何删除参考文献列表末尾的点（.）？}\label{sec:bibPoint}	
+
+				\begin{enumerate}
+					\item 可视化方法：按\cref{sec:etal_italic}的方法将自己的csl上传到
+					\href{http://editor.citationstyles.org/visualEditor/}{Visual CSL Editor} 
+					\url{http://editor.citationstyles.org/visualEditor/}，
+					点击BIBLIOGRAPHY下面的\menu{Layout}，然后再将光标定位到右侧的suffix，
+					按退格键或删除键将框中的点（.）删除，如\autoref{fig:ch5bibPoint}。
+					再按\cref{sec:etal_italic}方法将编辑的csl保存，下载，然后应用到Word中即可。
+		
+									%删除suffix后面的点
+									\begin{figure}[htbp]
+										\centering
+										\includegraphics[scale=0.5]{ch5bibPoint}
+										\caption{删除suffix后面的点}
+										\label{fig:ch5bibPoint}
+									\end{figure}
+									%删除suffix后面的点
+									\begin{figure}[htbp]
+										\centering
+										\includegraphics[scale=0.6]{ch5bibpointCode}
+										\caption{通过编辑代码删除参考文献后面的点}
+										\label{fig:ch5bibpointCode}
+									\end{figure}			
+		
+					\item 修改代码方法：用任意文本编辑器（如VS Code）打开使用的csl文件，
+					找到bibliography下面 
+					\verb|<layout suffix=".">|	
+					将里面的\verb|suffix="."|删除，如\autoref{fig:ch5bibpointCode}，
+					保存，应用此style即可。
+					
+					
+				\end{enumerate}
+				\begin{note}
+					（1）可以修改csl的id另存为其它csl，防止覆盖原来的文件。
+					（2）china-national-standard-gb-t-7714-2015-numeric.csl的这个后缀点
+					（.）在bibliography的layout中，但其它csl文件有可能放到了其它Macro中。
+					（3）csl的添加，在Word中应用见\cref{ch:insert}。
+				\end{note}
+				
+		\section{彻底解决参考文献显示网址及DOI问题}\label{sec:remove_doi}
+
+		\href{https://zhuanlan.zhihu.com/p/349555378}
+		{使用GB/7714-2015相关csl时文末显示的访问日期如何隐藏}
+		介绍了让参考文献末尾的网址隐藏的方法，
+		但很多人在使用过程中即使\menu{Include URLs of paper articles in references}
+		前的框中没有对勾但某些参考文献后面仍然有网址及DOI出现。
+		下面提供一个通过修改csl文件彻底解决这个问题。
+
+		在Zotero中点击\menu{Edit-Preferences-Advanced-Files and Folders-Show Data Directory}
+		打开你的数据文件夹，如\autoref{fig:ch5showDataDir}所示。
+									%显示数据文件夹
+									\begin{figure}[htbp]
+										\centering
+										\includegraphics[scale=0.4]{ch5showDataDir}
+										\caption{显示数据文件夹}
+										\label{fig:ch5showDataDir}
+									\end{figure}
+			双击styles文件夹，找到你应用的style文件，
+			如china-national-standard-gb-t-7714-2015-note.csl，
+			用任何文本编辑器打开，如记事本、Notepad++、VS Code等，
+			找到控制访问日期/DOI和URL的字段，
+			将其删除或注释（在需要注释的代码前加<!--，后面加-->，如：
+			
+				\begin{lstlisting}[language=HTML]
+					<!--<text macro="accessed-date"/>
+					<group delimiter=". " prefix=". ">
+					  <text variable="URL"/>
+					  <text variable="DOI" prefix="DOI:"/>
+					</group>-->
+				\end{lstlisting}							
+				然后保存csl文件，在Word文件中刷新一下用此csl的文件，
+				看看DOI、网址、访问日期等是否消失了。
+				如果没有变化，在Word中的Zotero工具条上点击
+				\menu{Document Preferences}，切换为其他style，
+				点击\menu{确定}。然后再点击\menu{Document Preferences}切换回原来的style，
+				访问日期、网址、DOI等应该会消失。
+
+				\begin{note}
+				（1）note类的csl可能需要删除\verb|<citation></citation>|
+				和 \verb|<bibliography></bibliography>|之间两处的代码。
+				（2）不同的csl标注访问日期、网址、DOI用的宏可能不同，需要仔细查找。
+				（3）可以将csl上传到About在线可视编辑style，完成后再下载下来，安装。
+				（4）如果产生错误，将注释标记删除，恢复原样。
+				（5）当然你也可以将Zotero库中访问日期、URL、DOI字段删除，不修改csl应该也可以，
+				但不推荐，会损坏参考文献的完整性。
+				\end{note}
+
+		\section{Word参考文献条目末尾有DOI，但CSL代码找不到相应字段修改，怎么办？}\label{sec:no_doi}
+		
+		Word参考文献列表条目末尾有DOI，一般可以通过修改相应的csl文件中DOI或URL字段
+		（将其删除或注释）即可让其不显示。但是有些csl文件中没有任何DOI或URL相关的字段，
+		这是怎么回事呢？又如何修改呢。
+
+		其实csl从是否依赖其它csl文件上分类分为两类，即独立型（dependent）
+		和非独立型（依赖型，independent），如果一个csl文件的内容很少
+		，基本就可以判断它是非独立型的了。准确的判断方法是，打开csl文件，
+		看前面的链接（link），如果链接中有“independent-parent”字样，
+		那它就是非独立型的了。
+		
+		如：acs-applied-materials-and-interfaces.csl这个文件：
+		\begin{lstlisting}[language=HTML]
+			<link href="http://www.zotero.org/styles/acs-applied-materials-and-interfaces" rel="self"/>
+			<link href="http://www.zotero.org/styles/american-chemical-society" rel="independent-parent"/>
+		\end{lstlisting}	
+		说明这个csl是和american-chemical-society的是相同的。
+
+		非独立型csl存在的意义在于，某些出版社（如ACS、Elsevier）
+		出版的杂志其样式是一样的，如果要修改的话，
+		只需要修改independent-parent这个就可以了，不用一本杂志一本杂志的修改，比较简单。
+
+		明白了其中的原理，解决问题就比较简单了。
+		以acs-applied-materials-and-interfaces.csl文件修改为例，看一下如何修改：
+
+		在浏览器地址中输入independent-parent前面这个链接的地址，
+		如\url{http://www.zotero.org/styles/american-chemical-society}，
+		\menu{回车}。如果浏览器安装了Zotero Connector插件，
+		则会提示是否将此样式文件添加到Zotero中，
+		添加后在Zotero的数据目录（Zotero数据目录见\cref{sec:remove_doi}）的styles文件夹中找到这个csl文件，
+		用任意文本编辑器（如记事本、VS Code等）打开，然后按\cref{sec:remove_doi} 方法修改即可。
+		本例中为倒数第三行：
+		\begin{lstlisting}[language=HTML]
+			<text variable="DOI" prefix=". https://doi.org/"/>
+		\end{lstlisting}
+		将此句删除或注释（在此句首尾分别添加<!--和 -->）即可。
+		\begin{lstlisting}[language=HTML]
+			<!-- <text variable="DOI" prefix=". https://doi.org/"/> -->
+		\end{lstlisting}
+		然后修改前面的title和id防止覆盖现在的American Chemical Society，
+		将文件另存为其它文件名，再在Zotero重新添加此文件。
+		\begin{lstlisting}[language=HTML]
+				<info>
+				<title>American Chemical Society Custom</title>
+				<title-short>ACS</title-short>
+				<id>http://www.zotero.org/styles/american-chemical-society-custom</id>
+		\end{lstlisting}
+		在Word中插入文献时使用此样式文件即可。
+
+
+		如何选择不同的csl 文件见\url{https://zhuanlan.zhihu.com/p/64625049}，
+		如何添加csl 格式文件见\url{https://zhuanlan.zhihu.com/p/64624484}，或
+		见\cref{ch:insert}。
+
+
 		\section{正文中如何实现作者（年代）的引文格式？}\label{sec:author_year}
 			在作者-年代引用格式中，一般引用格式为“（作者，年代）”如“...没有发现相关性（张三，2017）”，
 			但有时作者放在前面，引用格式为：“作者（年代）”，如“张三（2017）发现了...”，
@@ -2642,6 +2988,9 @@ Zotero库中参考文献条目删除后，清除残留PDF的python脚本（见\u
 					\label{fig:ch5Author-year}
 				\end{figure}
 			\end{enumerate}
+
+
+
 
 		\section{设置文献题目中的斜体、上（下）标}\label{sec:italic}
 			一些论文的题目由于是拉丁单词或其它原因需要在参考文献中表现为斜体：
@@ -3724,12 +4073,37 @@ Zotero库中参考文献条目删除后，清除残留PDF的python脚本（见\u
 			参考
 			\url{https://www.zotero.org/support/kb/importing_formatted_bibliographies}。
 
+	\section{如何查看Zotero自带的存贮剩余情况呢？}\label{sec:Zotero_stor_limit}
+
+	有群友问到怎么看zotero自带的内存剩余情况呢，在Zotero软件中没有找到已用空间的情况，
+	但在\href{https://www.zotero.org/settings/storage?ref=usb}{Zotero网站} 上可以看到。
+
+	输入网址：\url{https://www.zotero.org/settings/storage?ref=usb}，
+	在弹出的界面上填入自己的Zotero账号信息，点击\menu{login to Zotero},
+	如\autoref{fig:ch5zoteroUserLogIn}所示。登录后页面就会显示当前已经用的空间情况，
+	包括总空间和已经使用的空间大小，如\autoref{fig:ch5zoteroUserQutota}所示。
+
+					%登录界面
+					\begin{figure}[htbp]
+						\centering
+						\includegraphics[scale=0.7]{ch5zoteroUserLogIn}
+						\caption{Zotero用户登录}
+						\label{fig:ch5zoteroUserLogIn}
+					\end{figure}
+				%剩余空间
+				\begin{figure}[htbp]
+					\centering
+					\includegraphics[scale=0.7]{ch5zoteroUserQutota}
+					\caption{Zotero用户空间使用情况}
+					\label{fig:ch5zoteroUserQutota}
+				\end{figure}
+
 
 		其他问题见\href{https://zhuanlan.zhihu.com/p/57379260}{[Zotero]常见问题}，
 		或到我的知乎专栏\href{https://zhuanlan.zhihu.com/c_1071081428967743488}{软件随心}上提问。另外，
 		有问题也可以到Zotero的\href{https://forums.zotero.org/}{官方论坛https://forums.zotero.org/}上提出，
 		当前论坛十分活跃，软件开发者也会亲自回复问题，这也可以说是Zotero的另一个主要特色。如果有功能的需求，
-		个性化的style需求，也可以到论坛上反馈，可以很快得到开发者的回应。
+		个性化的Style需求，也可以到论坛上反馈，可以很快得到开发者的回应。
 		
 
 \end{document}
