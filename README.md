@@ -17,6 +17,7 @@ A Short Chinese Introduction to Zotero》
 * ## 待添加
 
  -  [ ] `Zotero`如何只查找一个文件夹下的条目？
+ -  [ ] 使用GB/T 7714 2015 样式期刊类型显示为[Z]的原因及解决方法。
 
 * ## LICENSE
   [GPL](https://www.gnu.org/licenses/gpl-3.0.txt)
