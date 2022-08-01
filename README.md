@@ -14,6 +14,15 @@ A Short Chinese Introduction to Zotero》
 [Visual Studio Code (vscode)配置LaTeX](https://zhuanlan.zhihu.com/p/166523064)。
 也可以到<https://github.com/redleafnew/Zotero_introduction/releases>下载阶段版本。
 
+* ##在线的页面版本
+
+由@northword 完成，感谢。
+
+仓库地址：https://github.com/northword/zotero-intro-md
+阅读地址：https://northword.github.io/zotero-intro-md
+
+当前仍处于 alpha 版本，还有很多地方需要完善，欢迎一起修改~
+
 * ## 待添加
 
  -  [ ] `Zotero`如何只查找一个文件夹下的条目？
