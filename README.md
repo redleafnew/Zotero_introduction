@@ -14,7 +14,7 @@ A Short Chinese Introduction to Zotero》
 [Visual Studio Code (vscode)配置LaTeX](https://zhuanlan.zhihu.com/p/166523064)。
 也可以到<https://github.com/redleafnew/Zotero_introduction/releases>下载阶段版本。
 
-* ##在线的页面版本
+* ## 在线的页面版本
 
 由@northword 完成，感谢。
 
