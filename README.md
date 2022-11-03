@@ -30,6 +30,7 @@ A Short Chinese Introduction to Zotero》
  -  [ ] `Zotero`数十篇文献同时去除同一个标签要怎么操作呢？除了一个一个点去除，有其他快捷去除的方式吗？
  -  [ ] 插件Add-ons无法打开的解决办法
  -  [ ] 如何展开和折叠所有条目
+ -  [ ] WPS Office中使用Zotero插入参考文献不报错的方法
 * ## LICENSE
   [GPL](https://www.gnu.org/licenses/gpl-3.0.txt)
 
