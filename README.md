@@ -32,6 +32,7 @@ A Short Chinese Introduction to Zotero》
  -  [ ] 如何展开和折叠所有条目
  -  [ ] WPS Office中添加Zotero工具条的方法
  -  [ ] WPS Office中使用Zotero插入参考文献不报错的方法
+ -  [ ] `WPS Office`中`Zotero`工具条显示全部图标的方法
 * ## LICENSE
   [GPL](https://www.gnu.org/licenses/gpl-3.0.txt)
 
