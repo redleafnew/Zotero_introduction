@@ -6,7 +6,7 @@ A Short Chinese Introduction to Zotero》
 [百度百科主页](https://baike.baidu.com/item/%E9%9F%A9%E6%95%8F%E4%B9%89)谢谢。
 
 
-* ## 制作编译 
+* ## 制作编译
 
 使用[ElegantBook 4.1](https://github.com/ElegantLaTeX/ElegantBook)模板制作。
 
@@ -19,6 +19,7 @@ A Short Chinese Introduction to Zotero》
  -  [ ] `Zotero`如何只查找一个文件夹下的条目？
  -  [ ] 使用GB/T 7714 2015 样式期刊类型显示为[Z]的原因及解决方法。
  -  [ ] `Zotero`数十篇文献同时去除同一个标签要怎么操作呢？除了一个一个点去除，有其他快捷去除的方式吗？
+ -  [ ] [Zotero]如何清空Zotero自带的免费300M空间？
 
 * ## LICENSE
   [GPL](https://www.gnu.org/licenses/gpl-3.0.txt)
@@ -26,5 +27,4 @@ A Short Chinese Introduction to Zotero》
 * ## 其它问题可参见[Chinese-STD-GB-T-7714-related-csl](https://github.com/redleafnew/Chinese-std-GB-T-7714-related-csl)或我的知乎主页[软件随心](https://zhuanlan.zhihu.com/c_1071081428967743488)。
 
 
-有问题请留言，发Email：redleafnew#163.com或加入QQ群讨论：913637964。 
-
+有问题请留言，发Email：redleafnew#163.com或加入QQ群讨论：913637964。
