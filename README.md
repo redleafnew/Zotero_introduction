@@ -34,7 +34,7 @@ A Short Chinese Introduction to Zotero》
  -  [ ] WPS Office中使用Zotero插入参考文献不报错的方法
  -  [ ] `WPS Office`中`Zotero`工具条显示全部图标的方法
  -  [ ] [Zotero]如何清空Zotero自带的免费300M空间？
- -  [ ] `Zotero`结合`Zutilo`插件快速导出条目信息到剪贴板<https://zhuanlan.zhihu.com/p/597826044>。
+ -  [ ] `Zotero`结合`Zutilo`插件快速导出条目信息到剪贴板。
 
 * ## LICENSE
   [GPL](https://www.gnu.org/licenses/gpl-3.0.txt)
